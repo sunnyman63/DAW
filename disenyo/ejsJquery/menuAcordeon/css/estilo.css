@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+dd {
+    margin: 0;
+    padding: 10px;
+}
+
+dl {
+    width: 400px;
+    margin: auto;
+}
+
+dt {
+    cursor: pointer;
+    background-color: #aaa;
+}
