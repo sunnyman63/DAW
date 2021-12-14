@@ -1,0 +1,39 @@
+.box-lapislazuli {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #26619c;
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+}
+
+.box-lapislazuli:hover {
+  cursor: pointer;
+}
+
+.box-rojo {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #f00;
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+}
+
+.box-rojo:hover {
+  cursor: pointer;
+}
+
+.box-gris {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #aaa;
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+}
+
+.box-gris:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=estilo.css.map */

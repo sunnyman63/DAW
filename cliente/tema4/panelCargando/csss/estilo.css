@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#carga {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: none;
+}
+
+#imgs {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(127, 127, 214);
+}
+
+#imgs img {
+    width: 350px;
+    height: 350px;
+}
+
+@keyframes animacion {
+    from {
+        top: 0;
+    }
+    to {
+        top: -100%;
+    }
+}

@@ -1,0 +1,145 @@
+*{margin:0;padding:0;box-sizing:border-box;font-size: 0;}
+
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    flex: 0 0 auto;
+}
+
+.div1 {
+    height: 200px;
+    width: 100%;
+    background-color: rgb(95, 158, 160);
+    padding-top: 75px;
+    padding-left: 75px;
+}
+
+.div1 > *{
+    font-size: 32px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#ico1 {
+    font-size: 50px;
+}
+
+#ico2 {
+    font-size: 40px;
+    padding: 3px;
+}
+
+.div2 {
+    text-align: center;
+    background-color: lightgrey;
+    padding: 5px;
+    height: 55px;
+    overflow: visible;
+}
+
+i:hover>ul{
+    display:block;
+    animation-name: aparisionAbAr;
+    animation-duration: 0.5s;
+}
+
+ul {
+    display: none;
+}
+
+ul li{
+    list-style-type:none;
+    position:relative; 
+}
+
+li a{
+    text-decoration:none;
+    display:block;
+    padding:10px 10px;
+    width:200px;
+    border:1px solid rgb(84, 118, 119);
+    color:#fff;
+    background-color:rgb(134, 174, 175);
+    font-size: 18px; 
+}
+
+@keyframes aparisionDI {
+    from {left: 250px;opacity: 0;}
+    to {left: 200px;opacity: 1;}
+}
+
+@keyframes aparisionID {
+    from {right: 250px;opacity: 0;}
+    to {right: 200px;opacity: 1;}
+}
+
+@keyframes aparisionAbAr {
+    from {top: 80px;opacity: 0;}
+    to {top: 40px;opacity: 1;}
+}
+
+i > ul > li:hover > a {
+    background-color: white;
+    color: rgb(84, 118, 119);
+}
+
+li > ul > li:hover > a {
+    background-color: white;
+    color: rgb(84, 118, 119);
+}
+
+.menuOp1:hover>ul{
+    display:block;
+    animation-name: aparisionDI;
+    animation-duration: 0.5s;
+}
+
+.menuOp1 ul{
+    position: absolute;
+    top: -120px;
+    left: 200px;
+}
+
+.menuOp2:hover>ul{
+    display:inline-flex;
+    animation-name: aparisionDI;
+    animation-duration: 0.5s;
+}
+
+.menuOp2 ul {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+}
+
+.menuOp3:hover>ul{
+    display:inline-flex;
+    animation-name: aparisionID;
+    animation-duration: 0.5s;
+}
+
+.menuOp3 ul {
+    position: absolute;
+    top: 0px;
+    right: 200px;
+}
+
+.menuOp4:hover>ul{
+    display:inline-flex;
+    animation-name: aparisionAbAr;
+    animation-duration: 0.5s;
+    
+}
+
+.menuOp4 ul {
+    position: absolute;
+    left: -300px;
+}

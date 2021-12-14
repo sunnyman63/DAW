@@ -1,0 +1,250 @@
+*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.cuerpo {
+    flex: 1 0 auto;
+    width: 100%;
+    padding: 10px;
+}
+
+.cuerpo div {
+    float: left;
+}
+
+footer {
+    height: 40px;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: rgb(91, 37, 141);
+    text-align: center;
+    color: white;
+}
+
+nav {
+    height: 30px;
+    width: 100%;
+    background-color: rgb(91, 37, 141);
+    margin-bottom: 10px;
+}
+
+nav a{
+    text-decoration:none;
+    color:inherit;
+    font-size:16px;
+    display:block;
+    padding:5px;
+} 
+
+nav li {
+    width:200px;
+    height: 30px;
+    background-color:rgb(91, 37, 141);
+    text-align:center;
+    color:#fff;   
+}
+    
+nav > ul > li{
+    float: left; 
+}
+
+.submenu {
+    display: none;
+    position: absolute;   
+}
+
+.submenu li {
+    width: 340px;
+}
+
+li:hover .submenu {
+    animation: submenus 0.5s;
+    display: block;
+    top: 79px;
+}
+    
+nav li:hover{
+    background-color:rgb(137, 82, 189);
+    color:#fff;
+    width: 340px;
+}
+
+nav > ul > li:hover {
+    height: 40px;
+    animation: menuPrincipal 0.2s;
+    padding-top: 5px;
+}
+
+h1 {
+    color: rgb(91, 37, 141);
+}
+
+.form {
+    width: 35%;
+    text-align: center;
+}
+
+.form form input {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.texto {
+    width: 65%;
+}
+
+.texto div {
+    padding-bottom: 30px;
+}
+
+.texto div * {
+    padding-bottom: 10px;
+}
+
+/*Animaciones====================================*/
+
+@keyframes menuPrincipal {
+    from {
+        height: 30px;
+        width: 200px;
+    } to {
+        height: 40px;
+        width: 340px;
+        padding-top: 5px;
+    }
+}
+
+@keyframes submenus {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+        top: 79px;
+    }
+}
+
+/*Cosas chungas del responsive===================*/
+
+@media (max-width: 768px) {
+    nav li {
+        width: 150px;
+        height: 30px;
+        background-color:rgb(91, 37, 141);
+        text-align:center;
+        color:#fff;   
+    }
+}
+
+@media (max-width: 576px) {
+
+    nav {
+        height: 150px;
+        width: 100%;
+        background-color: rgb(91, 37, 141);
+        margin-bottom: 10px;
+    }
+
+    nav li {
+        width: 100%;
+        height: 30px;
+        background-color:rgb(91, 37, 141);
+        text-align:center;
+        color:#fff;   
+    }
+
+    .submenu li {
+        width: 100%;
+        background-color:rgb(137, 82, 189);
+    }
+
+    nav li:hover{
+        color:#fff;
+        width: 100%;
+    }
+
+    .submenu li:hover {
+        background-color: rgb(91, 37, 141);
+    }
+
+    li:hover .submenu{
+        background-color:rgb(137, 82, 189);
+        color:#fff;
+        width: 100%;
+    }
+
+    nav > ul > li:hover {
+        height: 40px;
+        animation: menuPrincipal1 0.2s;
+        padding-top: 5px;
+        width: 100%;
+        background-color:rgb(137, 82, 189);
+    }
+
+    .bicis:hover .submenu {
+        width: 100%;
+        animation: submenus1 0.5s;
+        display: block;
+        top: 109px;
+        background-color:rgb(91, 37, 141);
+    }
+
+    .accesorios:hover .submenu {
+        width: 100%;
+        animation: submenus2 0.5s;
+        display: block;
+        top: 139px;
+        background-color:rgb(91, 37, 141);
+    }
+
+    .form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .texto {
+        width: 100%;
+    }
+
+    @keyframes menuPrincipal1 {
+        from {
+            height: 30px;
+            width: 100%;
+        } to {
+            height: 40px;
+            width: 100%;
+            padding-top: 5px;
+        }
+    }
+
+    @keyframes submenus1 {
+        from {
+            opacity: 0;
+            top: 0px;
+        } to {
+            opacity: 1;
+            top: 109px;
+        }
+    }
+    @keyframes submenus2 {
+        from {
+            opacity: 0;
+            top: 0px;
+        } to {
+            opacity: 1;
+            top: 139px;
+        }
+    }
+}

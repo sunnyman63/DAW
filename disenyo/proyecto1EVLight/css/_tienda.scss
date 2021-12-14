@@ -1,0 +1,199 @@
+.tienda {
+    width: 100%;
+    background-color: #efefef;
+    padding: 0px 20px 30px 10px;
+    h1 {
+        font-size: 30px;
+        font-weight: 800;
+        margin: 30px 10px;
+    }
+    .visor-tienda {
+        width: 100%;
+        min-height: 300px;
+        overflow: hidden;
+        .tienda-deslizable {
+            position: relative;
+            min-height: 300px;
+            width: 4000%;
+            animation: deslizableTienda 40s linear infinite;
+            .oferta-tienda {
+                float: left;
+                width: 320px;
+                min-height: 300px;
+                margin-right: 0px;
+                background-color: #fff;
+                text-align: center;
+                border-bottom: none;
+                img {
+                    width: 100%;
+                }
+                h3 {
+                    margin: 10px 7px;
+                }
+                a:link, a:visited, a:active {
+                    height: 100%;
+                    color: #474747;
+                    text-decoration:none;
+                }
+                &:hover h3 {
+                    color: $color-botones;
+                }
+            }    
+        }
+    }
+    .puntos-tienda {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        column-gap: 15px;
+        .punto {
+            border-radius: 100%;
+            height: 15px;
+            width: 15px;
+            background-color: #d2d2d2;
+        }
+        .punto1 {
+            animation: puntosTienda1 40s linear infinite;
+        }
+        .punto2 {
+            animation: puntosTienda2 40s linear infinite;
+        }
+        .punto3 {
+            animation: puntosTienda3 40s linear infinite;
+        }
+        .punto4 {
+            animation: puntosTienda4 40s linear infinite;
+        }
+        .punto5 {
+            display: none;
+        }
+        .punto6 {
+            display: none;
+        }
+    }
+    .div-btn-tienda {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 70px;
+        margin-top: 50px;
+        .btn-tienda {
+            height: 60px;
+            margin-top: 0;
+            background-color: $color-botones;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            padding: 0px 20px;
+            border-bottom: 4px solid #d6a100;
+            transition-property: margin-top, border-bottom;
+            transition-duration: 0.2s;
+            &:link, &:visited, &:active {
+                color: #fff;
+                text-decoration:none;
+            }
+            &:hover {
+                margin-top: 4px;
+                border-bottom: none;
+            }
+        }
+    }
+}
+@keyframes deslizableTienda {
+    0% {
+        right: 0px;
+    }
+    82% {
+        right: 2770px;
+    }
+    90% {
+        right: 2770px;
+    }
+    92% {
+        right: 0px;
+    }
+    100% {
+        right: 0px;
+    }
+}
+@keyframes puntosTienda1 {
+    0% {
+        background-color: #474747;
+    }
+    19% {
+        background-color: #474747;
+    }
+    20% {
+        background-color: #d2d2d2;
+    }
+    91% {
+        background-color: #d2d2d2;
+    }
+    92% {
+        background-color: #474747;
+    }
+    100% {
+        background-color: #474747;
+    }
+}
+@keyframes puntosTienda2 {
+    0% {
+        background-color: #d2d2d2;
+    }
+    19% {
+        background-color: #d2d2d2;
+    }
+    20% {
+        background-color: #474747;
+    }
+    39% {
+        background-color: #474747;
+    }
+    40% {
+        background-color: #d2d2d2;
+    }
+    100% {
+        background-color: #d2d2d2;
+    }
+}
+@keyframes puntosTienda3 {
+    0% {
+        background-color: #d2d2d2;
+    }
+    39% {
+        background-color: #d2d2d2;
+    }
+    40% {
+        background-color: #474747;
+    }
+    59% {
+        background-color: #474747;
+    }
+    60% {
+        background-color: #d2d2d2;
+    }
+    100% {
+        background-color: #d2d2d2;
+    }
+}
+@keyframes puntosTienda4 {
+    0% {
+        background-color: #d2d2d2;
+    }
+    59% {
+        background-color: #d2d2d2;
+    }
+    60% {
+        background-color: #474747;
+    }
+    91% {
+        background-color: #474747;
+    }
+    92% {
+        background-color: #d2d2d2;
+    }
+    100% {
+        background-color: #d2d2d2;
+    }
+}

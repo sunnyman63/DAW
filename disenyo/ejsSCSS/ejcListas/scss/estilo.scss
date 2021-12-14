@@ -1,0 +1,19 @@
+$botones: (
+    (error, #d82d2d, #666),
+    (success, #52bf4a, #fff),
+    (warning, #c23435, #fff)
+);
+
+.m-button {
+    display: inline-block;
+    padding: .5em;
+    background: #ccc;
+    color: #666;
+}
+
+@each $nombre, $bgcolor, $color in $botones {
+    .m-button--#{$nombre} {
+        background-color: $bgcolor;
+        color: $color;
+    }
+}

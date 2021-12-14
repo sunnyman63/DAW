@@ -1,0 +1,11 @@
+6,7
+c,p,h,p,k,j,i
+o,a,e,b,s,d,e
+t,t,l,l,p,o,o
+a,o,e,d,e,n,u
+p,l,a,t,o,c,z
+x,n,c,m,e,m,a
+Pato
+Caldo
+Mono
+Plato

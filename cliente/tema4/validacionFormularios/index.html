@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación</title>
+    <link rel="stylesheet" href="csss/estiloValidacion.css">
+    <script src="jss/validacion.js"></script>
+</head>
+<body>
+    <h1>INFORME INCIDENCIA</h1>
+    <form name="form" action="#" method="POST">
+        <img id="img" src="">
+        <!--<img src="https://cdn.pixabay.com/photo/2014/09/11/22/00/dock-441989_960_720.jpg">-->
+        <!--<img src="https://cdn.pixabay.com/photo/2018/03/03/20/02/laptop-3196481_960_720.jpg">-->
+        <!--<img src="https://cdn.pixabay.com/photo/2017/10/05/11/46/tube-bender-2819137_960_720.jpg">-->
+        <div id="contenido">
+            <label>Tipo de incidencia: </label>
+            <select name="incidencia" id="incidencia">
+                <option id="dis">Distribución</option>
+                <option id="ofi">Oficina</option>
+                <option id="prod">Producción</option>
+            </select>
+            <br>
+            <label id="labelNumSerie" style="border: 'none';">Número de serie:</label>
+            <input id="inputNumSerie" type="text" name="numSerie">
+            <br>
+            <input type="button" value="Mostrar Descripción" name="desc" id="desc">
+            <div id="descEsc">
+                <label>Descripción: </label>
+                <br>
+                <textarea name="areaDesc" rows="10" cols="40"></textarea>
+            </div>
+            <br><br>
+            <input id="submit" type="submit" name="submit" value="Enviar datos">
+            <br><br>
+            <p id="error">Codigo no valido!</p>
+            <p id="res"></p> 
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+%message {
+    border-radius: 2px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.message-success {
+    @extend %message;
+    background-color: green;
+}
+
+.message-error {
+    @extend %message;
+    background-color: red;
+}
+
+.message-warning {
+    @extend %message;
+    background-color: orange;
+}

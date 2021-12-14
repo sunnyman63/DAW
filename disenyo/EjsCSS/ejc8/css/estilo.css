@@ -1,0 +1,30 @@
+div {
+    height: 70px;
+    box-sizing: border-box;
+    border: 1px white solid;
+    float: left;
+}
+
+.morado{
+    width: 33.3%;
+    background-color: rgb(177, 51, 177);
+}
+.negro{
+    width: 100%;
+    background-color: black;
+}
+.azul{
+    width: 33.3%;
+    background-color: cornflowerblue;
+    
+}
+.rosa{
+    width: 33.3%;
+    background-color: rgb(248, 0, 103);
+}
+
+.rosa1{
+    width: 33.3%;
+    background-color: rgb(248, 0, 103);
+    clear: both;
+}

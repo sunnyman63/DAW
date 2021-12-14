@@ -1,0 +1,19 @@
+.message-success, .message-error, .message-warning {
+  border-radius: 2px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.message-success {
+  background-color: green;
+}
+
+.message-error {
+  background-color: red;
+}
+
+.message-warning {
+  background-color: orange;
+}
+/*# sourceMappingURL=estilo.css.map */

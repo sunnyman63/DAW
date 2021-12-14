@@ -1,0 +1,54 @@
+#contenedor {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 652px;
+  border: 1px solid #f00;
+}
+
+div[class*="color"] {
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #000;
+  padding: 25px;
+}
+
+.color-1 {
+  background-color: #ff0064;
+}
+
+.color-2 {
+  background-color: #ff1a74;
+}
+
+.color-3 {
+  background-color: #ff3383;
+}
+
+.color-4 {
+  background-color: #ff4d93;
+}
+
+.color-5 {
+  background-color: #ff66a2;
+}
+
+.color-6 {
+  background-color: #ff80b2;
+}
+
+.color-7 {
+  background-color: #ff99c1;
+}
+
+.color-8 {
+  background-color: #ffb3d1;
+}
+
+.color-9 {
+  background-color: #ffcce0;
+}
+
+.color-10 {
+  background-color: #ffe6f0;
+}
+/*# sourceMappingURL=estilo.css.map */

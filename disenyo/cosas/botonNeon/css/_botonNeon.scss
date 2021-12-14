@@ -1,0 +1,41 @@
+// Codico html mínimo para un boton:
+//
+//      <div>
+//          <a href="#" class="boton-neon">Neon</a>
+//          <div class="boton-sombra"></div>
+//      </div>
+//
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+$color-neon: #ff14bd;//Se puede cambiar el color del neón cambiando esta propiedad.
+
+.boton-neon {
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: $color-neon;
+    text-shadow: 0 0 10px currentColor;
+    border: 4px $color-neon solid; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 $color-neon, inset 0 0 10px 0 $color-neon;
+    &:hover {
+        background-color: $color-neon;
+        color: #000;
+        text-shadow: none;
+        box-shadow: 0 0 80px 5px $color-neon;
+    }
+    &:hover~.boton-sombra {
+        opacity: 1;
+    }
+}
+.boton-sombra {
+    margin-top: 20px;
+    height: 30px;
+    background-color: $color-neon;
+    transform: perspective(80px) rotateX(45deg);
+    filter: blur(20px);
+    opacity: 0.7;
+}

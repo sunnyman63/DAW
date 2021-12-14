@@ -1,0 +1,33 @@
+*{margin:0;padding:0;box-sizing:border-box;font-size: 0;}
+
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    flex: 0 0 auto;
+}
+
+.div1 {
+    height: 200px;
+    width: 100%;
+    background-color: rgb(95, 158, 160);
+    padding-top: 75px;
+    padding-left: 75px;
+}
+
+.div1 > *{
+    font-size: 32px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#ico1 {
+    font-size: 50px;
+}

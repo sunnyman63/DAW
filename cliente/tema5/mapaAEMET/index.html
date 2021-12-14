@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa AEMET</title>
+    <script src="js/peticionMapa.js"></script>
+    <style>
+        * {padding: 0; margin: 0;}
+        body {text-align: center;}
+        #textarea {min-width: 250px; min-height: 150px;}
+        img {
+            height: 800px;
+            width: 600px;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagen del día de la AEMET</h1>
+    <div id="form">
+        <p>Pega tu API Key</p>
+        <textarea id="textarea"></textarea>
+        <br>
+        <input id="boton" type="button" value="Cargar mapa">
+    </div>
+</body>
+</html>

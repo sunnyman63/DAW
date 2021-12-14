@@ -1,0 +1,19 @@
+*{box-sizing:border-box;}
+		a{
+			width:100px;
+			padding:8px 4px;
+			margin:32px;
+
+			display:inline-block;
+
+			font-size:3.5em;
+			color:#991c3b;
+			text-decoration:none;
+        }
+		a span{
+			color:#1e1e24;
+		}
+
+		a.logo{
+			font-family: 'Stick No Bills', sans-serif;
+		}

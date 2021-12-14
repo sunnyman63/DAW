@@ -1,0 +1,68 @@
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cuerpo {
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: 400px;
+}
+
+.cuerpo * {
+    font-size: 18px;
+    text-align: center;
+}
+
+.div_error {
+    font-size: 12px;
+    margin-top: 50px;
+    color: #a00;
+    height: 30px;
+}
+
+form {
+    margin: auto; 
+}
+
+.listaLibros {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-width: 3px 1px 1px 3px;
+    border-style: solid;
+    border-color: #bbb;
+    min-height: 100px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+table {
+    width: 100%;
+}
+
+table tr > td {
+    border-width: 0px 1px;
+}
+
+.titulosTabla {
+    font-weight: bold;
+}
+
+.titulosTabla > * {
+    border: 1px #000 solid;
+    background-color: rgb(95, 158, 160);
+}
+
+.titulosTabla > .texts {
+    width: 30%;
+}
+
+.titulosTabla > .nums {
+    width: 10%;
+}

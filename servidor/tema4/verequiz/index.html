@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verequiz</title>
+    <link href="scss/estiloquiz.css" rel="stylesheet">
+    <script src="jss/cambioFormularioEntrada.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Verequiz</h1>
+    </header>
+    <main id="main">
+        <div id="div_err">
+            
+        </div>
+        <div id="div_form">
+            <form action="php/jueguito.php" method="POST" name="form" id="form" autocomplete="off">
+                <label>Nombre: </label>
+                <input type="text" name="user" id="usu" required>
+                <label>Contraseña: </label>
+                <input type="password" name="contrasenya" id="contra" required>
+                <input class="boton" type="button" name="submit" value="login">
+            </form>
+        </div>
+        <div id="botones">
+            <input type="button" id="btn_login" value="login">
+            <input type="button" id="btn_register" value="register">
+        </div>
+    </main>
+    <footer>
+        <p>Romero Pino Alejandro 2 DAW</p>
+        <p>Desarrollo Web en entorno Servidor</p>
+    </footer>
+</body>
+</html>

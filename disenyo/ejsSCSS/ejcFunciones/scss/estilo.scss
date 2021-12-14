@@ -1,0 +1,16 @@
+@mixin box($bgcolor,$color) {
+    .box-#{$color} {
+        box-sizing: border-box;
+        background-color: $bgcolor;
+        width: 100%;
+        height: 100px;
+        padding: 20px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@include box(#26619c,lapislazuli);
+@include box(#f00,rojo);
+@include box(#aaa,gris);

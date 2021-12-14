@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#contenedor {
+    height: 500px;
+    width: 800px;
+    border: 1px black solid;
+    overflow: hidden;
+}
+
+.avion {
+    position: absolute;
+    animation: motorisao 10s linear infinite;
+}
+
+.fondo1 {
+    position: relative;
+    animation: paisaje 3s linear infinite;
+}
+
+.fondo2 {
+    position: relative;
+    top: -504px;
+    animation: paisaje2 3s linear infinite;
+}
+
+@keyframes paisaje {
+    from{left: 1600px;}
+    to{left: 0px;}
+}
+@keyframes paisaje2 {
+    from{left: 0px;}
+    to{left: -1600px;}
+}
+@keyframes motorisao {
+    0% {top: 10px;left: 50px;}
+    33% {top: 110px;left: 70px;}
+    66% {top: 50px;left: 150px;}
+    100% {top: 10px;left: 50px;}
+}

@@ -1,0 +1,65 @@
+@media (max-width: 767px) {
+    section {
+        &.noticias {
+            grid-template-columns: 1fr;
+        }
+        &.recetas {
+            grid-template-columns: 1fr;
+        }
+    }
+    article {
+        grid-column: span 1;
+    }
+    aside {
+        display: none;    
+    }
+}
+
+@media (max-width: 674px) {
+    .menu-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .menu-header{
+        .trampita-menu {
+            order: 1;
+            align-items: flex-end;
+            height: 50px;
+        }
+        .buscador-header {
+            order: 2;
+            width: 80%;
+            align-self: flex-end;
+        }
+    }
+}
+
+@for $i from 673 through 502 {
+    @media (max-width: ($i + 1px)) {
+        .botones {
+            margin-right: 130px - (633px - $i - 1px);
+
+            @if $i == 543 {
+                width: 100%;
+                column-gap: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    body>div.container>main.main>section.recetas>article>div.expositor-recetas {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body>div.container>main.main>section.recetas>article>div.expositor-recetas {
+        display: flex;
+        flex-direction: column;
+        .receta {
+            width: 100%;
+        }
+    }
+    
+}

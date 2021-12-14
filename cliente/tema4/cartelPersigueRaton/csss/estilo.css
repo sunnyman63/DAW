@@ -1,0 +1,13 @@
+body {
+    position: fixed;
+}
+
+#hola {
+    border: 2px red solid;
+    background-color: chocolate;
+    width: min-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}

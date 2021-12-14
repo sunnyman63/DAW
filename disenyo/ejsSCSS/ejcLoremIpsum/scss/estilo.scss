@@ -1,0 +1,33 @@
+$colorPrimero: #ff8000;
+$colorSegundo: #2e5f64;
+
+@mixin destacado ($color,$tamanyo,$padding) {
+    color: $color;
+    font-size: $tamanyo;
+    padding: $padding;
+}
+
+div {
+    padding: 20px;
+    &#primero {
+        .destacado {
+            text-align: center;
+            @include destacado($colorPrimero,1.6rem,6px);
+        }
+    }
+    &#segundo {
+        .destacado {
+            text-decoration: underline;
+            @include destacado($colorSegundo,1.4rem,5px);
+        }
+        p:not(.destacado)::first-line {
+            font-style: italic;
+        }
+        #parrafos {
+            text-align: right;
+        }
+    }
+    &>p {
+        margin: 0;
+    }
+}

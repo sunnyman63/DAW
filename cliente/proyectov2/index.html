@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golpea el topo</title>
+    <link href="css/estiloJuego.css" rel="stylesheet">
+    <script src="jss/juego.js"></script>
+</head>
+<body>
+    <div id="lateral" class="lateral">
+        <div id="marcador" class="marcador">
+            <div id="pts" class="pts"></div>
+            <div id="tmp" class="tmp"></div>
+        </div>
+        <div class="menu" id="menu">
+            <p>Selector de personaje:</p>
+            <div id="menuPersonaje" class="menuPersonaje">
+                <img src="imgs/topo.png" id="personaje" width="70px" height="70px">
+                <div id="selectorPersonaje" class="selectorPersonaje">
+                    <img id="p1" class="personaje" src="imgs/topo.png">
+                    <img id="p2" class="personaje" src="imgs/topoDoraemon.png">
+                    <img id="p3" class="personaje" src="imgs/topoFinn.png">
+                    <img id="p4" class="personaje" src="imgs/topoMario.png">
+                    <img id="p5" class="personaje" src="imgs/topoDorado.png">
+                </div>
+            </div>
+            <p>Tamaño del Tablero:</p>
+            <select id="tamanyoTablero" class="tamanyoTablero">
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+                <option value="6">6x6</option>
+            </select>
+            <div id="cortinaMenu" class="cortinaMenu"></div>
+        </div>
+    </div>
+    <div id="juego" class="juego">
+        <div class="cuadriculaJuego" id="hoyos"></div>
+        <div id="cortinaJugar" class="cortinaJugar">
+            <input type="button" value="JUGAR" class="btnJugar" id="btnJugar">
+        </div>
+    </div>
+</body>
+</html>

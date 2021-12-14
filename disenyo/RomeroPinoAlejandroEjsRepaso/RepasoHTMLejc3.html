@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>URL relativas</title>
+        <meta charset="UTF-8">
+        <style> 
+            table, th, td {border:1px solid black;}
+        </style>
+    </head>
+    <body>
+         <table>
+            <tr>
+                <th>DONDE ESTOY</th>
+                <th>DONDE VOY</th>
+                <th>SOLUCIÓN</th>
+            </tr>
+            <tr>
+                <td>arrel.html</td>
+                <td>textual.html</td>
+                <td>subdir/direct/textual.html</td>
+            </tr>
+            <tr>
+                <td>docu.html</td>
+                <td>llista.html</td>
+                <td>llista.html</td>
+            </tr>
+            <tr>
+                <td>carta.html</td>
+                <td>prova.html</td>
+                <td>../prova/prova.html</td>
+            </tr>
+            <tr>
+                <td>carta.html</td>
+                <td>docu.html</td>
+                <td>../subdir/docu.html</td>
+            </tr>
+            <tr>
+                <td>textual.html</td>
+                <td>arrel.html</td>
+                <td>../../arrel.html</td>
+            </tr>
+            <tr>
+                <td>textual.html</td>
+                <td>subdir(carpeta)</td>
+                <td>../</td>
+            </tr>
+            <tr>
+                <td>textual.html</td>
+                <td>prova(carpeta)</td>
+                <td>../../prova</td>
+            </tr>
+            <tr>
+                <td>textual.html</td>
+                <td>prova.html</td>
+                <td>../../prova/prova.html</td>
+            </tr>
+        </table> 
+    </body>
+</html>

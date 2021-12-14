@@ -1,0 +1,22 @@
+.m-button {
+  display: inline-block;
+  padding: .5em;
+  background: #ccc;
+  color: #666;
+}
+
+.m-button--error {
+  background-color: #d82d2d;
+  color: #666;
+}
+
+.m-button--success {
+  background-color: #52bf4a;
+  color: #fff;
+}
+
+.m-button--warning {
+  background-color: #c23435;
+  color: #fff;
+}
+/*# sourceMappingURL=estilo.css.map */

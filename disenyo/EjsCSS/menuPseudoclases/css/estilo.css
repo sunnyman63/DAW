@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 0;
+
+}
+
+body {
+    background-color: rgb(148, 186, 187);
+}
+
+.menus {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 520px;
+}
+
+.menu {
+    background-color: lightgrey;
+    height: 200px;
+    width: 400px;
+    display: inline-block;
+    margin: 30px 50px;
+    padding: 10px;
+    box-shadow: -10px 10px 5px lightslategray;
+}
+
+.menu:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: -15px 15px 10px rgb(65, 70, 75);
+}
+
+.ico i{
+    font-size: 30px;
+}
+
+.ico > * {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu p{
+    font-size: 15px;
+    margin: 5px;
+}
+
+.carta {
+    position: relative;
+    left: 60px;
+}
+
+.precio {
+    width: 100px;
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+    left: 200px;
+    top: 10px;
+    
+}

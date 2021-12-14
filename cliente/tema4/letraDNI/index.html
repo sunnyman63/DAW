@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            width: 500px;
+            background-color: pink;
+        }
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-content: flex-end;
+            margin: 5px;
+        }
+
+        .boton {
+            width: 20%;
+        }
+
+        .dni {
+            width: 55%;
+        }
+
+        .letra {
+            width: 15%;
+        }
+
+        div > * {
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <form name="form">
+        <div class="boton">
+            <input id="boton" type="button" value="Calcular">
+        </div>
+        <div class="dni">
+            <label>DNI</label>
+            <input id="dni" type="text" name="dni">
+        </div>
+        <div class="letra">
+            <label>Letra</label>
+            <input id="letra" type="text" name="letra">
+        </div>
+    </form>
+    <script src="jss/calcLetraDNI.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: teal;
+}
+
+body>div {
+    width: 90%;
+    max-width: 1000px;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body>div>div {
+    width: 100%;
+    display: flex;
+    border: 1px solid rgb(156, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.text {
+    height: 50px;
+    border: 0;
+    color: rgb(0, 0, 0);
+    width: 90%;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.button {
+    height: 50px;
+    border: 1px solid rgb(156, 0, 0);
+    background-color: rgb(156, 0, 0);
+    color: white;
+    font-weight: 900;
+    width: 10%;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    color: teal;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.delete {
+    background-color: rgb(156, 0, 0);
+    color: white;
+    width: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+}

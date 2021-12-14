@@ -1,0 +1,27 @@
+$extraSmall: 576px;
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+@mixin  respond-to($media) {
+    @if $media == phones {
+        @media only screen and (min-width: $extraSmall) {
+            @content;
+        }
+    }
+    @else if $media == tablets {
+        @media only screen and (min-width: $small) {
+            @content;
+        }
+    }
+    @else if $media == desktops {
+        @media only screen and (min-width: $medium) {
+            @content;
+        }
+    }
+    @else if $media == wide-screens {
+        @media only screen and (min-width: $large) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    box-sizing: border-box;
+}
+
+.bloque{
+    border: 1px solid #000;
+    width: 33%;
+    display: inline-block;
+    font-size: 18px;
+    padding: 30px;
+}

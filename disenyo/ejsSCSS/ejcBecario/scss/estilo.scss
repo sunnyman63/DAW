@@ -1,0 +1,7 @@
+@mixin highlight ($lado,$color) {
+    border-#{$lado}-color: $color;
+}
+
+.btn-a {
+    @include highlight(top,#f00);
+}

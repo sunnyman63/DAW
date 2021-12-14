@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$anchoMax: 1000px;
+$altoMax: 700px;
+$anchoMin: 300px;
+$altoMin: 220px;
+
+html {
+    height: 100%;
+    body {
+        height: inherit;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .pantalla {
+            flex: 1 1 auto;
+            height: 100%;
+            max-height: $altoMax;
+            min-height: $altoMin;
+            width: 100%;
+            max-width: $anchoMax;
+            min-width: $anchoMin;
+            .fondo {
+                height: 100%;
+                width: 100%;
+                max-width: $anchoMax;
+                max-height: $altoMax;
+                min-width: $anchoMin;
+                min-height: $altoMin;
+                z-index: auto;
+                position: absolute;
+            }
+            .banda {
+                z-index: 1;
+                position: absolute;
+                width: 100%;
+                max-width: $anchoMax;
+                min-width: $anchoMin;
+            }
+            .cortinas {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                max-width: $anchoMax;
+                max-height: $altoMax;
+                min-width: $anchoMin;
+                min-height: $altoMin;
+                z-index: 2;
+            }
+        }
+    }
+}

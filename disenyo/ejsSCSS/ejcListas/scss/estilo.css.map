@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAMA,AAAA,SAAS,CAAC;EACN,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,IAAI;CACd;;AAGG,AAAA,gBAAgB,CAAM;EAClB,gBAAgB,EAdZ,OAAO;EAeX,KAAK,EAfQ,IAAI;CAgBpB;;AAHD,AAAA,kBAAkB,CAAI;EAClB,gBAAgB,EAbV,OAAO;EAcb,KAAK,EAdU,IAAI;CAetB;;AAHD,AAAA,kBAAkB,CAAI;EAClB,gBAAgB,EAZV,OAAO;EAab,KAAK,EAbU,IAAI;CActB",
+    "sources": [
+        "estilo.scss"
+    ],
+    "names": [],
+    "file": "estilo.css"
+}

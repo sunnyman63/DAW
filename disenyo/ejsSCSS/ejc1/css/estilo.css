@@ -1,0 +1,27 @@
+html {
+  background-color: #ccc;
+}
+
+body {
+  font: 100% Arial, sans-serif;
+  color: #f00;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #fff;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #000;
+}
+/*# sourceMappingURL=estilo.css.map */

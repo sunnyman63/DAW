@@ -1,0 +1,21 @@
+#contenedor {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 652px;
+    border: 1px solid #f00;
+}
+
+div[class *= "color"] {
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #000;
+    padding: 25px;
+}
+
+$oscuridad: 0%;
+@for $i from 1 through 10 {
+    .color-#{$i} {
+        background-color: lighten(rgb(255,0,100),$oscuridad);
+        $oscuridad: $oscuridad + 5%;
+    }
+}

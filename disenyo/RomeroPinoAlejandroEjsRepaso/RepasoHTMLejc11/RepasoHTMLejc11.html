@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Imagen y sonido</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div style="background-color:lightblue;padding:10px;width:63%">
+            <h1>TIENES ALGO QUE DECIR?</h1>
+            <p>
+                A través de este formulario puedes enviarme un mensaje para ayudarme a corregir errores, a mejorar mi blog, o simplemente para decir hola.
+                <br>
+                Cualquier cosa que tengas que decir en bienvenida, asi que no lo dudes y dejame un mensaje. Estaré feliz de contestarte!
+            </p>
+            <form action="datos.php" method="post">
+                <fieldset>
+                    <legend>Mensaje</legend>
+                    <div>
+                        <p>
+                            <label>Tu nombre:</label>
+                            <input type="text" name="nombre"/>
+                        </p>
+                        <p>
+                            <label>Tu dirección de correo:</label>
+                            <input type="email" name="correo"/>
+                        </p>
+                        <p>
+                            <label>Tu mensaje:</label>
+                            <br>
+                            <input type="text" name="mensaje"/>
+                        </p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Nuevos temas</legend>
+                    <div>
+                        <p>¿Qué temas te gustaria que trate más en mi sitio?</p>
+                        <input type="checkbox" id="html" name="html">
+                        <label for="html">HTML</label>
+                        <input type="checkbox" id="graficos" name="graficos">
+                        <label for="graficos">Gráficos</label>
+                        <input type="checkbox" id="videojuegos" name="videojuegos">
+                        <label for="videojuegos">Videojuegos</label>
+                        <input type="checkbox" id="arte" name="arte">
+                        <label for="arte">Arte</label>
+                        <input type="checkbox" id="musica" name="musica">
+                        <label for="musica">Música</label>
+                        <br><br>
+                    </div>
+                </fieldset>
+                <div>
+                    <input type="submit" name="submit" value="Enviar mensaje">
+                    <input type="reset" value="Comenzar de nuevo">
+                </div>
+            </form>
+        <div>
+    </body>
+</html>

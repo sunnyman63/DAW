@@ -1,0 +1,62 @@
+.gastronomia {
+    width: 100%;
+    background-color: #d2d2d2;
+    padding: 0px 20px 30px 10px;
+    h1 {
+        grid-column: 1/4;
+        font-size: 30px;
+        font-weight: 800;
+        margin: 30px 10px;
+    }
+    .visor-gastronomia {
+        width: 100%;
+        min-height: 300px;
+        overflow: hidden;
+        .gastronomia-deslizable {
+            position: relative;
+            min-height: 300px;
+            width: 4000%;
+            animation: deslizableGastronomia 60s linear infinite;
+            .plato-gastronomia {
+                float: left;
+                width: 290px;
+                min-height: 300px;
+                margin-right: 10px;
+                background-color: #efefef;
+                text-align: center;
+                border-bottom: 4px #d2d2d2 solid;
+                img {
+                    width: 100%;
+                }
+                h3 {
+                    margin: 10px 7px;
+                }
+                a:link, a:visited, a:active {
+                    height: 100%;
+                    color: #474747;
+                    text-decoration:none;
+                }
+                &:hover h3 {
+                    color: $color-botones;
+                }
+            }    
+        }
+    }  
+}
+@keyframes deslizableGastronomia {
+    0% {
+        right: 0px;
+    }
+    82% {
+        right: 2575px;
+    }
+    90% {
+        right: 2575px;
+    }
+    92% {
+        right: 0px;
+    }
+    100% {
+        right: 0px;
+    }
+}

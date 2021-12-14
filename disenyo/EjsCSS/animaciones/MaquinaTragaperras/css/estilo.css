@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.maquina {
+    margin: auto;
+    width: 1000px;
+    height: 749px;
+    background-image: url("https://sunnyman63.github.io/imgsDAW/maquinaTragaperras/tragaperras.png");
+    overflow: hidden;
+}
+
+.rollos {
+    position: relative;
+    top: 182px;
+    left: 168px;
+    height: 275px;
+    width: 666px;
+    overflow: hidden;
+}
+
+.rollo {
+    float: left;
+    width: 222px;
+    height: 280px;
+    border: 1px black solid;
+    overflow: hidden;
+}
+
+.cuarteto1-1 {
+    width: 222px;
+    position: absolute;
+    top: -1144px;
+    animation: rotacionCuarteto1 0.1s linear;
+    animation-iteration-count: 10;
+}
+
+.cuarteto1-2 {
+    width: 222px;
+    position: absolute;
+    top: -415px;
+    animation: rotacionCuarteto2 0.1s linear;
+    animation-iteration-count: 10;
+
+}
+
+.cuarteto2-1 {
+    width: 222px;
+    position: absolute;
+    top: -880px;
+    animation: rotacionCuarteto1 0.1s linear;
+    animation-iteration-count: 20;
+}
+
+.cuarteto2-2 {
+    width: 222px;
+    position: absolute;
+    top: 29px;
+    animation: rotacionCuarteto2 0.1s linear;
+    animation-iteration-count:  20;
+
+}
+
+.cuarteto3-1 {
+    width: 222px;
+    position: absolute;
+    top: -648px;
+    animation: rotacionCuarteto1 0.1s linear;
+    animation-iteration-count: 30;
+}
+
+.cuarteto3-2 {
+    width: 222px;
+    position: absolute;
+    top: 256px;
+    animation: rotacionCuarteto2 0.1s linear;
+    animation-iteration-count: 30;
+
+}
+
+@keyframes rotacionCuarteto1 {
+    from {top: -900px;}
+    to {top: 29px;}
+}
+
+@keyframes rotacionCuarteto2 {
+    from {top: 29px;}
+    to {top: 933px;}
+
+}

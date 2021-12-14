@@ -1,0 +1,90 @@
+.container {
+    width: 500px;
+    height: 300px;
+    border: 5px solid rgb(10, 172, 145);
+    background-color: lightgrey;
+}
+
+/*Versión 1 Pos Absoluta===============================*/
+
+.azul {
+    width: 250px;
+    height: 120px;
+    background-color: blue;
+    font-size: 50px;
+    position: absolute;
+    left: 100px;
+    top: 30px;
+}
+
+.verde {
+    width: 120px;
+    height: 100px;
+    background-color: green;
+    font-size: 50px;
+    position: absolute;
+    left: 70px;
+    top: 110px;
+}
+
+.amarillo{
+    width: 180px;
+    height: 150px;
+    background-color: yellow;
+    font-size: 50px;
+    position: absolute;
+    left: 280px;
+    top: 60px;
+}
+
+.rojo{
+    width: 250px;
+    height: 100px;
+    background-color: red;
+    font-size: 50px;
+    position: absolute;
+    left: 160px;
+    top: 180px;
+}
+
+/*Versión 2 Pos Relativa===============================*/
+
+.azul1 {
+    width: 250px;
+    height: 120px;
+    background-color: blue;
+    font-size: 50px;
+    position: relative;
+    left: 100px;
+}
+
+.verde1 {
+    width: 120px;
+    height: 100px;
+    background-color: green;
+    font-size: 50px;
+    position: relative;
+    top: 25px;
+    left: -30px;
+}
+
+.amarillo1{
+    width: 180px;
+    height: 150px;
+    background-color: yellow;
+    font-size: 50px;
+    position: relative;
+    top: -115px;
+    left: 200px;
+}
+
+.rojo1{
+    width: 250px;
+    height: 100px;
+    background-color: red;
+    font-size: 50px;
+    position: relative;
+    top: 60px;
+    left: -110px;
+    
+}

@@ -1,0 +1,109 @@
+.noticias {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 10px;
+    padding-bottom: 30px;
+    border-bottom: 3px dashed #d2d2d2;
+    column-gap: 10px;
+    article {
+        grid-column: 1/3;
+        .div-video-noticias {
+            width: 100%;
+            .video-portada-noticias {
+                width: 100%;
+            }
+            .noticias-link-video {
+                margin-top: -5px;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 20px;
+                border-bottom: 4px #d2d2d2 solid;
+                text-decoration:none;
+                background-color: #efefef;
+                h1 {
+                    font-size: 35px;
+                    margin-bottom: 10px;
+                }
+                &:hover p {
+                    color: $color-botones;
+                }
+                &>a:link, &>a:visited, &>a:active {
+                    color: #474747;
+                    text-decoration:none;
+                }
+            }
+        }
+        .ultimas-noticias {
+            width: 100%;
+            overflow: hidden;
+            h2 {
+                font-weight: 300;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            .ultimas-noticias-deslizable {
+                position: relative;
+                right: 2575px;
+                min-height: 300px;
+                width: 4000%;
+                animation: deslizableNoticias 60s linear infinite;
+                &>.noticia {
+                    float: left;
+                    width: 290px;
+                    min-height: 300px;
+                    margin-right: 10px;
+                    background-color: #efefef;
+                    text-align: center;
+                    border-bottom: 4px #d2d2d2 solid;
+                    img {
+                        width: 100%;
+                    }
+                    h3 {
+                        margin: 10px 7px;
+                    }
+                    a:link, a:visited, a:active {
+                        height: 100%;
+                        color: #474747;
+                        text-decoration:none;
+                    }
+                    &:hover h3 {
+                        color: $color-botones;
+                    }
+                }
+            }
+        }
+    }
+    .anuncios-links-noticias {
+        grid-column: 3/4;
+        height: 100%;
+        .noticias-publicidad {
+            width: 100%;
+            height: 600px;
+            background-color: #aaa;
+        }
+        a {
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@keyframes deslizableNoticias {
+    0% {
+        right: 0px;
+    }
+    82% {
+        right: 2575px;
+    }
+    90% {
+        right: 2575px;
+    }
+    92% {
+        right: 0px;
+    }
+    100% {
+        right: 0px;
+    }
+}

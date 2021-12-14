@@ -1,0 +1,100 @@
+¿Quién escribió 'Azazel'?;Isaac Asimov;Lewis Carroll;Terrance Hambury White;George R. R. Martin;respuesta1;Arte
+¿En qué isla vivía Otelo?;Skorpios;Creta;Ítaca;Icaria;respuesta2;Arte
+¿Cuál es el nombre del primer gran poema épico de la literatura inglesa?;El paraiso Perdido;Widsith;Beowulf;El Mensaje del Marido;respuesta3;Arte
+¿Quién pintó 'Mujer mirando por la ventana'?;Pablo Picasso;Vincent Van Gogh;Rembrandt;Salvador Dalí;respuesta4;Arte
+¿En qué ciudad nació el pintor y escultor Joan Miro?;Barcelona;Madrid;Valencia;Vigo;respuesta1;Arte
+¿Qué usamos para diluir los colores de las acuarelas?;Aceite;Agua;Agua oxigenada;Disolvente;respuesta2;Arte
+¿Cuál de los siguientes personajes no aparece en la portada del álbum Sgt. Pepper's Lonely Hearts Club Band, de la banda británica The Beatles?;Oscar Wilde;John Lennon;Bob Marley;Albert Einstein;respuesta3;Arte
+¿Cuál es el baile popular de Aragón?;Samba;Sevillana;Sardana;Jota;respuesta4;Arte
+¿En qué año se suicidó Van Gogh?;1890;1899;1870;1901;respuesta1;Arte
+¿Cuál es el baile típico de Galicia?;Paso Doble;Muiñeira;Bolero;Cachucha;respuesta2;Arte
+¿Quién escribió La Divina Comedia?;Gustavo Adolfo Bécquer;Benedetti;Dante Alighieri;Rafael Alberti;respuesta3;Arte
+¿Cuántas cuerdas suele tener un bajo eléctrico?;Cinco;Nueve;Seis;Cuatro;respuesta4;Arte
+¿Quién escribió "El Ejército Negro"?;Santiago García-Clairac;CS Lewis;JRR Tolkien;Diana Wynne Jones;respuesta1;Arte
+¿Cuál de las siguientes obras fue escrita por Wolfgang Amadeus Mozart?;Las Cuatro Estaciones;Réquiem;El Mesías;La 9º Sinfonia;respuesta2;Arte
+¿Para qué sirve la paleta?;Para chuparla;Para darle a la pelota;Para mezclar pinturas;Para cavar;respuesta3;Arte
+¿Quién escribió el poema romano, Las Metamorfosis?;Batilo;Prudencio;Cayo Valgio Rufo;Ovidio;respuesta4;Arte
+¿Qué ruta se hace en honor al poeta Miguel Hernández?;La senda del poeta;Cahorros del Río Chillar;Ruta de los Pantaneros en Chulilla;Camí de Cavalls;respuesta1;Arte
+¿Cuántos anillos fueron creados por Sauron para los Señores Enanos en el Señor de los Anillos?;Cinco;Siete;Dos;Cuatro;respuesta2;Arte
+¿Según el cuento de "el principito" cuál fue el séptimo planeta que visitó?;El Planeta del Rey;El Planeta del Bebedor;El planeta tierra;El Planeta del Geógrafo;respuesta3;Arte
+¿Qué tendencia musical es la que más incursiona en Jamaica?;Pop;Rock;Reggaeton;Reggae;respuesta4;Arte
+¿Cuál de las siguientes enfermedades es muy común en los mayores por la disminución de la densidad de los huesos?;Osteoporosis;Tumores Óseos;Ostemielitis;Acromegalia;respuesta1;Ciencia
+¿Qué parte del cuerpo tiene 27 huesos y 35 músculos?;Pie;Mano;Cabeza;Torso;respuesta2;Ciencia
+¿Cuál de estos animales es endémico de Colombia?;Tamarino Labiado;Delfín del amazonas;Titi gris;Guanaco;respuesta3;Ciencia
+¿En matemáticas, ¿qué es 3,14?;e;Avogadro;Logaritmo;Pi;respuesta4;Ciencia
+¿Qué animal puede correr sobre el agua?;Lagarto basilisco;Guepardo;Antílope;Rana Toro;respuesta1;Ciencia
+¿Por qué vía parenteral se obtiene una biodisponibilidad del 100 por cien del fármaco?;Intramuscular;Intravenosa;Subcutánea;Intradérmica;respuesta2;Ciencia
+¿Cuál es la fórmula química del ácido clorhídrico?;C2H5OH;CaO;HCl;H2O;respuesta3;Ciencia
+¿A cuántas personas podría matar un solo gramo de veneno de la cobra?;200;10;80;150;respuesta4;Ciencia
+¿Qué órgano es el encargado de fabricar insulina?;Páncreas;Pulmón;Hígado;Riñón;respuesta1;Ciencia
+¿Qué número equivale al 16 en hexadecimal?;2;10;16;8;respuesta2;Ciencia
+¿Cuántas vertebras forman la columna vertebral humana?;30;42;33;24;respuesta3;Ciencia
+¿Qué compañía multinacional compró al sistema de mensajería WhatsApp?;Apple;Samsung;Twiter;Facebook;respuesta4;Ciencia
+¿Cómo se llaman los vasos sanguíneos más finos?;Capilares;Arterias;Vénulas;Venas;respuesta1;Ciencia
+¿Cómo se denomina a la nube que se encuentra a nivel de superficie?;Nube;Niebla;Cumulus;Cirrus;respuesta2;Ciencia
+¿Cuántos millones de años se estima que le restan de vida a nuestro Sol?;5000;4500;5500;6000;respuesta3;Ciencia
+¿Cuál es la hormona sexual masculina más importante?;Estrogenos;vasopresina;Glucoproteicas;Testosterona;respuesta4;Ciencia
+¿Gracias a cuál de tus cinco sentidos puedes descodificar vibraciones en el aire?;Oído;Tacto;Olfato;Vista;respuesta1;Ciencia
+¿De qué sustrato se nutre principalmente el cerebro?;Lipidos;Glucosa;Proteinas;Agua;respuesta2;Ciencia
+¿Cuánto midió el hombre más alto del mundo (acreditado)?;2.8m;3m;2.72m;2.68;respuesta3;Ciencia
+¿Qué virus se atacó con la primera vacuna?;Sarampion;Tuberculosis;Malaria;Viruela;respuesta4;Ciencia
+¿Qué duración tiene un partido de fútbol que llega a la tanda de penaltis?;120 minutos;150 minutos;100 minutos;110 minutos;respuesta1;Deporte
+¿En cuál de los siguientes deportes se puede tocar el balón con las manos?;Fútbol;Baloncesto;Tennis;Billar;respuesta2;Deporte
+¿Quién es 'O Rei'?;Maradona;Ronaldinho;Pelé;Messi;respuesta3;Deporte
+¿Cuál es el nombre de pila del tenista Federer?;Rafa;Dimitri;Alfonso;Roger;respuesta4;Deporte
+Evgenia Kanaeva es la 'reina' de...;Gimnasia rítmica;Tiro con Arco;Voleibol;Patinaje sobre Hielo;respuesta1;Deporte
+¿Cómo se llama Iniesta?;Carlos;Andrés;Julian;Gerard;respuesta2;Deporte
+¿A qué deporte pertenece la WWE?;Ciclismo;Atletismo;Lucha libre;Boxeo;respuesta3;Deporte
+¿En qué país ganó Alemania su primer mundial de fútbol?;Alemania;Italia;Francia;Suiza;respuesta4;Deporte
+¿En cuántos mundiales participó la selección de Inglaterra?;14;7;2;10;respuesta1;Deporte
+¿Con qué deporte relacionarías a Aitor Osa?;Fútbol;Ciclismo;Baloncesto;Esgrima;respuesta2;Deporte
+¿Quién ganó el mundial de 2010 en Sudáfrica?;Italia;Francia;España;Portugal;respuesta3;Deporte
+¿Cuántos tiempos tiene un partido de baloncesto?;Dos;Ocho;Seis;Cuatro;respuesta4;Deporte
+¿Cuál fue el único club español donde jugó El Piojo López?;Valencia CF;Barcelona FC;Real Betis;Atletico de Bilbao;respuesta1;Deporte
+¿Qué deporte estamos viendo si el árbitro señala "falta de rotación"?;Baloncesto;Voleibol;Fútbol;Tennis;respuesta2;Deporte
+¿Cuál es el salto más alto en caballo?;3m;2.1m;1.20m;1.7m;respuesta3;Deporte
+¿Cuántos jugadores componen usualmente un equipo de rugby?;10;12;23;15;respuesta4;Deporte
+¿Cómo se llama el lugar destinado a las carreras de caballos?;Hipódromo;Canódromo;Circuito;Cancha;respuesta1;Deporte
+¿Cómo se llama la anotación de un tanto en el fútbol americano?;Gol;Touchdown;Ensallo;Canasta;respuesta2;Deporte
+¿Quién ganó la Eurocopa 2000?;Alemania;España;Francia;Suiza;respuesta3;Deporte
+¿Quién tiene más balones de oro?;Cristiano Ronaldo;Andrés Iniesta;Luka Modric;Lionel Messi;respuesta4;Deporte
+¿Qué fruta es la casa de Bob Esponja?;Una Piña;Un Coco;Un Platano;Una Sandia;respuesta1;Entretenimiento
+¿Quién es el marido de la actriz Angelina Jolie?;Javier Barden;Brad Pitt;Leonardo Dicaprio;Tom Holland;respuesta2;Entretenimiento
+¿Cómo se llama la actriz que interpreta a una pequeña vampira en "Entrevista con el vampiro"?;Audrey Hepburn;Elle Fanning;Kirsten Dunst;Jennifer Lawrence;respuesta3;Entretenimiento
+¿En el juego preguntados, de qué color es el muñeco de arte?;Amarillo;Verde;Azul;Rojo;respuesta4;Entretenimiento
+¿En la serie Los Simpson de qué color son las perlas de Lisa?;Blancas;Amarillas;Cian;Violetas;respuesta1;Entretenimiento
+¿Qué pedía el Espantapájaros al Mago de Oz en la película del mismo nombre?;Unos Brazos;Un cerebro;Un Corazón;Volver a Casa;respuesta2;Entretenimiento
+¿Cómo se llama el vocalista de los Guns "N" Roses?;Slash;Rob Gardner;Axl Rose;Duff McKagan;respuesta3;Entretenimiento
+¿Cómo se llama el juguete que es un cubo de colores el cual giran sus partes?;Kubric;Matic;Rompecabezas;Rubik;respuesta4;Entretenimiento
+¿Cómo se llama el gremlin bueno de la película "Gremlins"?;Gizmo;Lazaro;Matias;Fligel;respuesta1;Entretenimiento
+¿Cuál fue la primera película de Disney?;Cenicienta;Blancanieves;La Bella Durmiente;Pocahontas;respuesta2;Entretenimiento
+¿En qué año se estrenó la película de Disney "Pinocho"?;1899;1958;1940;1932;respuesta3;Entretenimiento
+¿En qué programa sale Sheldon Cooper?;Como Conocí a Vuestra Madre;Dos Hombres y Medio;Modern Family;The Big Bang Theory;respuesta4;Entretenimiento
+¿De quién es la canción "Cosas que suenan a triste"?;Maldita Nerea;La Oreja de Van Gogh;Extremoduro;El Canto del Loco;respuesta1;Entretenimiento
+¿Cómo se llama el programa de la Sexta presentado por Antonio García, en el que se revisa la actualidad?;El Hormiguero;Al Rojo Vivo;El Intermedio;Comando Actualidad;respuesta2;Entretenimiento
+¿Cómo se llama el cangrejo de la película "La sirenita" de Walt Disney?;Juan Carlos;Miguel;Sebastián;Don Cangrejo;respuesta3;Entretenimiento
+¿Cómo se llama el personaje de la mejor amiga de Mia Thermopolis en la película "El Diario de la Princesa"?;Samantha;Bethany;Rose;Lilly;respuesta4;Entretenimiento
+¿Qué famoso personaje animado sacaba inventos del futuro de su bolsillo mágico?;Doraemon;Gumball;Oliver;Inuyasha;respuesta1;Entretenimiento
+¿Cuántas veces hay que nombrar a Beetlejuice para que aparezca?;1;3;5;2;respuesta2;Entretenimiento
+¿Quién presenta el concurso 'Ahora Caigo'?;Juanra Bonet;David Broncano;Arturo Valls;Carlos Sobera;respuesta3;Entretenimiento
+¿Cómo se llama la cuarta película de Harry Potter?;El Prisionero de Azkaban;La Piedra Filosofal;La Orden del Fenix;El cáliz de fuego;respuesta4;Entretenimiento
+¿Qué civilización antigua tenía faraones como gobernantes?;Egipcios;Romanos;Griegos;Otomanos;respuesta1;Historia
+¿Qué país NO sudamericano estuvo involucrado en la guerra del Pacífico?;Francia;Inglaterra;España;Portugal;respuesta2;Historia
+¿Cuándo se viaja por primera vez al espacio?;1900;1998;1961;1552;respuesta3;Historia
+¿A qué pueblo derrotó Julio César?;Galo;Helvecio;Confederación Belga;Todas las respuestas son correctas;respuesta4;Historia
+¿Cuándo se produjo la Batalla de Las Piedras?;1811;1800;1820;1797;respuesta1;Historia
+¿Qué ciudad quedó partida en dos tras la Segunda Guerra Mundial?;Moscu;Berlín;Amsterdam;Madrid;respuesta2;Historia
+¿En la antigua Grecia, como participaban en los juegos olímpicos?;En mallas;Bañados en Sangre;Desnudos;Con Sotana;respuesta3;Historia
+¿Qué país reconoció Italia a través de los Pactos de Letrán de 1929?;Alemania;Andorra;Grecia;La Ciudad del Vaticano;respuesta4;Historia
+¿Cómo se llama el burro de Sancho Panza?;Rucio;Rocinante;Santiago;Velocin;respuesta1;Historia
+¿Cómo se decía en latín la famosa expresión "La suerte está echada"?;Carpe Diem;Alea Iacta Est;Ad Aeternam;Ad Astra;respuesta2;Historia
+¿Por cuánto vendió Rusia a Alaska a los Estados Unidos?;8.7 millones de dólares;7 millones de dólares;7.2 millones de dólares;5 millones de dólares;respuesta3;Historia
+¿Qué evento marca el fin de la prehistoria?;La Danza;La Religión;El Fuego;La escritura;respuesta4;Historia
+¿Qué le fue devuelto a China el 1º de Julio de 1997?;Hong Kong;Pekín;Shanghái;Wuhan;respuesta1;Historia
+¿Qué país comenzó la Segunda Guerra Mundial?;Japón;Alemania;Estados Unidos;Francia;respuesta2;Historia
+¿Cuál de estos países no ha invadido nunca el Reino Unido?;España;Alemania;Bolivia;México;respuesta3;Historia
+¿Qué ciudad fue capital de España en el siglo 17?;Vigo;Sevilla;Barcelona;Valladolid;respuesta4;Historia
+¿Quién recibió en 2009 el Premio Nobel de la Paz?;Barack Obama;Donald Trump;JF Kennedy;Angela Merkel;respuesta1;Historia
+¿Cuál era el nombre de pila de Lenin?;Patrik;Vladímir;Crhistof;Dimitri;respuesta2;Historia
+¿De qué estaba fabricado originalmente el maquillaje blanco de las Geishas?;Cal;Carbon;Plomo;Polen;respuesta3;Historia
+¿Cómo se llamaba el caballo de Alejandro Magno?;Manuel;Rocinante;Augusto;Bucéfalo;respuesta4;Historia
