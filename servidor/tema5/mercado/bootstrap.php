@@ -15,7 +15,7 @@ $dbParams = array(
     'user' => 'root', 
     'password' => '', 
     'dbname' => 'mercado', 
-    'host' => 'localhost'); 
+    'host' => '127.0.0.1'); 
 $config = Setup::createAnnotationMetadataConfiguration(
     $paths,
     $isDevMode,
