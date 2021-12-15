@@ -6,7 +6,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;  
 
 // ruta de la entidades 
-$paths = array("./src"); 
+$paths = array("../entity"); 
 // por el tema de los mensajes de error 
 $isDevMode = true; 
 // configuración de la BD: es por esto que hay que ocultarlo 
@@ -24,3 +24,4 @@ $config = Setup::createAnnotationMetadataConfiguration(
     false
 ); 
 $em = EntityManager::create($dbParams, $config); 
+?>
