@@ -1,16 +1,15 @@
 <?php
 
-
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Producto
+ * Proveedor
  *
- * @ORM\Table(name="producto", indexes={@ORM\Index(name="idProveedor", columns={"idProveedor"})})
+ * @ORM\Table(name="proveedor")
  * @ORM\Entity
  */
-class Producto
+class Proveedor
 {
     /**
      * @var int
@@ -22,13 +21,6 @@ class Producto
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="precio", type="integer", nullable=false)
-     */
-    private $precio;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
@@ -36,14 +28,21 @@ class Producto
     private $nombre;
 
     /**
-     * @var \Proveedor
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Proveedor",inversedBy="productos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idProveedor", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="edad", type="integer", nullable=false)
      */
-    private $idproveedor;
+    private $edad;
+
+    /** 
+     * 
+     * Un proveedor tiene muchos productos 
+     * @ORM\OneToMany(targetEntity="Producto", mappedBy="idproveedor") 
+     */
+
+    private $productos;
+
+    public function __construct() { $this->productos = new ArrayCollection(); } 
 
     public function __set($target,$valor) {
         $this->$target = $valor;
@@ -52,5 +51,4 @@ class Producto
     public function __get($target) {
         return $this->$target;
     }
-
 }
