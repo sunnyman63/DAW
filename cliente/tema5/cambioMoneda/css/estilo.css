@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding-top: 100px; 
+}
+
+#container {
+    width: 350px;
+    margin: 0px auto 0px auto;
+}
+
+#container>form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    column-gap: 2%;
+    row-gap: 10px;
+}
+
+#container>form>*{
+    height: 30px;
+}
+
+#container>form>#cantidadBase {
+    width: 78%;
+    text-align: right;
+}
+
+#container>form>select {
+    width: 20%;
+}
+
+#container>form>#btnConvertir {
+    width: 100%;
+    height: 30px;
+    border: 1px rgb(88, 88, 248) solid;
+    background-color: rgb(88, 88, 248);
+    color: #ffebcd;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+#container>p {
+    margin-top: 20px;
+}
+
+
