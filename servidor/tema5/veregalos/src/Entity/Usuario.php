@@ -82,8 +82,12 @@ class Usuario
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($nick="",$correo="",$password="",$buenometro=0,$esRey=0)
     {
+        $this->nick = $nick;
+        $this->correo = $correo;
+        $this->password = password_hash($password,PASSWORD_DEFAULT);
+        $this->buenometro = $buenometro;
         $this->regalo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->present = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -108,9 +112,9 @@ class Usuario
         if(!$this->existeUsuario($em)) {
             $em->persist($this);
             $em->flush();
-            echo 0;
+            return 0;
         } else {
-            echo null;
+            return null;
         }
     }
 
@@ -140,50 +144,50 @@ class Usuario
         $em->flush();
     }
 
-    public function mostrarCarta() {
-        $regalos = [];
-        foreach($this->regalo as $regal) {
-            $item = [
-                'nombre'=>$regal->nombre,
-                'puntos'=>$regal->puntos,
-                'img'=>base64_encode(stream_get_contents($regal->img,-1,-1)),
-                'descripcion'=>$regal->descripcion
-            ];
-            array_push($regalos,$item);
-        }
-        return $regalos;
-    }
+    // public function mostrarCarta() {
+    //     $regalos = [];
+    //     foreach($this->regalo as $regal) {
+    //         $item = [
+    //             'nombre'=>$regal->nombre,
+    //             'puntos'=>$regal->puntos,
+    //             'img'=>base64_encode(stream_get_contents($regal->img,-1,-1)),
+    //             'descripcion'=>$regal->descripcion
+    //         ];
+    //         array_push($regalos,$item);
+    //     }
+    //     return $regalos;
+    // }
 
-    public function mostrarRegalosRecibidos() {
-        $regalos = [];
-        foreach($this->present as $regal) {
-            $item = [
-                'nombre'=>$regal->nombre,
-                'puntos'=>$regal->puntos,
-                'img'=>base64_encode(stream_get_contents($regal->img,-1,-1)),
-                'descripcion'=>$regal->descripcion
-            ];
-            array_push($regalos,$item);
-        }
-        return $regalos;
-    }
+    // public function mostrarRegalosRecibidos() {
+    //     $regalos = [];
+    //     foreach($this->present as $regal) {
+    //         $item = [
+    //             'nombre'=>$regal->nombre,
+    //             'puntos'=>$regal->puntos,
+    //             'img'=>base64_encode(stream_get_contents($regal->img,-1,-1)),
+    //             'descripcion'=>$regal->descripcion
+    //         ];
+    //         array_push($regalos,$item);
+    //     }
+    //     return $regalos;
+    // }
 
-    public function mostrarUsuario() {
-        $usr = $this;
-        $usr->regalo = $this->mostrarCarta();
-        $usr->present = $this->mostrarRegalosRecibidos();
+    // public function mostrarUsuario() {
+    //     $usr = $this;
+    //     $usr->regalo = $this->mostrarCarta();
+    //     $usr->present = $this->mostrarRegalosRecibidos();
 
-        return $usr;
-    }
+    //     return $usr;
+    // }
 
     public static function listarTodosLosUsuarios($em) {
         $users = $em->getRepository('usuario')->findBy(array('esRey' => false));
-        foreach($users as $user) {
-            $pedidos = $user->mostrarCarta();
-            $user->regalo = $pedidos;
-            $recibidos = $user->mostrarRegalosRecibidos();
-            $user->present = $recibidos;
-        }
+        // foreach($users as $user) {
+        //     $pedidos = $user->mostrarCarta();
+        //     $user->regalo = $pedidos;
+        //     $recibidos = $user->mostrarRegalosRecibidos();
+        //     $user->present = $recibidos;
+        // }
         return $users;
     }
 }
