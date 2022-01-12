@@ -8,7 +8,12 @@ var coloresTesla = {
         }
 
         $('#selector').on('change', function () {
-            $('#coche').attr('src','../imgs/modelS-'+$(this).val()+'.jpg');
+            $('#loader').fadeIn();
+            setTimeout(function(){
+                $('#coche').attr('src','http://jfajardo.ieslavereda.es/ImgTesla/modelS-'+$('#selector').val()+'.jpg');
+                $('#loader').fadeOut();
+            },500);
+            
         });
     }
 };

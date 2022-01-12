@@ -1,0 +1,18 @@
+.visor {
+    width: 800px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#coche {
+    width: 100%;
+}
+
+.loader {
+    position: relative;
+    top: -80%;
+    display: none;
+}
