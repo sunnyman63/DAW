@@ -32,11 +32,10 @@ body {
 .container>h1 {
     color: #f00;
     font-family: 'Mountains of Christmas', cursive;
-    background-image: url("https://sunnyman63.github.io/servidor/tema5/veregalos/cartel.png");
+    text-shadow: 2px 2px 1px #000;
 }
 
 .container>.formulario {
-    border: 3px black solid;
     border-radius: 15px;
     width: 300px;
     display: flex;
@@ -46,6 +45,7 @@ body {
     row-gap: 20px;
     padding: 15px 0px;
     background-color: antiquewhite;
+    box-shadow: 2px 2px 1px #000;
 }
 
 .container>.formulario>* {
@@ -53,6 +53,7 @@ body {
     height: 35px;
 }
 
-.container>.formulario>.text {
-    
+
+.container>.formulario>.btnForm {
+    cursor: pointer;
 }

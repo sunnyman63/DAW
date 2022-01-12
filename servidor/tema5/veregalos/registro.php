@@ -15,12 +15,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Iniciar Sesión</h1>
+        <h1>Regístrate Gratis</h1>
         <form action="#" method="POST" class="formulario">
             <input type="text" name="user" placeholder="Usuario" class="text">
+            <input type="email" name="correo" placeholder="example@mail.com" class="text">
             <input type="password" name="contra" placeholder="Contraseña" class="text">
+            <input type="password" name="contra2" placeholder="Repita Contraseña" class="text">
             <input type="submit" name="submit" value="Entrar" class="btnForm">
-            <p>No tienes cuenta? <a href="./registro.php">Registrate ahora!!</a></p>
+            <p>Ya tienes cuenta? <a href="./index.php">Inicia sesión!!</a></p>
         </form>
     </div>
 </body>
