@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Shadows+Into+Light&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Shadows Into Light', cursive;
+    background-color: rgb(60, 60, 255);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    row-gap: 30px;
+    column-gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container>h1 {
+    text-align: center;
+    width: 100%;
+    color: #f00;
+    font-family: 'Mountains of Christmas', cursive;
+    text-shadow: 2px 2px 1px #000;
+    margin-bottom: 50px;
+}
+
+.btnMenu {
+    background-color: #f00;
+    border: 1px black solid;
+    border-radius: 20px;
+    height: 200px;
+    width: 150px;
+}
+
+.btnMenu:hover {
+    background-color: #fff;
+}
+
+.btnMenu>i {
+    color: #fff;
+    font-size: 70px;
+    margin-bottom: 30px;
+}
+
+.btnMenu:hover>i {
+    color: #f00;
+}
+
+.btnMenu>p {
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 22px;
+}
+
+.btnMenu:hover>p {
+    color: #f00;
+}
+
+.listaRegalos {
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 50px;
+    background-color: #ffebcd;
+    padding: 50px;
+}
+
+.listaRegalos>h1 {
+    color: #f00;
+    font-weight: bold;
+}
+
+.listaRegalos>p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.listaRegalos>.btnLista {
+    float: right;
+}
+
+.regalo {
+    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f00;
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+.regalo:hover {
+    background-color: #fff;
+}
+
+.regalo>.imgRegalo {
+    height: 100px;
+    width: 100px;
+}
+
+.regalo>.nombreRegalo {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+}
+
+.regalo:hover>.nombreRegalo {
+    color: #f00;
+}
+
+.regalo>.checkRegalo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+}

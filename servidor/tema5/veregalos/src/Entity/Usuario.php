@@ -87,6 +87,7 @@ class Usuario
         $this->nick = $nick;
         $this->correo = $correo;
         $this->password = password_hash($password,PASSWORD_DEFAULT);
+        $this->esRey = $esRey;
         $this->buenometro = $buenometro;
         $this->regalo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->present = new \Doctrine\Common\Collections\ArrayCollection();
@@ -112,7 +113,7 @@ class Usuario
         if(!$this->existeUsuario($em)) {
             $em->persist($this);
             $em->flush();
-            return 0;
+            return 1;
         } else {
             return null;
         }

@@ -1,7 +1,36 @@
 <?php
+    session_start();
+
     require_once "./bootstrap.php"; 
     require_once "./src/Entity/Usuario.php";
     require_once "./src/Entity/Regalo.php";
+    require_once "./seguridad.php";
+
+    if(isset($_POST["submit"])) {
+        if(!empty($_POST["user"]) && !empty($_POST["correo"]) && !empty($_POST["contra"]) && !empty($_POST["contra2"])) {
+            if($_POST["contra"]==$_POST["contra2"]) {
+                $randnum = random_int(1,100);
+                $log = new Usuario($_POST["user"],$_POST["correo"],$_POST["contra"],0,$randnum);
+                $rsp = $log->insertarUsuario($em);
+                if($rsp==1) {
+                    $_SESSION["usu"] = $log->nick;
+                    $_SESSION["correo"] = $log->correo;
+                    $_SESSION["esRey"] = $log->esRey;
+                    header("Location: ./inicio.php");
+                } else {
+                    echo "<script>alert('Nombre de usuario ya en uso.');</script>";
+                }
+            } else {
+                echo "<script>alert('Las contraseñas deben coincidir.');</script>";
+            }
+            
+            
+        }
+    }
+
+    if(existeSesion()==true) {
+        header("Location: ./inicio.php");
+    }
 
 ?>
 <!DOCTYPE html>

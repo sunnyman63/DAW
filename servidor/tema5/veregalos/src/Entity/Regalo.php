@@ -67,6 +67,10 @@ class Regalo
      */
     public function __construct($nombre="",$puntos=0,$descripcion="",$img="")
     {
+        $this->nombre = $nombre;
+        $this->puntos = $puntos;
+        $this->descripcion = $descripcion;
+        $this->img = addslashes(file_get_contents($img));
         $this->usuario = new \Doctrine\Common\Collections\ArrayCollection();
         $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -81,6 +85,12 @@ class Regalo
         } else {
             return $this->$target;
         }
+    }
+
+    //Inserción de un regalo en la base de datos
+    public function insertarRegalo($em) {
+            $em->persist($this);
+            $em->flush();
     }
 
     // public function mostrarQuienLoHanPedido() {
@@ -119,6 +129,20 @@ class Regalo
         //     $recibidos = $regalo->mostrarQuienLoHaRecibido();
         //     $regalo->user = $recibidos;
         // }
-        return $regalos;
+
+        $regalitos = [];
+        foreach($regalos as $regalo) {
+            array_push(
+                $regalitos,
+                [
+                    "nombre"=>$regalo->nombre,
+                    "puntos"=>$regalo->puntos,
+                    "descripcion"=>$regalo->descripcion,
+                    "img"=>base64_encode(stream_get_contents($regalo->img,-1,-1))
+                ]
+            );
+        }
+
+        return $regalitos;
     }
 }
