@@ -4,24 +4,44 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 use Symfony\Component\HttpFoundation\Response; 
 use Symfony\Component\Routing\Annotation\Route;
+use Psr\Log\LoggerInterface;
+use App\Service\BDPrueba;
+use App\Entity\Alumno;
 
 class saludosControlador extends AbstractController { 
 
-    private $alumnos = [
-        [
-            "nombre"=>"Javi",
-            "apellido"=>"Prima",
-            "edad"=>22
-        ],
-        [   "nombre"=>"Deivyth",
-            "apellido"=>"Sarchi",
-            "edad"=>21
-        ],
-        [   "nombre"=>"Alex",
-            "apellido"=>"Romero",
-            "edad"=>21
-        ]
-    ];
+    private $alumnos;
+
+    private $logger;
+
+    public function __construct(LoggerInterface $logger, BDPrueba $datos){
+    $this->logger = $logger;
+    $this->alumnos = $datos->get();
+    }
+
+    /**
+    * @Route("/contacto/insertar", name="insertar_contacto")
+    */
+    public function insertar(){
+        $entityManager = $this->getDoctrine()->getManager();
+        $contacto = new Alumno();
+        $contacto->setNombre("Andrea");
+        $contacto->setApellido("Macias");
+        $contacto->setEdad("18");
+        $entityManager->persist($contacto);
+        $entityManager->flush();
+        return new Response("Contacto insertado con id " . $contacto->getId());
+    }
+
+    /**
+    * @Route("/log", name="app_log")
+    */
+    public function log(){
+        $fecha_hora = new \DateTime();
+        $this->logger->info("Acceso el " .
+        $fecha_hora->format("d/m/Y H:i:s"));
+        return $this->render('bienvenido.html.twig');
+    }
 
     /**
     * @Route("/", name="inicio")
