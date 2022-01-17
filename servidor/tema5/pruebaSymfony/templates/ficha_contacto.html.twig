@@ -1,0 +1,22 @@
+{% extends 'bienvenido.html.twig' %}
+{% block body %}
+    {% if contacto %}
+    <h1>Ficha de contacto</h1>
+    <ul>
+        <li><strong>{{ contacto.nombre }} {{ contacto.apellido }}</strong></li>
+        <li><strong>Edad</strong>: {{ contacto.edad }}</li>
+    </ul>
+    {% else %}
+        {% if contactos %}
+        <h1>Lista de contactos</h1>
+            {% for contacto in contactos %}
+            <ul>
+                <li><strong>{{ contacto.nombre }} {{ contacto.apellido }}</strong></li>
+                <li><strong>Edad</strong>: {{ contacto.edad }}</li>
+            </ul>
+            {% endfor %}
+        {% else %}
+        <p>Contacto no encontrado D:</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

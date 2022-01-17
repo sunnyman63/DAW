@@ -5,9 +5,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response; 
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/base")
- */
 class saludosControlador extends AbstractController { 
 
     private $alumnos = [
@@ -27,25 +24,27 @@ class saludosControlador extends AbstractController {
     ];
 
     /**
+    * @Route("/", name="inicio")
+    */
+    public function inicio() {
+        return $this->render('bienvenido.html.twig');
+    }
+
+    /**
      * @Route("/buscar/{num<\d+>}", name="app_buscarId")
      */
     public function buscar($num) {
-        $respuesta = "";
-        if($num>-1 && $num<count($this->alumnos)){
-            $respuesta = 
-                "<html>
-                    <body>
-                        <p>Nombre: ".$this->alumnos[$num]["nombre"]."</p>
-                        <p>Apellido: ".$this->alumnos[$num]["apellido"]."</p>
-                        <p>Edad: ".$this->alumnos[$num]["edad"]."</p>    
-                    </body>
-                </html>"
-            ;
+        if($num>=-1 && $num<count($this->alumnos)){
+
+            return $this->render('ficha_contacto.html.twig',array("contacto"=>$this->alumnos[$num],"contactos"=>null));
+
         } else {
-            $respuesta = "<html><body>No existen alumnos con esa ID.</body><html>";
+
+            return $this->render('ficha_contacto.html.twig',array("contacto"=>null,"contactos"=>null));
+            
         }
         
-        return new Response($respuesta);
+        // return new Response($respuesta);
     }
 
     /**
@@ -53,6 +52,9 @@ class saludosControlador extends AbstractController {
      */
     public function buscarLetra($ltr) {
         $respuesta = "<html><body>Ningún alumno por la letra $ltr</body></html>";
+        if($ltr == "todos") {
+            return $this->render('ficha_contacto.html.twig',array("contacto"=>null,"contactos"=>$this->alumnos));
+        }
         foreach($this->alumnos as $alumno) {
             if(strtolower(substr($alumno["apellido"],0,1)) == strtolower($ltr)) {
                 $respuesta = "
