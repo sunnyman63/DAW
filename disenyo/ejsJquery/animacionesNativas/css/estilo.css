@@ -1,0 +1,21 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.cajaroja {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: #f00;
+}
+
+.cajaazul {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: #00f;
+}
