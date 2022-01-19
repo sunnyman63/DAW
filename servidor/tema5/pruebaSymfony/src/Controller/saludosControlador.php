@@ -7,23 +7,25 @@ use Symfony\Component\Routing\Annotation\Route;
 use Psr\Log\LoggerInterface;
 use App\Service\BDPrueba;
 use App\Entity\Alumno;
+use Doctrine\ORM\EntityManagerInterface;
 
 class saludosControlador extends AbstractController { 
 
     private $alumnos;
-
+    private $em;
     private $logger;
 
-    public function __construct(LoggerInterface $logger, BDPrueba $datos){
+    public function __construct(EntityManagerInterface $em ,LoggerInterface $logger, BDPrueba $datos){
     $this->logger = $logger;
     $this->alumnos = $datos->get();
+    $this->em = $em;
     }
 
     /**
     * @Route("/contacto/insertar", name="insertar_contacto")
     */
     public function insertar(){
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->em;
         $contacto = new Alumno();
         $contacto->setNombre("Andrea");
         $contacto->setApellido("Macias");
