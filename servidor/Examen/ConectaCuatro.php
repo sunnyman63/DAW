@@ -1,6 +1,6 @@
 <?php
 
-    public class ConectaCuatro() {
+    class ConectaCuatro {
 
         private $tablero;
 
@@ -13,12 +13,12 @@
         }
 
         public function __toString(){
-            return $this->tablero);
+            return $this->tablero;
         }
 
         public function mueveMaquina(){
             $randCol = random_int(0,6);
-            for($i=5;$>0;$i--){
+            for($i=5;$i>0;$i--){
                 if($this->tablero[$i][$randCol]=="O"){
                     $this->tablero[$i][$randCol] = "M";
                 }
@@ -27,7 +27,7 @@
 
         public function mueveJugador(){
             $randCol = random_int(0,6);
-            for($i=5;$>0;$i--){
+            for($i=5;$i>0;$i--){
                 if($this->tablero[$i][$randCol]=="O"){
                     $this->tablero[$i][$randCol] = "J";
                 }
@@ -35,7 +35,7 @@
         }
 
         public function finalPartida($ente) {
-            $resultado;
+            $resultado = "";
             switch($ente){
                 case "Jugador": $ficha = "J"; break;
                 case "Maquina": $ficha = "M"; break;
@@ -57,7 +57,7 @@
             
         }
 
-        public function buscar($i,$j,$tablero,$horizontal,$vertical,$ficha,&$result){
+        public static function buscar($i,$j,$tablero,$horizontal,$vertical,$ficha,&$result){
             $cuatroEn=$tablero[$i][$j];
             for($x=0;$x<4;$x++){
                 $i += $vertical;
@@ -69,6 +69,7 @@
             if(strcmp($cuatroEn,$ficha.$ficha.$ficha.$ficha)==0) {
                 $result = true;
             }
+        }
     }
 
 ?>
