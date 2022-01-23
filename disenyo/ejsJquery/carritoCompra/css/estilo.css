@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
@@ -32,9 +33,10 @@ h1>span {
 .camisetasMini {
     width: 50px;
     height: 50px;
-    border: 1px black solid;
+    border: 1px #aaa solid;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .camisetaSeleccionada {
@@ -42,13 +44,11 @@ h1>span {
     height: 500px;
     display: flex;
     justify-content: center;
-    border: 1px black solid;
 }
 
 .infoCamiSelect {
     width: 400px;
-    height: 350px;
-    border: 1px black solid;
+    height: 250px;
 }
 
 h2>span{
@@ -59,4 +59,82 @@ h2>span{
 .infoCamiSelect>p {
     margin-top: 10px;
     color: #333;
+}
+
+.infoCamiSelect>.rating {
+    margin-top: 20px;
+}
+
+.infoCamiSelect>.rating>.estrellas>* {
+    height: 20px;
+    width: 20px;
+}
+
+.infoCamiSelect>.precio {
+    margin-top: 20px;
+    width: 320px;
+    display: inline-block;
+}
+
+.infoCamiSelect>.precio>h3>span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.infoCamiSelect>.btnComprar {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.carrito {
+    margin-top: 43px;
+    width: 400px;
+    height: 200px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-color: #999;
+    padding: 10px 20px;
+}
+
+.carrito>.listaCarrito {
+    height: 120px;
+    background-color: #ccc;
+    overflow-y: scroll;
+}
+
+.carrito>.listaCarrito>ul>li {
+    padding: 5px;
+    list-style: none;
+}
+
+.carrito>.listaCarrito>ul>li>.funcionalidadProducto {
+    width: 60px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    border: 1px #aaa solid;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carrito>.listaCarrito>ul>li>.funcionalidadProducto>* {
+    width: 20px;
+    border: none;
+    background-color: #fff;
+}
+
+.carrito>.listaCarrito>ul>li>.funcionalidadProducto>button {
+    background-color: #999;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrito>.listaCarrito>ul>li>.funcionalidadProducto>label {
+    border-left: 1px #aaa solid;
+    border-right: 1px #aaa solid;
+    text-align: center;
+}
+
+.carrito>.precioTotal {
+    margin-top: 10px;
 }

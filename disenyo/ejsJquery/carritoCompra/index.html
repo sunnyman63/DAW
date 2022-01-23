@@ -11,29 +11,29 @@
     <div class="container">
         <h1>Tienda de Ropa: <span>Vereda On Line</span></h1>
         <div class="camisetas">
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="blanca">
                 <img src="./img/camiseta/thumbs/blanca.jpg">
             </div>
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="gris">
                 <img src="./img/camiseta/thumbs/gris.jpg">
             </div>
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="negra">
                 <img src="./img/camiseta/thumbs/negra.jpg">
             </div>
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="rojo">
                 <img src="./img/camiseta/thumbs/rojo.jpg">
             </div>
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="rosa">
                 <img src="./img/camiseta/thumbs/rosa.jpg">
             </div>
-            <div class="camisetasMini">
+            <div class="camisetasMini" data-color="verde">
                 <img src="./img/camiseta/thumbs/verde.jpg">
             </div>
             <div class="camisetaSeleccionada">
-                <img src="./img/camiseta/large/blanca.jpg">
+                <img class="camisetaImg" src="./img/camiseta/large/blanca.jpg">
             </div>
             <div class="infoCamiSelect">
-                <h2>Camiseta Especial <span>blanco</span></h2>
+                <h2>Camiseta Especial <span class="camisetaSelect">blanca</span></h2>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Facere non amet quibusdam, laboriosam ea odio repellat? 
                     Quasi aliquid, dolorum natus, provident ullam distinctio 
@@ -49,8 +49,25 @@
                         <img src="./img/star2.png">
                     </div>
                 </div>
+                <div class="precio">
+                    <h3>Precio <span>10 euros</span></h3>
+                </div>
+                <button class="btnComprar">Comprar</button>
+            </div>
+            <div class="carrito">
+                <h3>Carrito de la compra</h3>
+                <div class="listaCarrito">
+                    <ul class="listado">
+                        
+                    </ul>
+                </div>
+                <div class="precioTotal">
+                    <h4>Precio total: <span class="pTotal">0</span>€</h4>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
