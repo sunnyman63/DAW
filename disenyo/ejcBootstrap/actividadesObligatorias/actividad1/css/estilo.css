@@ -1,0 +1,46 @@
+.contenedor {
+    max-width: 992px;
+}
+
+.verde {
+    background-color: #008000;
+    border: black 1px solid;
+}
+
+.arriba {
+    height: 70px;
+}
+
+.rojo {
+    background-color: #f00;
+    border: black 1px solid;
+}
+
+.rosa {
+    background-color: #f0f;
+    height: 70px;
+    border: black 1px solid;
+}
+
+.naranja {
+    height: 150px; 
+    background-color: orange;
+    border: black 1px solid;
+}
+
+.azul {
+    height: 80px; 
+    background-color: blue; 
+    border: black 1px solid;
+}
+
+.abajo {
+    height: 40px;
+    border: black 1px solid;
+}
+
+@media (max-width: 575px) {
+    .rojo {
+        display: none;
+    }
+}

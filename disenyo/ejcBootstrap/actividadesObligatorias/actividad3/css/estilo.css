@@ -1,0 +1,13 @@
+.header {
+    border: 3px #fff solid;
+    height: 50px;
+}
+
+.num {
+    border: 3px #fff solid;
+    height: 200px;
+}
+
+.footer {
+    border: 3px #fff solid;
+}
