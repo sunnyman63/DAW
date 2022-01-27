@@ -1,13 +1,51 @@
+.contenedor {
+    max-width: 992px;
+}
+
 .header {
+    background-color: #ff7f50;
     border: 3px #fff solid;
     height: 50px;
 }
 
 .num {
     border: 3px #fff solid;
+    background-color: #f00;
+    padding-top: 50px;
     height: 200px;
 }
 
-.footer {
+.dos {
+    background-color: #0ff;
+}
+
+[class^=footer-] {
     border: 3px #fff solid;
+    height: 50px;
+}
+
+@media (min-width: 576px) {
+    .header {
+        background-color: #0ff;
+    }
+    .uno {
+        height: 230px;
+    }
+    .dos {
+        height: 230px;
+        background-color: #f00;
+    }
+    .tres {
+        background-color: #adff2f;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        background-color: #adff2f;
+    }
+    .num {
+        height: 400px;
+        background-color: #f00;
+    }
 }
