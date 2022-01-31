@@ -10,7 +10,7 @@
         if(!empty($_POST["user"]) && !empty($_POST["correo"]) && !empty($_POST["contra"]) && !empty($_POST["contra2"])) {
             if($_POST["contra"]==$_POST["contra2"]) {
                 $randnum = random_int(1,100);
-                $log = new Usuario($_POST["user"],$_POST["correo"],$_POST["contra"],0,$randnum);
+                $log = new Usuario($_POST["user"],$_POST["correo"],$_POST["contra"],$randnum,0);
                 $rsp = $log->insertarUsuario($em);
                 if($rsp==1) {
                     $_SESSION["usu"] = $log->nick;
