@@ -9,83 +9,85 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark" style="background-color: #00254b;">
-        <div class="container-xxl">
-            <a class="navbar-brand" href="#">
-                <img src="./img/logo-ph-blanco.png" alt="logo" height="30px">
-            </a>
-            <form class="navbar-collapse bg-light rounded-pill d-none d-lg-flex me-5" style="width: 500px !important; flex-basis: 0;">
-                <button class="btn btn-light rounded-pill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </button>
-                <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <ul class="navbar-nav d-flex flex-row ms-5">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    <header class="sticky-top">
+        <nav class="navbar navbar-dark" style="background-color: #00254b;">
+            <div class="container-xxl">
+                <a class="navbar-brand" href="#">
+                    <img src="./img/logo-ph-blanco.png" alt="logo" height="30px">
+                </a>
+                <form class="navbar-collapse bg-light rounded-pill d-none d-lg-flex me-5" style="width: 500px !important; flex-basis: 0;">
+                    <button class="btn btn-light rounded-pill">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
-                    </a>
-                  </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
-                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                        </svg>
-                        <span class="position-relative translate-middle badge rounded-pill" style="background-color: #d735cd;">
-                            0
-                            <span class="visually-hidden">productos en el carro</span>
-                        </span>
-                    </a>
-                </li>
-              </ul>
-        </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark py-0" style="background-color: #00254b;">
-        <div class="container-xxl flex-nowrap px-0">
-            <button class="boton-rosa btn flex-grow-1 flex-lg-grow-0 flex-lg-shrink-0 border-0 text-start pb-2 pt-lg-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-                Todo
-            </button>
-            <div class="overflow-hidden flex-grow-1 flex-shrink-1">
-                <nav class="position-relative navbar-nav d-none d-lg-flex" style="width: 1000px !important;">
-                    <a class="nav-link active" href="#">Apple</a>
-                    <a class="nav-link active" href="#">Samsung</a>
-                    <a class="nav-link active" href="#">Telefonía</a>
-                    <a class="nav-link active" href="#">Energía</a>
-                    <a class="nav-link active" href="#">Tarifas y Operadores</a>
-                    <a class="nav-link active" href="#">Móviles gratis</a>
-                    <a class="nav-link active" href="#">Ofertas 24h</a>
-                    <a class="nav-link active" href="#">EnvÍo GRATIS</a>
-                </nav>
+                    </button>
+                    <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <ul class="navbar-nav d-flex flex-row ms-5">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                            </svg>
+                            <span class="position-relative translate-middle badge rounded-pill" style="background-color: #d735cd;">
+                                0
+                                <span class="visually-hidden">productos en el carro</span>
+                            </span>
+                        </a>
+                    </li>
+                  </ul>
             </div>
-            <nav class="navbar-nav d-flex flex-row d-none d-lg-flex flex-grow-0 flex-shrink-0 px-3">
-                <a class="nav-link active" href="#">Compra segura</a>
-                <a class="nav-link active" href="#">¿Necesitas ayuda?</a>
-            </nav>
-            <form class="bg-light d-flex d-lg-none flex-grow-1" style="flex-basis: 100%;">
-                <button class="btn btn-light border-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark py-0" style="background-color: #00254b;">
+            <div class="container-xxl flex-nowrap px-0">
+                <button class="boton-rosa btn flex-grow-1 flex-lg-grow-0 flex-lg-shrink-0 border-0 text-start pb-2 pt-lg-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                     </svg>
+                    Todo
                 </button>
-                <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
-            </form>
-        </div>
-    </nav>
+                <div class="overflow-hidden flex-grow-1 flex-shrink-1">
+                    <nav class="position-relative navbar-nav d-none d-lg-flex" style="width: 1000px !important;">
+                        <a class="nav-link active" href="#">Apple</a>
+                        <a class="nav-link active" href="#">Samsung</a>
+                        <a class="nav-link active" href="#">Telefonía</a>
+                        <a class="nav-link active" href="#">Energía</a>
+                        <a class="nav-link active" href="#">Tarifas y Operadores</a>
+                        <a class="nav-link active" href="#">Móviles gratis</a>
+                        <a class="nav-link active" href="#">Ofertas 24h</a>
+                        <a class="nav-link active" href="#">EnvÍo GRATIS</a>
+                    </nav>
+                </div>
+                <nav class="navbar-nav d-flex flex-row d-none d-lg-flex flex-grow-0 flex-shrink-0 px-3">
+                    <a class="nav-link active" href="#">Compra segura</a>
+                    <a class="nav-link active" href="#">¿Necesitas ayuda?</a>
+                </nav>
+                <form class="bg-light d-flex d-lg-none flex-grow-1" style="flex-basis: 100%;">
+                    <button class="btn btn-light border-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                    <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
+        </nav>
+    </header>
     <div class="container-xxl" style="background-color: #f2f2f2;">
         <div class="row">
             <div class="col px-0">
