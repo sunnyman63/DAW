@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 463 370" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Mesa-de-trabajo2" serif:id="Mesa de trabajo2" transform="matrix(1,0,0,1,-276.248,-179.276)">
+        <rect x="276.248" y="179.276" width="462.486" height="369.12" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="276.248" y="179.276" width="462.486" height="369.12"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1.23253,-0.565361,-0.595258,-1.25871,33.6501,307.317)">
+                <g id="Mesa-de-trabajo1" serif:id="Mesa de trabajo1">
+                    <g>
+                        <path d="M675.384,-181.073C675.384,-181.073 518.772,-120.934 366.19,-102.831C213.608,-84.727 125.323,31.322 62.57,127.322C4.375,216.351 -152.964,195.628 -162.527,108.322C-172.091,21.016 -84.412,-117.942 -316.082,-212.247C-547.752,-306.553 -269.632,-668.452 -73.371,-395.599C61.64,-192.479 167.205,-186.065 283.906,-192.617C407.662,-199.565 455.745,-292.026 626.162,-322.918C627.561,-323.171 503.861,-500.546 553.58,-461.276C692.455,-351.589 675.384,-181.073 675.384,-181.073Z" style="fill:url(#_Radial2);"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-608.021,-520.42,195.265,-228.134,322.37,2.00717)"><stop offset="0" style="stop-color:rgb(215,53,205);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(235,140,0);stop-opacity:1"/></radialGradient>
+    </defs>
+</svg>

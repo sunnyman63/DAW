@@ -9,12 +9,12 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar justify-content-start navbar-expand-lg navbar-dark" style="background-color: #00254b;">
-        <div class="container">
+    <nav class="navbar navbar-dark" style="background-color: #00254b;">
+        <div class="container-xxl">
             <a class="navbar-brand" href="#">
-                <img src="./img/logo-ph-blanco.png" alt="logo" height="45px">
+                <img src="./img/logo-ph-blanco.png" alt="logo" height="30px">
             </a>
-            <form class="d-flex bg-light rounded-pill float-start d-none d-lg-flex" style="width: 500px;">
+            <form class="navbar-collapse bg-light rounded-pill d-none d-lg-flex me-5" style="width: 500px !important; flex-basis: 0;">
                 <button class="btn btn-light rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -22,7 +22,7 @@
                 </button>
                 <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
             </form>
-            <ul class="navbar-nav d-flex flex-row">
+            <ul class="navbar-nav d-flex flex-row ms-5">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
@@ -52,16 +52,16 @@
               </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00254b;">
-        <div class="container">
-            <button class="btn pe-5" style="background-color: #d735cd;">
+    <nav class="navbar navbar-expand-lg navbar-dark py-0" style="background-color: #00254b;">
+        <div class="container-xxl flex-nowrap px-0">
+            <button class="boton-rosa btn flex-grow-1 flex-lg-grow-0 flex-lg-shrink-0 border-0 text-start pb-2 pt-lg-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                 </svg>
                 Todo
             </button>
-            <div class="float-start overflow-hidden">
-                <nav class="position-relative navbar-nav d-none d-lg-flex">
+            <div class="overflow-hidden flex-grow-1 flex-shrink-1">
+                <nav class="position-relative navbar-nav d-none d-lg-flex" style="width: 1000px !important;">
                     <a class="nav-link active" href="#">Apple</a>
                     <a class="nav-link active" href="#">Samsung</a>
                     <a class="nav-link active" href="#">Telefonía</a>
@@ -72,27 +72,34 @@
                     <a class="nav-link active" href="#">EnvÍo GRATIS</a>
                 </nav>
             </div>
-            <nav class="navbar-nav d-flex flex-row d-none d-lg-flex">
+            <nav class="navbar-nav d-flex flex-row d-none d-lg-flex flex-grow-0 flex-shrink-0 px-3">
                 <a class="nav-link active" href="#">Compra segura</a>
                 <a class="nav-link active" href="#">¿Necesitas ayuda?</a>
             </nav>
-            
+            <form class="bg-light d-flex d-lg-none flex-grow-1" style="flex-basis: 100%;">
+                <button class="btn btn-light border-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+                <input class="form-control me-4 border-light" type="search" placeholder="Search" aria-label="Search">
+            </form>
         </div>
     </nav>
-    <div class="container">
+    <div class="container-xxl" style="background-color: #f2f2f2;">
         <div class="row">
-            <div class="col">
+            <div class="col px-0">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
+                      <a href="#" class="carousel-item active"  data-bs-interval="10000">
                         <img src="./img/F88A413C7161A8D3583C7A2472B3F861.avif" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
+                      </a>
+                      <a href="#" class="carousel-item" data-bs-interval="10000">
                         <img src="./img/DF23606524AF7CDF10D335161B297088.avif" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
+                      </a>
+                      <a href="#" class="carousel-item" data-bs-interval="10000">
                         <img src="./img/23C60AF6424DCD979547D7D5963E3AE2.avif" class="d-block w-100" alt="...">
-                      </div>
+                      </a>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -109,6 +116,301 @@
             <div class="col">
                 <p class="h5 my-4">Tienda de Móviles, Tarifas, Informática, Tecnología online y servicios para las personas y el hogar.</p>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-3 p-4">
+                <a href="#" class="h4 link-dark text-decoration-none">Ofertas destacadas en Móviles</a>
+                <button class="d-none d-lg-block btn btn-outline-secondary my-5 px-5 py-3 rounded-pill text-primary">Ver más</button>
+            </div>
+            <div class="col-12 col-lg-9 py-3">
+                <div class="row g-3">
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                                <label class="bg-dark text-light float-end rounded-2 px-2">PRECOMPRA</label>
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/23C60AF6424DCD979547D7D5963E3AE2.avif" alt="movil1">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center justify-content-start">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Samsung Galaxy S22 Ultra 256GB+12GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">1359€</a>
+                                </div>
+                              <span class="bolas rounded-circle mt-2" style="background-color: #9e0505;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="">
+                                <label class="bg-dark text-light float-end rounded-2 px-2">PRECOMPRA</label>
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1388667-4309718.avif" alt="movil2">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Samsung Galaxy S22+ 256GB+8GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">1109€</a>
+                                </div>
+                                <span class="bolas rounded-circle mt-2 bg-dark"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1382490-4213884.avif" alt="movil3">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Xiaomi 11 Lite 5G NE 128GB+8GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 mb-0 link-primary text-decoration-none stretched-link">329€</a>
+                                    <small class="text-secondary text-decoration-line-through">399€</small>
+                                    <label class="bg-warning px-1">-70€</label>
+                                </div>
+                              <span class="bolas rounded-circle mt-2" style="background-color: #000;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1064294-3188132.avif" alt="movil4">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Samsung Galaxy A12 64GB+4GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">149€</a>
+                                    <small class="text-secondary text-decoration-line-through">179€</small>
+                                    <label class="bg-warning px-1">-30€</label>
+                                </div>
+                                <span class="bolas rounded-circle mt-2" style="background-color: #000;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1074897-3304114.avif" alt="movil5">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Samsung Galaxy A32 5G 128GB+4GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">255€</a>
+                                    <small class="text-secondary text-decoration-line-through">299€</small>
+                                    <label class="bg-warning px-1">-44€</label>
+                                </div>
+                                <span class="bolas rounded-circle mt-2" style="background-color: #000;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1347823-4181580.avif" alt="movil6">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Vivo Y20s 128GB+4GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">149€</a>
+                                    <small class="text-secondary text-decoration-line-through">179€</small>
+                                    <label class="bg-warning px-1">-30€</label>
+                                </div>
+                                <span class="bolas rounded-circle mt-2" style="background-color: #000;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1074914-3891974.avif" alt="movil7">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>ZTE Blade A51 32GB+2GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">79€</a>
+                                    <small class="text-secondary text-decoration-line-through">109€</small>
+                                    <label class="bg-warning px-1">-30€</label>
+                                </div>
+                                <span class="bolas rounded-circle mt-2" style="background-color: #00f;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-3 px-2">
+                        <div class="card border-0">
+                            <div class="precompra">
+                            </div>
+                            <div class="card-img-top d-flex justify-content-center mt-3">
+                                <img src="./img/moviles/1074897-3304114.avif" alt="movil8">
+                            </div>
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                                <span class="card-text mb-3 text-truncate">
+                                    <span>Samsung Galaxy A32 128GB+4GB RAM</span>
+                                </span>
+                                <div style="height: 54px;">
+                                    <a href="#" class="h4 link-primary text-decoration-none stretched-link">239€</a>
+                                    <small class="text-secondary text-decoration-line-through">279€</small>
+                                    <label class="bg-warning px-1">-40€</label>
+                                </div>
+                                <span class="bolas rounded-circle mt-2" style="background-color: #000;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-12 d-flex justify-content-center d-lg-none">
+                <button class="btn btn-outline-secondary my-4 px-5 py-3 rounded-pill text-primary">Ver más</button>
+            </div>
+        </div>
+    </div>
+    <div class="playfulness container-xxl bg-light py-5">
+        <h2 class="text-center">Di hola al Playfulness</h2>
+        <div id="carouselExampleControls2" class="carousel slide d-block d-sm-none px-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <a href="#" class="carousel-item active">
+                    <img class="d-block" src="./img/btnsGrandes/6ADE94ABDA518C27E28D12F95BE36999.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+                <a href="#" class="carousel-item ">
+                    <img class="d-block" src="./img/btnsGrandes/39A95C190214CFA6B3ABB816AA40A9C6.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+                <a href="#" class="carousel-item">
+                    <img class="d-block" src="./img/btnsGrandes/BC8B6831B14A9A5AB85F384CC343A722.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <div class="row mt-4 d-none d-sm-flex">
+            <div class="col d-flex justify-content-center p-3">
+                <a href="#">
+                    <img src="./img/btnsGrandes/6ADE94ABDA518C27E28D12F95BE36999.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+            </div>
+            <div class="col d-flex justify-content-center p-3">
+                <a href="#">
+                    <img src="./img/btnsGrandes/39A95C190214CFA6B3ABB816AA40A9C6.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+            </div>
+            <div class="col d-flex justify-content-center p-3">
+                <a href="#">
+                    <img src="./img/btnsGrandes/BC8B6831B14A9A5AB85F384CC343A722.png" width="100%" alt="Tecnologia para tu casa">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl">
+        <div class="row">
+            <div class="tarifasLuz col col-sm-6 px-0 px-4 py-4">
+                <div class="logosInfobox d-flex">
+                    <a class="d-flex align-items-center" href="#">
+                        <img class="w-100" src="./img/alterna.svg" alt="alterna">
+                    </a>
+                    <a href="#">
+                        <img class="w-100" src="./img/luzdostres.png" alt="luzdostres">
+                    </a>
+                </div>
+                <div>
+                    <h2>Dale luz a tu House con nuestras tarifas</h2>
+                    <p>Tarifas de luz y gas con el precio minimo de mercado y las mejores ventajas</p>
+                </div>
+                <div class="d-flex justify-content-center justify-content-sm-start">
+                    <button class="btn btn-outline-secondary my-5 px-4 py-3 rounded-pill text-primary"><small>Conoce nuestras tarifas de luz</small></button>
+                </div>
+            </div>
+            <div class="col-6 d-none d-sm-flex px-0 align-items-start">
+                <img class="w-100" src="./img/infobox-image2.png" alt="tarifas de la luz">
+            </div>
+        </div>
+        <div class="row bg-light p-3 mb-4">
+            <div class="col">
+                <h3>Marcas destacadas</h3>
+                <div class="d-flex flex-wrap justify-content-start g-2">
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/apple.png" alt="Apple">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/samsung.png" alt="Samsung">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/xiaomi.png" alt="Xiaomi">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/vivo.png" alt="Vivo">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/zte.png" alt="ZTE">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/oppo.png" alt="Oppo">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/realme.png" alt="Realme">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/alcatel.png" alt="Alcatel">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/huawei.png" alt="Huawei">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/lg.png" alt="LG">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/sony.png" alt="Sony">
+                    </a>
+                    <a href="#" class="marcas mx-1 border border-secondary d-flex align-items-center mt-2">
+                        <img class="w-100" src="./img/marcas/telefunken.png" alt="Telefunken">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #00254b;">
+        <div class="container-xxl text-light">
+            <div class="row p-3">
+                <div class="col-12 col-md text-center text-md-start">
+                    <p class="mb-1"><small>© 2014-22 The Phone House Spain S.L. Todos los derechos reservados. </small></p>
+                    <a href="#"><small>Condiciones generales</small></a>
+                    <a href="#"><small>Gestionar las preferencias</small></a>
+                </div>
+                <div class="col-12 col-md d-flex justify-content-between justify-content-md-end align-items-end mt-3 mt-md-0">
+                    <img class="mx-2" src="./img/logo-phonehouse.svg" width="110px" alt="PhoneHouse">
+                    <img class="mx-2" src="./img/logo_dominion_blanco.png" alt="Dominion">
+                </div>
+            </div>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
