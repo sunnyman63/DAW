@@ -1,0 +1,22 @@
+body {
+    background-color: #d6d6d6;
+}
+
+.btnPortafolio {
+    background-color: #46ACDC;
+}
+.btnAcerca {
+    background-color: #07597F;
+}
+
+.btnContacto {
+    background-color: #043A52;
+}
+
+.progress {
+    background-color: #043A52;
+}
+
+.progress-bar {
+    background-color: #46ACDC;
+}
