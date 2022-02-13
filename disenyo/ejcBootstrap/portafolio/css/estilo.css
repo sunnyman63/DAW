@@ -20,3 +20,31 @@ body {
 .progress-bar {
     background-color: #46ACDC;
 }
+
+.formulario {
+    max-width: 720px;
+}
+
+.formulario textarea {
+    height: 100px !important;
+}
+
+.formulario button {
+    background-color: #46ACDC;
+}
+
+.twitter {
+    background-color: #46ACDC;
+}
+
+.instagram {
+    background-color: #361050;
+}
+
+.facebook {
+    background-color: #043A52;
+}
+
+#portafolio a:hover {
+    background-image: linear-gradient(to right, #46ACDC, transparent);
+}

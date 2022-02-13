@@ -18,20 +18,20 @@
                         <label class="fw-bold">MI NOMBRE</label>
                         <label class="text-secondary"> · Desarrollador Web</label>
                     </div>
-                    <div class="col-12 col-lg-4 bg-success d-flex flex-column text-white">
+                    <div class="col-12 col-lg-4 bg-success d-flex flex-column">
                         <div class="row flex-fill">
-                            <div class="btnPortafolio col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
+                            <a href="#portafolio" class="btnPortafolio text-decoration-none link-light col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
                                 <span class="mt-sm-1">Portafolio</span>
                                 <i class="bi bi-briefcase-fill mb-sm-1"></i>
-                            </div>
-                            <div class="btnAcerca col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
+                            </a>
+                            <a href="#acerca" class="btnAcerca text-decoration-none link-light col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
                                 <span class="mt-sm-1">Acerca de</span>
                                 <i class="bi bi-person-fill mb-sm-1"></i>
-                            </div>
-                            <div class="btnContacto col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
+                            </a>
+                            <a href="#contacto" class="btnContacto text-decoration-none link-light col-12 col-sm-4 d-flex flex-column align-items-center justify-content-center py-sm-2">
                                 <span class="mt-sm-1">Contacto</span>
                                 <i class="bi bi-envelope-fill mb-sm-1"></i>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -67,39 +67,88 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4 border-top border-info border-5">
+        <div id="portafolio" class="row mt-4 border-top border-info border-5">
             <div class="col bg-white">
                 <div class="row">
                     <h1 class="col py-5 fw-light text-info text-center">Portafolio</h1>
                 </div>
                 <div class="row px-4 pb-4 g-4 justify-content-center">
-                    <div class="col-6 col-lg-4 order-first">
+                    <a class="col-6 col-lg-4 order-first" role="button" data-bs-toggle="modal" data-bs-target="#modal1">
                         <img class="w-100" src="./img/img-1.jpg" alt="imagen1">
+                    </a>
+                    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-1.jpg" alt="imagen1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-8 order-1 order-lg-0 d-flex align-items-stretch">
+                    <a class="col-12 col-lg-8 order-1 order-lg-0 d-flex align-items-stretch"  role="button" data-bs-toggle="modal" data-bs-target="#modal2">
                         <img class="w-100" src="./img/img-2.jpg" alt="imagen2">
+                    </a>
+                    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-2.jpg" alt="imagen2">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-8 order-4 order-lg-1 d-flex align-items-stretch">
+                    <a class="col-12 col-lg-8 order-4 order-lg-1 d-flex align-items-stretch"  role="button" data-bs-toggle="modal" data-bs-target="#modal3">
                         <img class="w-100" src="./img/img-3.jpg" alt="imagen3">
+                    </a>
+                    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-3.jpg" alt="imagen3">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 col-lg-4 order-0 order-lg-2">
+                    <a class="col-6 col-lg-4 order-0 order-lg-2"  role="button" data-bs-toggle="modal" data-bs-target="#modal4">
                         <img class="w-100" src="./img/img-4.jpg" alt="imagen4">
+                    </a>
+                    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-4.jpg" alt="imagen4">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 col-lg-4 order-3 order-lg-3">
+                    <a class="col-6 col-lg-4 order-3 order-lg-3" role="button" data-bs-toggle="modal" data-bs-target="#modal5">
                         <img class="w-100" src="./img/img-5.jpg" alt="imagen5">
+                    </a>
+                    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-5.jpg" alt="imagen5">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 col-lg-4 order-2 order-lg-4">
+                    <a class="col-6 col-lg-4 order-2 order-lg-4" role="button" data-bs-toggle="modal" data-bs-target="#modal6">
                         <img class="w-100" src="./img/img-6.jpg" alt="imagen6">
+                    </a>
+                    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-6.jpg" alt="imagen6">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 col-lg-4 order-5">
+                    <a class="col-6 col-lg-4 order-5" role="button" data-bs-toggle="modal" data-bs-target="#modal7">
                         <img class="w-100" src="./img/img-7.jpg" alt="imagen7">
+                    </a>
+                    <div class="modal fade" id="modal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <img class="w-100" src="./img/img-7.jpg" alt="imagen7">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row my-5">
             <div class="col">
-                <div class="row">
+                <div id="acerca" class="row my-5">
                     <div class="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                         <img class="rounded-circle" src="./img/foto.jpg" alt="foto de perfil">
                         <h6 class="text-secondary mt-4">Mi Nombre</h6>
@@ -129,13 +178,49 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col">
-                        
+                <div id="contacto" class="row my-5">
+                    <div class="col d-flex flex-column align-items-center justify-content-center">
+                        <h1 class="text-info fw-light text-center">Contacto</h1>
+                        <form action="#" class="row formulario g-3" method="post">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre">
+                                    <label for="floatingNombre">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingCorreo" placeholder="Correo">
+                                    <label for="floatingCorreo">Correo</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Comentarios" id="floatingComentarios"></textarea>
+                                    <label for="floatingComentarios">Comentarios</label>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <button class="btn px-3" type="submit">Enviar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class="row mb-5">
+            <div class="col d-flex justify-content-center">
+                <a href="#" class="twitter link-light display-5 mx-3 p-4 rounded-circle">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="instagram link-light display-5 mx-3 p-4 rounded-circle">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="facebook link-light display-5 mx-3 p-4 rounded-circle">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
