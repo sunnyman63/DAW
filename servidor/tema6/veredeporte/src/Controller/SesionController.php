@@ -26,7 +26,7 @@ class SesionController extends AbstractController
      */
     public function inicio(): Response {
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_ANONYMOUSLY');
+        $this->denyAccessUnlessGranted('PUBLIC_ACCESS');
 
         return $this->render('index.html.twig', [
             'controller_name' => 'SesionController',

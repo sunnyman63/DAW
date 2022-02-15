@@ -51,5 +51,5 @@ when@test:
                 time_cost: 3 # Lowest possible value for argon
                 memory_cost: 10 # Lowest possible value for argon
         role_hierarchy:
-            ROLE_USER: IS_AUTHENTICATED_ANONYMOUSLY
+            ROLE_USER: PUBLIC_ACCESS
             ROLE_ADMIN: ROLE_USER
