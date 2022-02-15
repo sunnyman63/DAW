@@ -1,0 +1,37 @@
+.menu {
+    width: 350px !important;
+    display: none !important;
+}
+
+.formu > div >textarea {
+    min-height: 300px;
+    max-height: 600px;
+}
+
+.formu > div > button {
+    width: 150px;
+}
+
+@media (max-width: 576px) {
+    .menuCerrado {
+        width: 100% !important;
+        height: auto;
+    }
+}
+
+@media (min-width: 576px) {
+    .menucerrado {
+        display: block;
+        max-width: 72px !important;
+    }
+}
+
+@media (min-width: 1300px) {
+    .menu {
+        display: flex !important;
+    }
+
+    .menuCerrado {
+        display: none !important;
+    }
+}
