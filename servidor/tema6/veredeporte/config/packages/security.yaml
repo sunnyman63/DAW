@@ -52,4 +52,5 @@ when@test:
                 memory_cost: 10 # Lowest possible value for argon
         role_hierarchy:
             ROLE_USER: PUBLIC_ACCESS
+            ROLE_CAPITAN: ROLE_USER
             ROLE_ADMIN: ROLE_USER
