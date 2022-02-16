@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Usuario;
+use App\Entity\Equipo;
 
 class EquipoController extends AbstractController
 {
@@ -15,9 +17,10 @@ class EquipoController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        return $this->render('equipo/index.html.twig', [
+        return $this->render('equipo/equipo.html.twig', [
             'controller_name' => 'EquipoController',
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            //'equipo' => $ $this->getUser()->getEquipo()
         ]);
     }
 }

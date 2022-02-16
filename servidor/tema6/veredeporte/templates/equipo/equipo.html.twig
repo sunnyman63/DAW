@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ path('app_inicio') }}">Home</a>
+    </li>  
+    <li class="nav-item">
+        <a class="nav-link active" href="{{ path('app_equipo') }}">Equipo</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Ligas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Proximos Partidos</a>
+    </li>
+
+{% endblock %}
+{% block main %}
+
+    {% if user.equipo %}
+        <h3 class="text-uppercase fw-bold my-3">Equipo {{ user.equipo.nombre }}</h3>
+        <h6 class="fw-bold text-success">PLANTILLA</h6>
+        <div class="d-flex flex-column border border-1 border-success rounded-2" style="min-height: 200px;">
+            {% for jugador in user.equipo.jugadores %}
+                <div class="p-2 border border-top-0 border-start-0 border-end-0 border-bottom-1 border-secondary d-flex align-items-center">
+                <img src="{{asset('img/usuario.png')}}" width="50px" class="rounded-circle border border-1 border-secondary">
+                <span class="ms-3 text-capitalize">{{ jugador.nombre }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="border border-secondary border-1 rounded-3 p-3">
+            <h5 class="fw-bold">!Vaya...</h5>
+            <p class="mb-0">Parece que todavia no te has unido a ningún equipo...</p>
+        </div>
+        <div class="py-4 row gx-0 ">
+            <a href="#" class="col btn btn-outline-success me-1"><i class="bi bi-box-arrow-in-up-right"></i> Unirse a un equipo</a>
+            <a href="#" class="col btn btn-outline-success ms-1"><i class="bi bi-plus-circle"></i> Crear un equipo</a>
+        </div>
+    {% endif %}
+
+
+{% endblock %}
