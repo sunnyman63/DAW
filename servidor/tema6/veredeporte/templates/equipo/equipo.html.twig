@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Veredeporte - Equipo{% endblock %}
+
 {% block nav %}
 
     <li class="nav-item">
@@ -35,7 +37,7 @@
             <p class="mb-0">Parece que todavia no te has unido a ningún equipo...</p>
         </div>
         <div class="py-4 row gx-0 ">
-            <a href="#" class="col btn btn-outline-success me-1"><i class="bi bi-box-arrow-in-up-right"></i> Unirse a un equipo</a>
+            <a href="{{ path('app_buscar_equipo') }}" class="col btn btn-outline-success me-1"><i class="bi bi-box-arrow-in-up-right"></i> Unirse a un equipo</a>
             <a href="#" class="col btn btn-outline-success ms-1"><i class="bi bi-plus-circle"></i> Crear un equipo</a>
         </div>
     {% endif %}

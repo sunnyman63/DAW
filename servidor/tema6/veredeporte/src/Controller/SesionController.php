@@ -52,25 +52,47 @@ class SesionController extends AbstractController
     public function registro(UserPasswordHasherInterface $passwordHasher, Request $request, EntityManagerInterface $em): Response {
 
         $user = new Usuario();
-
+        $err = "";
         $form = $this->createForm(RegistroType::class,$user);
         $form->handleRequest($request);
         if( $form->isSubmitted() && $form->isValid()) {
-            $a = ['ROLE_USER'];
-            $user->setRoles($a);
-            $hashedPassword = $passwordHasher->hashPassword($user,$form->get("password")->getData());
-            $user->setPassword($hashedPassword);
-            try {
-                $em->persist($user);
-                $em->flush();
-            } catch(\Exception $e) {
-                return new Response("Esto ha petado");
+            $pass1 = $form->get("password")->getData();
+            $pass2 = $form->get("password2")->getData();
+            if(strcmp($pass1,$pass2) == 0) {
+                $a = ['ROLE_USER'];
+                $user->setRoles($a);
+                $hashedPassword = $passwordHasher->hashPassword($user,$form->get("password")->getData());
+                $user->setPassword($hashedPassword);
+                try {
+                    $em->persist($user);
+                    $em->flush();
+                } catch(\Exception $e) {
+                    if(str_contains($e,"SQLSTATE[23000]")) {
+                        $err = "Ya existe una cuenta con ese correo.";
+                    } else {
+                        $err = "Error del servidor.";
+                    }
+                    return $this->render('sesion/register.html.twig', [
+                        'controller_name' => 'SesionController',
+                        'form' => $form->createView(),
+                        'error' => $err,
+                    ]);
+                }
+                return $this->redirectToRoute('app_login');
+            } else {
+                $err = "Las contraseñas no coinciden.";
+                return $this->render('sesion/register.html.twig', [
+                    'controller_name' => 'SesionController',
+                    'form' => $form->createView(),
+                    'error' => $err,
+                ]);
             }
-            return $this->redirectToRoute('app_login');
+            
         }
         return $this->render('sesion/register.html.twig', [
             'controller_name' => 'SesionController',
             'form' => $form->createView(),
+            'error' => $err
         ]);
     }
     /**

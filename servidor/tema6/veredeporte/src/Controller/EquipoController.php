@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use App\Entity\Equipo;
+use Doctrine\ORM\EntityManagerInterface;
 
 class EquipoController extends AbstractController
 {
@@ -20,7 +21,18 @@ class EquipoController extends AbstractController
         return $this->render('equipo/equipo.html.twig', [
             'controller_name' => 'EquipoController',
             'user' => $this->getUser(),
-            //'equipo' => $ $this->getUser()->getEquipo()
+        ]);
+    }
+
+    /**
+     * @Route("/equipo/buscar", name="app_buscar_equipo")
+     */
+    public function listarEquipos(EntityManagerInterface $em) {
+        $equipos = $em->getRepository(Equipo::class)->findAll();
+        return $this->render('equipo/listaEquipos.html.twig', [
+            'controller_name' => 'EquipoController',
+            'user' => $this->getUser(),
+            'equipos' => $equipos,
         ]);
     }
 }
