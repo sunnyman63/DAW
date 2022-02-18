@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <p>{{ dato }}</p>
+    <p>{{ dump(solicitudes) }}</p>
+    {% for solicitud in solicitudes %}
+        <p>{{ dump(solicitud) }}</p>
+    {% endfor %}
+    
 {% endblock %}

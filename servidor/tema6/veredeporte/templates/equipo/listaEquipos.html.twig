@@ -16,12 +16,18 @@
                         <span class="text-secondary small text-uppercase">{{ equipo.tipo }}</span>
                     </div>
                     <div class="ms-auto">
-                        <a class="btn btn-outline-success" href="{{ path('app_solicitar_unirse'~'/holi') }}">Solicitar Unirse</a>
+                        {% if equipo in solicitudes %}
+                            <a class="btn btn-outline-success disabled" href="{{ path('app_solicitar_unirse',{id: equipo.id}) }}">Solicitar Unirse</a>
+                        {% else %}
+                            <a class="btn btn-outline-success" href="{{ path('app_solicitar_unirse',{id: equipo.id}) }}">Solicitar Unirse</a>
+                        {% endif %}
                     </div>
                     <hr class="my-2 mb-0 w-100">
                 </div>
             {% endfor %}
         {% else %}
+            <h5 class="fw-bold ms-3 mt-3">!Vaya...</h5>
+            <p class="mb-0 ms-3">Parece que todavia no te has unido a ningún equipo...</p>
         {% endif %}
     </div>
 
