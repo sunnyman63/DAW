@@ -54,6 +54,11 @@ class Equipo
      */
     private $partidos_visitante;
 
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $tipo;
+
     public function __construct()
     {
         $this->jugadores = new ArrayCollection();
@@ -232,6 +237,18 @@ class Equipo
                 $partidosVisitante->setVisitante(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTipo(): ?string
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo(string $tipo): self
+    {
+        $this->tipo = $tipo;
 
         return $this;
     }

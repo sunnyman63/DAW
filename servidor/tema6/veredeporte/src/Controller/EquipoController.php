@@ -27,12 +27,23 @@ class EquipoController extends AbstractController
     /**
      * @Route("/equipo/buscar", name="app_buscar_equipo")
      */
-    public function listarEquipos(EntityManagerInterface $em) {
+    public function listarEquipos(EntityManagerInterface $em): Response {
         $equipos = $em->getRepository(Equipo::class)->findAll();
         return $this->render('equipo/listaEquipos.html.twig', [
             'controller_name' => 'EquipoController',
             'user' => $this->getUser(),
             'equipos' => $equipos,
+        ]);
+    }
+
+    /**
+     * @Route("/equipo/solicitar/{id}", name="app_solicitar_unirse")
+     */
+    public function solicitarUnirse($id): Response {
+        return $this->render('equipo/listaEquipos.html.twig', [
+            'controller_name' => 'EquipoController',
+            'user' => $this->getUser(),
+            'dato' => $id,
         ]);
     }
 }
