@@ -4,6 +4,21 @@
 
 {% block main %}
 
+    {% if error %}
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Server</strong>
+                    <small>Ahora</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-danger">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <h3>Listado de equipos</h3>
     <div class="mt-3 d-flex flex-column card" style="min-height: 100px;">
         {% if equipos %}
@@ -27,7 +42,7 @@
             {% endfor %}
         {% else %}
             <h5 class="fw-bold ms-3 mt-3">!Vaya...</h5>
-            <p class="mb-0 ms-3">Parece que todavia no te has unido a ningún equipo...</p>
+            <p class="mb-0 ms-3">Parece que no existen equipos...</p>
         {% endif %}
     </div>
 

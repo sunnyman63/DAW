@@ -20,14 +20,47 @@
 {% endblock %}
 {% block main %}
 
+    {% if error %}
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Server</strong>
+                    <small>Ahora</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-danger">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     {% if user.equipo %}
-        <h3 class="text-uppercase fw-bold my-3">Equipo {{ user.equipo.nombre }}</h3>
+        <div class="d-flex my-3">
+            <h3 class="text-uppercase fw-bold">Equipo {{ user.equipo.nombre }}</h3>
+            <a href="{{ path('app_dejar_equipo') }}" class="btn btn-outline-danger ms-auto">
+                {% if is_granted("ROLE_CAPITAN") %}
+                    Disolver Equipo
+                {% else %}
+                    Dejar Equipo
+                {% endif %}
+            </a>
+        </div>
         <h6 class="fw-bold text-success">PLANTILLA</h6>
         <div class="d-flex flex-column border border-1 border-success rounded-2" style="min-height: 200px;">
             {% for jugador in user.equipo.jugadores %}
                 <div class="p-2 border border-top-0 border-start-0 border-end-0 border-bottom-1 border-secondary d-flex align-items-center">
                 <img src="{{asset('img/usuario.png')}}" width="50px" class="rounded-circle border border-1 border-secondary">
                 <span class="ms-3 text-capitalize">{{ jugador.nombre }}</span>
+                {% if user.id == jugador.id %}
+                    <small class=" ms-2 small text-secondary">(Tu)</small>
+                {% endif %}
+                {% if is_granted("ROLE_CAPITAN") and user.id != jugador.id %}
+                    <a class="ms-auto btn btn-outline-danger" href="{{ path('app_expulsar_jugador',{id: jugador.id}) }}"><i class="bi bi-x-circle"> Expulsar</i></a>
+                {% endif %}
+                {% if "ROLE_CAPITAN" in jugador.roles %}
+                    <span class=" ms-auto me-3 text-secondary">CAPITÁN</span>
+                {% endif %}
                 </div>
             {% endfor %}
         </div>
@@ -54,8 +87,8 @@
                             <span class="ms-3 text-capitalize">{{ solicitud.nombre }}</span>
                         </div>
                         <div class="ms-auto">
-                        <a class="btn btn-outline-success" href="{{ path('app_cancelar_solicitud',{id: solicitud.id}) }}"><i class="bi bi-check-circle"></i></a>
-                            <a class="btn btn-outline-danger" href="{{ path('app_cancelar_solicitud',{id: solicitud.id}) }}"><i class="bi bi-x-circle"></i></a>
+                        <a class="btn btn-outline-success" href="{{ path('app_aceptar_solicitud',{id: solicitud.id}) }}"><i class="bi bi-check-circle"></i></a>
+                        <a class="btn btn-outline-danger" href="{{ path('app_denegar_solicitud',{id: solicitud.id}) }}"><i class="bi bi-x-circle"></i></a>
                         </div>
                         <hr class="my-2 mb-0 w-100">
                     </div> 

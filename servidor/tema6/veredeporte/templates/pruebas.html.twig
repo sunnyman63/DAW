@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <p>{{ dump(solicitudes) }}</p>
-    {% for solicitud in solicitudes %}
-        <p>{{ dump(solicitud) }}</p>
-    {% endfor %}
+    <p>{{ dump(jugadores) }}</p>
+    <p>{{ dump(user) }}</p>
+    {# <script>console.log({{ jugadores }})</script> #}
     
 {% endblock %}
