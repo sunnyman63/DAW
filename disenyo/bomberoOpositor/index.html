@@ -5,12 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/estilo.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Bombero Opositor</title>
 </head>
 <body>
-    <div class="bombero">
-        <img class="personaje" src="./img/personaje.png" alt="personaje">
+    <div class="todo">
+        <div class="container">
+            <div class="edificio" id="edificio">
+                <div class="inicio">
+                    <div class="menu">
+                        <div class="pautas">
+                            <div>
+                                <span class="tecla">Barra espaciadora</span><span>para disparar.</span>
+                            </div>
+                            <div>
+                                <span class="tecla">&larr;</span><span class="tecla">&rarr;</span><span>para moverse.</span>
+                            </div>
+                        </div>
+                        <div class="boton">
+                            <button id="boton">JUGAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bombero" id="bombero"></div>
+            </div>
+            <div class="suelo"></div>   
+        </div>
+        <div class="scoreboard">
+            <div class="vidas">
+                <img src="./img/corazon.png" alt="vidas" height="50px">
+                &times; <span id="numVidas">3</span>
+            </div>
+            <hr>
+            <div class="puntos">
+                <span id="pts">0</span> pts
+            </div>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>

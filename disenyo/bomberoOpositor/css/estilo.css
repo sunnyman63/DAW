@@ -1,24 +1,140 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #05052e;
+}
+
+.todo {
+    display: flex;
+}
+
+.container {
+    width: 1000px;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edificio {
+    background-image: url("../img/edificio.png");
+    flex: 1 0 auto;
+    min-height: 875px;
+}
+
+.persona {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+}
+
+.persona0 { top: 140px; left: 10px; }
+.persona1 { top: 140px; left: 200px; }
+.persona2 { top: 140px; left: 390px; }
+.persona3 { top: 140px; left: 580px; }
+.persona4 { top: 140px; left: 770px; }
+.persona5 { top: 390px; left: 10px; }
+.persona6 { top: 390px; left: 200px; }
+.persona7 { top: 390px; left: 390px; }
+.persona8 { top: 390px; left: 580px; }
+.persona9 { top: 390px; left: 770px; }
+
 .bombero {
+    position: absolute;
+    z-index: 0;
+    top: 680px;
+    left: 450px;
     height: 200px;
     width: 100px;
-    overflow: hidden;
+    background-image: url("../img/bombero.png");
+    background-size: cover;
 }
 
-.personaje {
+.suelo {
+    height: 25px;
+    background-color: grey;
+    flex: 0 0 auto;
+}
+
+.inicio {
+    height: 875px;
+    width: 100%;
     position: relative;
-    
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes idle {
-    0% {left: 0px;}
-    20% {left: -100px;}
-    40% {left: -200px;}
-    60% {left: -300px;}
-    80% {left: -400px;}
-    100% {left: 0px;}
+.inicio > .menu {
+    background-color: #aaa;
+    padding: 20px;
+    border: 5px #333 solid;
+    border-radius: 10px;
+}
+
+.inicio > .menu > .pautas > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.inicio > .menu > .pautas > div > * {
+    margin: 5px;
+}
+
+.inicio > .menu > .pautas > div > .tecla {
+    color: #fff;
+    background-color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.inicio > .menu > .boton {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.inicio > .menu > .boton > * {
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #333;
+    padding: 5px 20px;
+    border: 1px #333 solid;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.inicio > .menu > .boton > *:hover {
+    box-shadow: 2px 2px 10px 2px #000;
+}
+
+.scoreboard {
+    padding: 30px;
+    color: #fff;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreboard {
+    font-size: 50px;
+}
+
+.scoreboard > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
