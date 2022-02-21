@@ -30,7 +30,8 @@ class SesionController extends AbstractController
 
         return $this->render('index.html.twig', [
             'controller_name' => 'SesionController',
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            'error' => '',
         ]);
     }
     /**

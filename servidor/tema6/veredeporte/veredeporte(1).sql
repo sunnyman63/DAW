@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-02-2022 a las 17:49:50
+-- Tiempo de generación: 21-02-2022 a las 21:13:34
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -49,7 +49,8 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20220208153246', '2022-02-08 16:33:20', 545);
+('DoctrineMigrations\\Version20220208153246', '2022-02-08 16:33:20', 545),
+('DoctrineMigrations\\Version20220218112959', '2022-02-18 15:05:11', 71);
 
 -- --------------------------------------------------------
 
@@ -60,8 +61,16 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 CREATE TABLE `equipo` (
   `id` int(11) NOT NULL,
   `liga_id` int(11) DEFAULT NULL,
-  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipo` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `equipo`
+--
+
+INSERT INTO `equipo` (`id`, `liga_id`, `nombre`, `tipo`) VALUES
+(1, 1, 'Primer Equipo', 'futbol');
 
 -- --------------------------------------------------------
 
@@ -87,6 +96,13 @@ CREATE TABLE `liga` (
   `fecha_inicio` datetime NOT NULL,
   `fecha_fin` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `liga`
+--
+
+INSERT INTO `liga` (`id`, `nombre`, `tipo`, `fecha_inicio`, `fecha_fin`) VALUES
+(1, 'La liga', 'futbol', '2022-03-10 15:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,6 +151,16 @@ CREATE TABLE `usuario` (
   `apellidos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `curso` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `equipo_id`, `email`, `roles`, `password`, `nombre`, `apellidos`, `curso`) VALUES
+(1, NULL, 'admin@mail.com', '[\"ROLE_ADMIN\"]', '$2y$13$WXuS12JLc04Vb2HP5SAzdOC31U9oC9eOKaJ/JW9uhNxehMpNPAfL.', 'admin', 'admin', 'cualquiera'),
+(2, 1, 'usuario1@mail.com', '[\"ROLE_CAPITAN\"]', '$2y$13$OJsgbp/9lAdJe6SnyLJSAuGSTADneD4Ux0ADGb9pO94p9QatF5I1e', 'usuario1', 'user', NULL),
+(3, 1, 'usuario2@mail.com', '[\"ROLE_USER\"]', '$2y$13$nbITeTCT/0AX6wxMVQcrdeyYWanZSPvNeeeaT0a4BJNhVxzjPZN/y', 'usuario2', 'user2', NULL),
+(6, NULL, 'usuario3@mail.com', '[\"ROLE_USER\"]', '$2y$13$Y3FDYvdskALCzwGoTrz04eYUmVGLBzJb28UURNLYB9ii6TvXlU0Q.', 'usuario3', 'user3', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -215,13 +241,13 @@ ALTER TABLE `campo`
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `liga`
 --
 ALTER TABLE `liga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `partido`
@@ -239,7 +265,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

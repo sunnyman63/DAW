@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Veredeporte - Ligas{% endblock %}
+
+{% block nav %}
+
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ path('app_inicio') }}">Home</a>
+    </li>  
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_equipo') }}">Equipo</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="{{ path('app_ligas') }}">Ligas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Proximos Partidos</a>
+    </li>
+
+{% endblock %}
+
+{% block main %}
+    <div class="d-flex align-items-center">
+        <h1 class="text-success">LIGAS</h1>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_crear_liga') }}" class=" ms-auto btn btn-outline-success">Crear Liga</a>
+        {% endif %}
+    </div>
+    {% if ligas %}
+        {% for liga in ligas %}
+            <div class="card mt-3 bg-light">
+                <div class="d-flex align-items-center p-3">
+                    <h2>{{ liga.nombre }}</h2>
+                    <span class="ms-2 text-secondary small text-capitalize">{{ liga.tipo }}</span>
+                    <button class="ms-auto btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#{{liga.tipo ~ liga.id}}" aria-expanded="false" aria-controls="{{liga.id}}">
+                        <i class="bi bi-caret-down h1"></i>
+                    </button>
+                </div>
+                <div class="collapse p-2" id="{{liga.tipo ~ liga.id}}">
+                    <hr class="mt-0">
+                    <h6 class="ms-3">Estado: {% if fechaFin(liga) %} Empezada {% else %} Abierta {% endif %}</h6>
+                    <h6 class="ms-3">Fecha de Inicio: {{ fechaIni(liga) | date('Y-m-d') }}</h6>
+                    <h6 class="ms-3">Fecha de Finalización: {{ fechaFin(liga).format('Y-m-d') ?? '' }}</h6>
+                    <h4 class="text-success">Equipos</h4>
+                    <div class="card">
+                        {% for equipo in liga.equipos %}
+                            <div class="px-2 pt-2 d-flex align-items-center flex-wrap">
+                                {% set ruta = "img/bola" ~ equipo.tipo ~ "3.png" %}
+                                <img src="{{ asset( ruta ) }}" width="50px">
+                                <div>
+                                    <span class="ms-3 h4 text-capitalize">{{ equipo.nombre }}</span>
+                                    <span class="text-secondary small text-uppercase">{{ equipo.tipo }}</span>
+                                </div>
+                                <hr class="my-2 mb-0 w-100">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h6>No hay ligas en este momento...</h6>
+    {% endif %}
+{% endblock %}

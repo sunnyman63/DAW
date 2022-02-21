@@ -7,7 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use App\Entity\Equipo;
+use App\Form\EquipoType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class EquipoController extends AbstractController
 {
@@ -43,6 +45,36 @@ class EquipoController extends AbstractController
             'solicitudes' => $solicitudes,
             'soliEquipo' => $soliEquipo,
             'error' => $error,
+        ]);
+    }
+
+    /**
+     * @Route("/equipo/crear", name="app_crear_equipo")
+     */
+    public function crearEquipo(Request $request, EntityManagerInterface $em): Response {
+        $equipo = new Equipo();
+        $user = $this->getUser();
+        $err = "";
+        $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$user->getUserIdentifier()));
+        $form = $this->createForm(EquipoType::class,$equipo);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid()) {
+            try {
+                $equipo->addJugadore($usu);
+                $usu->setRoles(['ROLE_CAPITAN']);
+                $em->persist($usu);
+                $em->persist($equipo);
+                $em->flush();
+            } catch(\Exception $e) {
+                $err = "Error del servidor.";
+            }
+            return $this->redirectToRoute('app_login');    
+        }
+        return $this->render('equipo/crearEquipo.html.twig', [
+            'controller_name' => 'SesionController',
+            'user' => $user,
+            'form' => $form->createView(),
+            'error' => $err
         ]);
     }
 
@@ -133,9 +165,10 @@ class EquipoController extends AbstractController
      * @Route("/equipo/aceptar/{id}", name="app_aceptar_solicitud")
      */
     public function aceptarSolicitud(EntityManagerInterface $em, $id): Response {
+        $user = $this->getUser();
         $error = "";
         try {
-            $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
+            $usu = $em->getRepository(Usuario::class)->findBy(array('email'=> $user->getUserIdentifier()));
             $usuAceptado = $em->getRepository(Usuario::class)->find($id);
             $equipo = $em->getRepository(Equipo::class)->find($usu[0]->getEquipo()->getId());
             $usuAceptado->removeSolicitude($equipo);
@@ -154,11 +187,12 @@ class EquipoController extends AbstractController
      * @Route("/equipo/expulsar/{id}", name="app_expulsar_jugador")
      */
     public function expulsarJugador(EntityManagerInterface $em, $id): Response {
+        $user = $this->getUser();
         $error = "";
         try {
-            $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
+            $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$user->getUserIdentifier()));
             $usuExpulsado = $em->getRepository(Usuario::class)->find($id);
-            $equipo = $em->getRepository(Equipo::class)->find($usu[0]->getEquipo()->getId());
+            $equipo = $em->getRepository(Equipo::class)->find($usu->getEquipo()->getId());
             $equipo->removeJugadore($usuExpulsado);
             $em->persist($usuExpulsado);
             $em->persist($equipo);
@@ -218,6 +252,7 @@ class EquipoController extends AbstractController
             'solicitudes' => $usu[0]->getSolicitudes(),
             'jugadores' => $jugadores,
             'jugador' => $jugador,
+            'error' => ''
         ]);
     }
 }
