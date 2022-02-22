@@ -49,10 +49,16 @@ class Liga
      */
     private $partidos;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Equipo::class, mappedBy="solicitarParticipar")
+     */
+    private $solicitudes;
+
     public function __construct()
     {
         $this->equipos = new ArrayCollection();
         $this->partidos = new ArrayCollection();
+        $this->solicitudes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,6 +168,36 @@ class Liga
             // set the owning side to null (unless already changed)
             if ($partido->getLiga() === $this) {
                 $partido->setLiga(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Equipo[]
+     */
+    public function getSolicitudes(): Collection
+    {
+        return $this->solicitudes;
+    }
+
+    public function addSolicitude(Equipo $solicitude): self
+    {
+        if (!$this->solicitudes->contains($solicitude)) {
+            $this->solicitudes[] = $solicitude;
+            $solicitude->setSolicitarParticipar($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSolicitude(Equipo $solicitude): self
+    {
+        if ($this->solicitudes->removeElement($solicitude)) {
+            // set the owning side to null (unless already changed)
+            if ($solicitude->getSolicitarParticipar() === $this) {
+                $solicitude->setSolicitarParticipar(null);
             }
         }
 

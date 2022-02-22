@@ -60,7 +60,7 @@ class SesionController extends AbstractController
             $pass1 = $form->get("password")->getData();
             $pass2 = $form->get("password2")->getData();
             if(strcmp($pass1,$pass2) == 0) {
-                $a = ['ROLE_USER'];
+                $a = ['ROLE_JUGADOR'];
                 $user->setRoles($a);
                 $hashedPassword = $passwordHasher->hashPassword($user,$form->get("password")->getData());
                 $user->setPassword($hashedPassword);

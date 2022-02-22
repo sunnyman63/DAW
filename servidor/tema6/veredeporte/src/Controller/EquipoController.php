@@ -18,7 +18,7 @@ class EquipoController extends AbstractController
      */
     public function index(EntityManagerInterface $em): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $user = $this->getUser();
         $soliEquipo = "";
         $solicitudes = "";
@@ -52,6 +52,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/crear", name="app_crear_equipo")
      */
     public function crearEquipo(Request $request, EntityManagerInterface $em): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_CAPITAN');
         $equipo = new Equipo();
         $user = $this->getUser();
         $err = "";
@@ -82,6 +84,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/buscar", name="app_buscar_equipo")
      */
     public function listarEquipos(EntityManagerInterface $em): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $user = $this->getUser();
         $equipos = "";
         $solicitudes = "";
@@ -107,6 +111,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/solicitar/{id}", name="app_solicitar_unirse")
      */
     public function solicitarUnirse(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $error = "";
         try {
             $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
@@ -126,6 +132,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/cancelar/{id}", name="app_cancelar_solicitud")
      */
     public function cancelarSolicitud(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $error = "";
         try {
             $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
@@ -145,6 +153,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/denegar/{id}", name="app_denegar_solicitud")
      */
     public function denegarSolicitud(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_CAPITAN');
         $error = "";
         try {
             $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
@@ -165,6 +175,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/aceptar/{id}", name="app_aceptar_solicitud")
      */
     public function aceptarSolicitud(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_CAPITAN');
         $user = $this->getUser();
         $error = "";
         try {
@@ -187,6 +199,8 @@ class EquipoController extends AbstractController
      * @Route("/equipo/expulsar/{id}", name="app_expulsar_jugador")
      */
     public function expulsarJugador(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_CAPITAN');
         $user = $this->getUser();
         $error = "";
         try {
@@ -208,9 +222,10 @@ class EquipoController extends AbstractController
      * @Route("/equipo/salir/", name="app_dejar_equipo")
      */
     public function dejarEquipo(EntityManagerInterface $em): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $error = "";
         try {
-
             $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$this->getUser()->getUserIdentifier()));
             $equipo = $em->getRepository(Equipo::class)->find($usu->getEquipo()->getId());
             if($this->isGranted("ROLE_CAPITAN")) {

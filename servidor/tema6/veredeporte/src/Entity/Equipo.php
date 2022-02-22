@@ -59,6 +59,11 @@ class Equipo
      */
     private $tipo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Liga::class, inversedBy="solicitudes")
+     */
+    private $solicitarParticipar;
+
     public function __construct()
     {
         $this->jugadores = new ArrayCollection();
@@ -249,6 +254,18 @@ class Equipo
     public function setTipo(string $tipo): self
     {
         $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    public function getSolicitarParticipar(): ?Liga
+    {
+        return $this->solicitarParticipar;
+    }
+
+    public function setSolicitarParticipar(?Liga $solicitarParticipar): self
+    {
+        $this->solicitarParticipar = $solicitarParticipar;
 
         return $this;
     }

@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Equipo;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Liga;
+use App\Entity\Usuario;
 use App\Form\LigaType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,6 +41,8 @@ class LigasController extends AbstractController
      */
     public function crearLiga(EntityManagerInterface $em, Request $request): Response {
 
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $liga = new Liga();
         $user = $this->getUser();
         $err = "";
@@ -68,5 +72,74 @@ class LigasController extends AbstractController
             'form' => $form->createView(),
             'error' => $err
         ]);
+    }
+
+    /**
+     * @Route("/ligas/solicitar/{id}", name="app_solicitar_liga")
+     */
+    public function solicitarUnirse(EntityManagerInterface $em, $id): Response {
+        
+        try {
+
+            $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$this->getUser()->getUserIdentifier()));
+            $equipo = $em->getRepository(Equipo::class)->find($usu->getEquipo()->getId());
+            $liga = $em->getRepository(Liga::class)->find($id);
+
+            $liga->addSolicitude($equipo);
+
+            $em->persist($equipo);
+            $em->persist($liga);
+
+        } catch(\Exception $e) {
+            $err = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas'); 
+    }
+
+    /**
+     * @Route("/ligas/cancelar/{id}", name="app_cancelar_solicitud_liga")
+     */
+    public function cancelarSolicitud(EntityManagerInterface $em, $id): Response {
+        
+        try {
+
+            $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$this->getUser()->getUserIdentifier()));
+            $equipo = $em->getRepository(Equipo::class)->find($usu->getEquipo()->getId());
+            $liga = $em->getRepository(Liga::class)->find($id);
+
+            $liga->removeSolicitude($equipo);
+
+            $em->persist($equipo);
+            $em->persist($liga);
+
+        } catch(\Exception $e) {
+            $err = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas'); 
+    }
+
+    /**
+     * @Route("/ligas/salirse/{id}", name="app_salirse_liga")
+     */
+    public function salirDeLaLiga(EntityManagerInterface $em, $id): Response {
+        
+        try {
+
+            $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$this->getUser()->getUserIdentifier()));
+            $equipo = $em->getRepository(Equipo::class)->find($usu->getEquipo()->getId());
+            $liga = $em->getRepository(Liga::class)->find($id);
+
+            $liga->removeEquipo($equipo);
+
+            $em->persist($equipo);
+            $em->persist($liga);
+
+        } catch(\Exception $e) {
+            $err = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas'); 
     }
 }
