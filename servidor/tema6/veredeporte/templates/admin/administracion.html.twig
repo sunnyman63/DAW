@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Veredeporte - Administración{% endblock %}
+
+{% block nav %}
+
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ path('app_inicio') }}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="{{ path('app_administracion') }}">Administración</a>
+    </li>   
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_ligas') }}">Ligas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Proximos Partidos</a>
+    </li>
+
+{% endblock %}
+
+{% block main %}
+    <div class="row g-2">
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ path('app_nuevo_profesor') }}" class="d-flex flex-column py-5 btn btn-outline-success">
+                <i class="bi bi-person-plus-fill display-2"></i>
+                <span>Crear profesor</span>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="#" class="d-flex flex-column py-5 btn btn-outline-success">
+                <i class="bi bi-person-video2 display-2"></i>
+                <span>Administrar Equipos</span>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <a href="{{ path('app_gestionar_ligas') }}" class="d-flex flex-column py-5 btn btn-outline-success">
+                <i class="bi bi-inboxes-fill display-2"></i>
+                <span>Solicitudes A Ligas</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'admin/administracion.html.twig' %}
+
+{% block title %}Veredeporte - Administración{% endblock %}
+
+{% block main %}
+    <h1>Crear Nuevo Profesor</h1>
+
+    {{ form_start(form , {'attr': {'class':'d-flex flex-column align-items-start'}}) }}
+
+        {{ form_label(form.nombre) }}
+        {{ form_widget(form.nombre) }}
+
+        {{ form_label(form.apellidos) }}
+        {{ form_widget(form.apellidos) }}
+
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+
+        {{ form_label(form.password2) }}
+        {{ form_widget(form.password2) }}
+
+        {{ form_widget(form.guardar , {'attr': {'class':'mt-3 btn btn-outline-success'}}) }}
+
+    {{ form_end(form) }}
+{% endblock %}

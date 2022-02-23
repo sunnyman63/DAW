@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-02-2022 a las 21:13:34
+-- Tiempo de generación: 23-02-2022 a las 20:54:57
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -49,8 +49,8 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20220208153246', '2022-02-08 16:33:20', 545),
-('DoctrineMigrations\\Version20220218112959', '2022-02-18 15:05:11', 71);
+('DoctrineMigrations\\Version20220222181054', '2022-02-22 19:10:59', 177),
+('DoctrineMigrations\\Version20220223172044', '2022-02-23 18:20:56', 58);
 
 -- --------------------------------------------------------
 
@@ -62,15 +62,16 @@ CREATE TABLE `equipo` (
   `id` int(11) NOT NULL,
   `liga_id` int(11) DEFAULT NULL,
   `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL
+  `tipo` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `solicitar_participar_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `equipo`
 --
 
-INSERT INTO `equipo` (`id`, `liga_id`, `nombre`, `tipo`) VALUES
-(1, 1, 'Primer Equipo', 'futbol');
+INSERT INTO `equipo` (`id`, `liga_id`, `nombre`, `tipo`, `solicitar_participar_id`) VALUES
+(1, NULL, 'Primer Equipo', 'futbol', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,15 +95,16 @@ CREATE TABLE `liga` (
   `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha_inicio` datetime NOT NULL,
-  `fecha_fin` datetime DEFAULT NULL
+  `fecha_fin` datetime DEFAULT NULL,
+  `max_equipos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `liga`
 --
 
-INSERT INTO `liga` (`id`, `nombre`, `tipo`, `fecha_inicio`, `fecha_fin`) VALUES
-(1, 'La liga', 'futbol', '2022-03-10 15:00:00', NULL);
+INSERT INTO `liga` (`id`, `nombre`, `tipo`, `fecha_inicio`, `fecha_fin`, `max_equipos`) VALUES
+(1, 'La liga', 'futbol', '2022-03-10 15:00:00', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -159,8 +161,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `equipo_id`, `email`, `roles`, `password`, `nombre`, `apellidos`, `curso`) VALUES
 (1, NULL, 'admin@mail.com', '[\"ROLE_ADMIN\"]', '$2y$13$WXuS12JLc04Vb2HP5SAzdOC31U9oC9eOKaJ/JW9uhNxehMpNPAfL.', 'admin', 'admin', 'cualquiera'),
 (2, 1, 'usuario1@mail.com', '[\"ROLE_CAPITAN\"]', '$2y$13$OJsgbp/9lAdJe6SnyLJSAuGSTADneD4Ux0ADGb9pO94p9QatF5I1e', 'usuario1', 'user', NULL),
-(3, 1, 'usuario2@mail.com', '[\"ROLE_USER\"]', '$2y$13$nbITeTCT/0AX6wxMVQcrdeyYWanZSPvNeeeaT0a4BJNhVxzjPZN/y', 'usuario2', 'user2', NULL),
-(6, NULL, 'usuario3@mail.com', '[\"ROLE_USER\"]', '$2y$13$Y3FDYvdskALCzwGoTrz04eYUmVGLBzJb28UURNLYB9ii6TvXlU0Q.', 'usuario3', 'user3', NULL);
+(3, 1, 'usuario2@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$nbITeTCT/0AX6wxMVQcrdeyYWanZSPvNeeeaT0a4BJNhVxzjPZN/y', 'usuario2', 'user2', NULL),
+(6, NULL, 'usuario3@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$Y3FDYvdskALCzwGoTrz04eYUmVGLBzJb28UURNLYB9ii6TvXlU0Q.', 'usuario3', 'user3', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -183,7 +185,8 @@ ALTER TABLE `doctrine_migration_versions`
 --
 ALTER TABLE `equipo`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_C49C530BCF098064` (`liga_id`);
+  ADD KEY `IDX_C49C530BCF098064` (`liga_id`),
+  ADD KEY `IDX_C49C530B80285EAB` (`solicitar_participar_id`);
 
 --
 -- Indices de la tabla `equipo_usuario`
@@ -275,6 +278,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `equipo`
 --
 ALTER TABLE `equipo`
+  ADD CONSTRAINT `FK_C49C530B80285EAB` FOREIGN KEY (`solicitar_participar_id`) REFERENCES `liga` (`id`),
   ADD CONSTRAINT `FK_C49C530BCF098064` FOREIGN KEY (`liga_id`) REFERENCES `liga` (`id`);
 
 --

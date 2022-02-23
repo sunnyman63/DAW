@@ -36,7 +36,7 @@
                                         </li>
                                         {% if user and is_granted('ROLE_ADMIN') %}
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Administración</a>
+                                            <a class="nav-link" href="{{ path('app_administracion') }}">Administración</a>
                                         </li>   
                                         {% else %}
                                         <li class="nav-item">
@@ -91,10 +91,10 @@
                             {% block main %}
                             {% endblock %}
                         </main>
-                        <aside class="col-4 d-none d-lg-block p-3" style="min-height: 0px;">
+                        <aside class="col-4 d-none d-lg-flex p-3">
                             {% block aside %}
-                                <div class="d-flex flex-column pt-3">
-                                    <h5 class="text-decoration-underline fw-bold">Proximos partidos</h5>
+                                <div class="bg-secondary w-100" style="height: 400px;">
+                                    Publi o cosas
                                 </div>
                             {% endblock %}
                         </aside>

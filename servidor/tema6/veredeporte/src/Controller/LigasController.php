@@ -44,19 +44,54 @@ class LigasController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $liga = new Liga();
+        $now = new \DateTime();
+        $now->add(new \DateInterval("P7D"));
+        $liga->setFechaInicio($now);
+        
         $user = $this->getUser();
         $err = "";
         $form = $this->createForm(LigaType::class,$liga);
         $form->handleRequest($request);
         if( $form->isSubmitted() && $form->isValid()) {
             try {
-                $liga = $em->getRepository(Liga::class)->findOneby(array('tipo'=>$form->get("tipo")->getData()));
-                if(!empty($liga)) {
+                
+                if(strtotime($liga->getFechaInicio()->format("Y-m-d")) < strtotime($now->format("Y-m-d"))) {
                     return $this->render('ligas/crearLigas.html.twig', [
                         'controller_name' => 'SesionController',
                         'user' => $user,
                         'form' => $form->createView(),
-                        'error' => "Ya existe una liga de".$form->get("tipo")->getData(),
+                        'error' => "Debe dar por lo menos una semana desde hoy para que lso equipos se apunten.",
+                    ]);
+                }
+
+                $lig = $em->getRepository(Liga::class)->findOneby(array('tipo'=>$form->get("tipo")->getData()));
+                if(!empty($lig)) {
+                    $fechaFinExistente = $lig->getFechaFin();
+                    if($fechaFinExistente != null) {
+                        if(strtotime($fechaFinExistente) <= strtotime($liga->getFechaInicio)) {
+                            return $this->render('ligas/crearLigas.html.twig', [
+                                'controller_name' => 'SesionController',
+                                'user' => $user,
+                                'form' => $form->createView(),
+                                'error' => "No puede iniciar una liga de ".$liga->getTipo()." mientras otra este activa.",
+                            ]);
+                        }
+                    } else {
+                        return $this->render('ligas/crearLigas.html.twig', [
+                            'controller_name' => 'SesionController',
+                            'user' => $user,
+                            'form' => $form->createView(),
+                            'error' => "No puede iniciar una liga de ".$liga->getTipo()." mientras otra este activa.",
+                        ]);
+                    }
+                }
+                $numMax = $liga->getMaxEquipos();
+                if($numMax < 4 || $numMax > 10) {
+                    return $this->render('ligas/crearLigas.html.twig', [
+                        'controller_name' => 'SesionController',
+                        'user' => $user,
+                        'form' => $form->createView(),
+                        'error' => "El número máximo de equipos no es valido",
                     ]);
                 }
                 $em->persist($liga);
@@ -79,6 +114,8 @@ class LigasController extends AbstractController
      */
     public function solicitarUnirse(EntityManagerInterface $em, $id): Response {
         
+        $err = "";
+
         try {
 
             $usu = $em->getRepository(Usuario::class)->findOneBy(array('email'=>$this->getUser()->getUserIdentifier()));
@@ -90,11 +127,13 @@ class LigasController extends AbstractController
             $em->persist($equipo);
             $em->persist($liga);
 
+            $em->flush();
+
         } catch(\Exception $e) {
             $err = "Error del servidor";
         }
 
-        return $this->redirectToRoute('app_ligas'); 
+        return $this->redirectToRoute('app_ligas', ['error'=>$err]); 
     }
 
     /**
@@ -112,6 +151,8 @@ class LigasController extends AbstractController
 
             $em->persist($equipo);
             $em->persist($liga);
+
+            $em->flush();
 
         } catch(\Exception $e) {
             $err = "Error del servidor";
@@ -135,6 +176,34 @@ class LigasController extends AbstractController
 
             $em->persist($equipo);
             $em->persist($liga);
+
+            $em->flush();
+
+        } catch(\Exception $e) {
+            $err = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas'); 
+    }
+
+    /**
+     * @Route("/ligas/expusar/{id}", name="app_expulsar_liga")
+     */
+    public function expulsarDeLaLiga(EntityManagerInterface $em, $id): Response {
+        
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        try {
+
+            $equipo = $em->getRepository(Equipo::class)->find($id);
+            $liga = $equipo->getLiga();
+
+            $liga->removeEquipo($equipo);
+
+            $em->persist($equipo);
+            $em->persist($liga);
+
+            $em->flush();
 
         } catch(\Exception $e) {
             $err = "Error del servidor";

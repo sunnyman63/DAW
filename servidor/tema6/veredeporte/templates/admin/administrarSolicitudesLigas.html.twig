@@ -1,0 +1,50 @@
+{% extends 'admin/administracion.html.twig' %}
+
+{% block title %}Veredeporte - Administración{% endblock %}
+
+{% block main %}
+    <div class="d-flex align-items-center">
+        <h1 class="text-success">LIGAS</h1>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_crear_liga') }}" class=" ms-auto btn btn-outline-success">Crear Liga</a>
+        {% endif %}
+    </div>
+    {% if ligas %}
+        {% for liga in ligas %}
+            <div class="card mt-3 bg-light">
+                <div class="d-flex align-items-center p-3">
+                    <h2>{{ liga.nombre }}</h2>
+                    <span class="ms-2 text-secondary small text-capitalize">{{ liga.tipo }}</span>
+                    <button class="ms-auto btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#{{liga.tipo ~ liga.id}}" aria-expanded="false" aria-controls="{{liga.id}}">
+                        <i class="bi bi-caret-down h1"></i>
+                    </button>
+                </div>
+                <div class="collapse p-2" id="{{liga.tipo ~ liga.id}}">
+                    <hr class="mt-0">
+                    <h4 class="text-success">Solicitudes</h4>
+                    <div class="card">
+                        {% for equipo in liga.solicitudes %}
+                            <div class="row px-3">
+                                <div class="col px-2 pt-2 d-flex align-items-center flex-wrap">
+                                    {% set ruta = "img/bola" ~ equipo.tipo ~ "3.png" %}
+                                    <img src="{{ asset( ruta ) }}" width="50px">
+                                    <div>
+                                        <span class="ms-3 h4 text-capitalize">{{ equipo.nombre }}</span>
+                                    </div>
+                                </div>
+                                <div class="col d-flex justify-content-end align-items-center">
+                                    <a class="btn btn-outline-success" href="{{ path('app_aceptar_solicitud_ligas',{id: equipo.id}) }}"><i class="bi bi-check-circle"></i></a>
+                                    <a class="btn btn-outline-danger ms-2" href="{{ path('app_denegar_solicitud_ligas',{id: equipo.id}) }}"><i class="bi bi-x-circle"></i></a>
+                                </div>
+                                <hr class="my-2 mb-0 w-100">
+                            </div>
+                            
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h6>No hay ligas en este momento...</h6>
+    {% endif %}
+{% endblock %}

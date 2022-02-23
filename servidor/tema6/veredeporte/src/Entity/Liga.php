@@ -54,6 +54,11 @@ class Liga
      */
     private $solicitudes;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $maxEquipos;
+
     public function __construct()
     {
         $this->equipos = new ArrayCollection();
@@ -200,6 +205,18 @@ class Liga
                 $solicitude->setSolicitarParticipar(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMaxEquipos(): ?int
+    {
+        return $this->maxEquipos;
+    }
+
+    public function setMaxEquipos(int $maxEquipos): self
+    {
+        $this->maxEquipos = $maxEquipos;
 
         return $this;
     }
