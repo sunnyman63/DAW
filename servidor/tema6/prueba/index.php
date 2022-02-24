@@ -1,6 +1,6 @@
 <?php
 
-$arry = array("1","2","3","4","5","6");
+$arry = array("1","2","3","4","5","6","7","8");
 $partidos = [[]];
 
 $nSemanas = count($arry)-1;
@@ -9,9 +9,19 @@ $partidosPorSemana = count($arry)/2;
 
 $aux = [];
 $auxNsemanas = 1;
+$uax;
 for($i=0;$i < $nSemanas;$i++) {
     for($j=0;$j<$partidosPorSemana;$j++) {
-        $partidos[$i][$j] = $auxNsemanas;
+        
+        if($j == 0) {
+            if($i % 2 == 0){
+                $partidos[$i][$j] = $auxNsemanas."-8";
+            } else {
+                $partidos[$i][$j] = "8-".$auxNsemanas;
+            }
+        } else {
+            $partidos[$i][$j] = $auxNsemanas."-";
+        }
         if($auxNsemanas == $nSemanas) {
             $auxNsemanas = 1;
         } else {
