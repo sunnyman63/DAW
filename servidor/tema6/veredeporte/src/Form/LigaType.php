@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,10 +26,11 @@ class LigaType extends AbstractType
                                                     'Baloncesto'=>'baloncesto'
                                                 )
             ))
-            ->add('fecha_inicio', DateTimeType::class, array('label'=>'Fecha de Inicio: '))
-            ->add('max_equipos', NumberType::class, array(
-                                                        'label'=>'Nº Maximo de Equipos(Min: 4, Max:10)',
-                                                        'html5'=>true,
+            ->add('fecha_inicio', DateTimeType::class, array(
+                                                            'date_label'=>'Fecha de Inicio: ',
+                                                            'time_label'=>'Hora de cierre: '))
+            ->add('max_equipos', RangeType::class, array(
+                                                        'label'=>'Nº Maximo de Equipos:',
                                                         'attr'=> ['min'=>4, 'max'=>10],
                                                         'data'=>4
                                                         ))

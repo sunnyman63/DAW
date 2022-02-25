@@ -45,8 +45,10 @@ class LigasController extends AbstractController
 
         $liga = new Liga();
         $now = new \DateTime();
-        $now->add(new \DateInterval("P7D"));
-        $liga->setFechaInicio($now);
+        $nowFormated = $now->format("Y-m-d");
+        $fechaPropuesta = new \Datetime($nowFormated." 17:00:00");
+        $fechaPropuesta->add(new \DateInterval("P4D"));
+        $liga->setFechaInicio($fechaPropuesta);
         
         $user = $this->getUser();
         $err = "";
@@ -55,57 +57,55 @@ class LigasController extends AbstractController
         if( $form->isSubmitted() && $form->isValid()) {
             try {
                 
-                if(strtotime($liga->getFechaInicio()->format("Y-m-d")) < strtotime($now->format("Y-m-d"))) {
-                    return $this->render('ligas/crearLigas.html.twig', [
-                        'controller_name' => 'SesionController',
-                        'user' => $user,
-                        'form' => $form->createView(),
-                        'error' => "Debe dar por lo menos una semana desde hoy para que lso equipos se apunten.",
-                    ]);
-                }
-
-                $lig = $em->getRepository(Liga::class)->findOneby(array('tipo'=>$form->get("tipo")->getData()));
-                if(!empty($lig)) {
-                    $fechaFinExistente = $lig->getFechaFin();
-                    if($fechaFinExistente != null) {
-                        if(strtotime($fechaFinExistente) <= strtotime($liga->getFechaInicio)) {
-                            return $this->render('ligas/crearLigas.html.twig', [
-                                'controller_name' => 'SesionController',
-                                'user' => $user,
-                                'form' => $form->createView(),
-                                'error' => "No puede iniciar una liga de ".$liga->getTipo()." mientras otra este activa.",
-                            ]);
-                        }
+                if($form->get("fecha_inicio")->getData()->format("D") != "Mon") {
+                    $err = "La fecha de inicio debe caer en Lunes";
+                } else {
+                    if(strtotime($form->get("fecha_inicio")->getData()->format("Y-m-d")) < strtotime($now->format("Y-m-d"))) {
+                        $err = "Debe dar por lo menos 3 días desde hoy para que los equipos se apunten.";
                     } else {
-                        return $this->render('ligas/crearLigas.html.twig', [
-                            'controller_name' => 'SesionController',
-                            'user' => $user,
-                            'form' => $form->createView(),
-                            'error' => "No puede iniciar una liga de ".$liga->getTipo()." mientras otra este activa.",
-                        ]);
+                        $lig = $em->getRepository(Liga::class)->findOneby(array('tipo'=>$form->get("tipo")->getData()));
+                        if(!empty($lig)) {
+                            $fechaFinExistente = $lig->getFechaFin();
+                            if($fechaFinExistente != null) {
+                                if(strtotime($fechaFinExistente->format("Y-m-d")) <= strtotime($form->get("fecha_inicio")->getData()->format("Y-m-d"))) {
+                                    $err = "No puede iniciar una liga de ".$form->get("tipo")->getData()." mientras otra este activa.";
+                                }
+                            } else {
+                                $err = "No puede iniciar una liga de ".$form->get("tipo")->getData()." mientras otra este activa.";
+                            }
+                        } else {
+                            $numMax = $form->get("max_equipos")->getData();
+                            if($numMax < 4 || $numMax > 10) {
+                                    $err = "El número máximo de equipos no es valido";
+                            } else {
+                                if($numMax % 2 != 0) {
+                                    $err = "El número maximo de equipos solo puede ser 4, 6, 8 o 10.";
+                                }
+                            }
+                        }
                     }
                 }
-                $numMax = $liga->getMaxEquipos();
-                if($numMax < 4 || $numMax > 10) {
+
+                if($err != "") {
                     return $this->render('ligas/crearLigas.html.twig', [
-                        'controller_name' => 'SesionController',
                         'user' => $user,
                         'form' => $form->createView(),
-                        'error' => "El número máximo de equipos no es valido",
+                        'error' => $err,
                     ]);
+                } else {
+                    $em->persist($liga);
+                    $em->flush();
                 }
-                $em->persist($liga);
-                $em->flush();
+                
             } catch(\Exception $e) {
                 $err = "Error del servidor.";
             }
             return $this->redirectToRoute('app_ligas');    
         }
         return $this->render('ligas/crearLigas.html.twig', [
-            'controller_name' => 'SesionController',
             'user' => $user,
             'form' => $form->createView(),
-            'error' => $err
+            'error' => $err,
         ]);
     }
 
@@ -210,5 +210,38 @@ class LigasController extends AbstractController
         }
 
         return $this->redirectToRoute('app_ligas'); 
+    }
+
+    /**
+     * @Route("/ligas/cerrar/{id}", name="app_cerrar_liga")
+     */
+    public function cerrarLiga(EntityManagerInterface $em, $id): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        try {
+
+            $liga = $em->getRepository(Liga::class)->find($id);
+            $equipos = $liga->getEquipos();
+            foreach($equipos as $equipo) {
+                $liga->removeEquipo($equipo);
+                $em->persist($equipo);
+            }
+            $solicitudes = $liga->getSolicitudes();
+            foreach($solicitudes as $solicitud) {
+                $liga->removeSolicitude($solicitud);
+                $em->persist($equipo);
+            }
+            
+            $em->remove($liga);
+
+            $em->flush();
+
+        } catch(\Exception $e) {
+            $err = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas'); 
+
     }
 }

@@ -53,7 +53,7 @@ class EquipoController extends AbstractController
      */
     public function crearEquipo(Request $request, EntityManagerInterface $em): Response {
 
-        $this->denyAccessUnlessGranted('ROLE_CAPITAN');
+        $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $equipo = new Equipo();
         $user = $this->getUser();
         $err = "";

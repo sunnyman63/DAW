@@ -3,14 +3,9 @@
 {% block title %}Veredeporte - Administración{% endblock %}
 
 {% block main %}
-    <div class="d-flex align-items-center">
-        <h1 class="text-success">LIGAS</h1>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app_crear_liga') }}" class=" ms-auto btn btn-outline-success">Crear Liga</a>
-        {% endif %}
-    </div>
     {% if ligas %}
         {% for liga in ligas %}
+            {% if liga.maxEquipos == liga.equipos|length or (fechaIni(liga)|date("Y-m-d") <= hoy|date("Y-m-d") and fechaIni(liga)|date("H:m") <= hoy|date("H:m")) %}
             <div class="card mt-3 bg-light">
                 <div class="d-flex align-items-center p-3">
                     <h2>{{ liga.nombre }}</h2>
@@ -20,43 +15,64 @@
                     </button>
                 </div>
                 <div class="collapse p-2" id="{{liga.tipo ~ liga.id}}">
+                    <hr class="mt-0">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="ms-3">Estado: {% if fechaFin(liga) %} Empezada {% else %} Abierta {% endif %}</h6>
+                            <h6 class="ms-3">Fecha de Inicio: {{ fechaIni(liga) | date('Y-m-d') }}</h6>
+                            <h6 class="ms-3">Fecha de Finalización: {{ fechaFin(liga).format('Y-m-d') ?? '' }}</h6>
+                            {% if not fechaFin(liga) %}
+                                <h6 class="ms-3 fw-light text-secondary">(Si los equipos son impares al momento del inicio de la liga, se eliminará a uno de los equipos)</h6>
+                            {% endif %}
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-start">
+                            {% if liga.equipos|length < 4 %}
+                                <span class="text-danger mt-2">Equipos insuficientes!</span>
+                                <a href="{{ path('app_cerrar_liga') }}" class="ms-2 btn btn-outline-danger">Borrar liga</a>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
                     <div class="accordion" id="{{liga.tipo ~ liga.id}}acc">
                         <div class="accordion-item">
                             <h4 class="accordion-header text-success" id="{{liga.tipo ~ liga.id}}headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{liga.tipo ~ liga.id}}equipos" aria-expanded="false" aria-controls="collapseOne">
-                                    Solicitudes
+                                    Equipos
                                 </button>
                             </h4>
                             <div id="{{liga.tipo ~ liga.id}}equipos" class="accordion-collapse collapse" aria-labelledby="{{liga.tipo ~ liga.id}}headingOne" data-bs-parent="#{{liga.tipo ~ liga.id}}acc">
                                 <div class="accordion-body">
-                                    <div class="card">
-                                        {% if liga.solicitudes|length != 0 %}
-                                            {% for equipo in liga.solicitudes %}
+                                    {% if liga.equipos|length != 0 %}
+                                        <div class="card">
+                                            {% for equipo in liga.equipos %}
                                                 <div class="row px-3">
                                                     <div class="col px-2 pt-2 d-flex align-items-center flex-wrap">
                                                         {% set ruta = "img/bola" ~ equipo.tipo ~ "3.png" %}
                                                         <img src="{{ asset( ruta ) }}" width="50px">
                                                         <div>
                                                             <span class="ms-3 h4 text-capitalize">{{ equipo.nombre }}</span>
+                                                            <span class="text-secondary small text-uppercase">{{ equipo.tipo }}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col d-flex justify-content-end align-items-center">
-                                                        <a class="btn btn-outline-success" href="{{ path('app_aceptar_solicitud_ligas',{id: equipo.id}) }}"><i class="bi bi-check-circle"></i></a>
-                                                        <a class="btn btn-outline-danger ms-2" href="{{ path('app_denegar_solicitud_ligas',{id: equipo.id}) }}"><i class="bi bi-x-circle"></i></a>
-                                                    </div>
+                                                    {% if is_granted('ROLE_ADMIN') %}
+                                                        <div class="col d-flex justify-content-end align-items-center">
+                                                            <a href="{{ path('app_expulsar_liga',{id: equipo.id}) }}" class="btn btn-outline-danger">Expulsar</a>
+                                                        </div>
+                                                    {% endif %}
                                                     <hr class="my-2 mb-0 w-100">
                                                 </div>
                                             {% endfor %}
-                                        {% else %}
-                                            <p>No hay solicitudes todavia...</p>
-                                        {% endif %}
-                                    </div>
+                                        </div>
+                                    {% else %}
+                                        <p>No hay equipos todavia...</p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     {% else %}
         <h6>No hay ligas en este momento...</h6>

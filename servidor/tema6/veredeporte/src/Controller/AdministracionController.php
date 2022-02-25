@@ -109,7 +109,6 @@ class AdministracionController extends AbstractController
     public function aceptarSolicitudLigas(EntityManagerInterface $em, $id): Response {
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        $user = $this->getUser();
         $error = "";
         try {
             $equipo = $em->getRepository(Equipo::class)->find($id);
@@ -134,7 +133,6 @@ class AdministracionController extends AbstractController
     public function denegarSolicitudLigas(EntityManagerInterface $em, $id): Response {
 
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        $user = $this->getUser();
         $error = "";
         try {
             $equipo = $em->getRepository(Equipo::class)->find($id);
@@ -153,9 +151,25 @@ class AdministracionController extends AbstractController
     }
 
     /**
-     * @("/administracion/generar/partidos" name="app_generar_partidos_liga")
+     * @Route("/administracion/ligas/completas", name="app_listado_ligas_completas")
      */
-    public function cerrarLiga() {
-
+    public function listarLigasCompletas(EntityManagerInterface $em): Response {
+        
+        $ligas = [];
+        $error = "";
+        $hoy = new \Datetime();
+        try {
+            $ligas = $em->getRepository(Liga::class)->findAll();
+            
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+        $user = $this->getUser();
+        return $this->render('admin/listadoListasPorCerrar.html.twig', [
+            'user' => $user,
+            'ligas' => $ligas,
+            'error' => $error,
+            'hoy' => $hoy,
+        ]);
     }
 }

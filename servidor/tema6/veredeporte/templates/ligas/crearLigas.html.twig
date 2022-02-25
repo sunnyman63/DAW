@@ -3,25 +3,47 @@
 {% block title %}Veredeporte - Crear ligas{% endblock %}
 
 {% block main %}
-    <h1 class="text-success">Crea una Liga!!</h1>
+    <div class="row">
+        <div class="col-sm-8 col-md-6 m-auto">
+            <h1 class="mt-4 text-success text-center">Crea una Liga!!</h1>
 
-    {{ form_start(form , {'attr': {'class':'d-flex flex-column align-items-start'}}) }}
+            {{ form_start(form , {'attr': {'class':'d-flex flex-column'}}) }}
+        
+                {{ form_label(form.nombre, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.nombre, {'attr': {'class':'form-control'}}) }}
+                <div class="my-2 d-flex align-items-center">
+                    {{ form_label(form.tipo, null, {'label_attr': {'class': 'form-label me-3'}}) }}
+                    {{ form_widget(form.tipo, {'attr': {'class':'form-select'}}) }}
+                </div>
+        
+                {{ form_label(form.fecha_inicio.date) }}
+                <div class="d-flex flex-nowrap">
+                    {{ form_widget(form.fecha_inicio.date.day, {'attr': {'class':'form-select'}}) }}
+                    {{ form_widget(form.fecha_inicio.date.month, {'attr': {'class':'form-select'}}) }}
+                    {{ form_widget(form.fecha_inicio.date.year, {'attr': {'class':'form-select'}}) }}
+                </div>
+                <div class="d-flex mt-2 align-items-center">
+                    {{ form_label(form.fecha_inicio.time, null, {'label_attr': {'class': 'form-label me-3'}}) }}
+                    <div class="flex-fill d-flex">
+                        {{ form_widget(form.fecha_inicio.time.hour, {'attr': {'class':'form-select'}}) }}
+                        {{ form_widget(form.fecha_inicio.time.minute, {'attr': {'class':'form-select'}}) }}
+                    </div>
+                </div>
 
-        {{ form_label(form.nombre) }}
-        {{ form_widget(form.nombre) }}
-        <div class="my-2">
-            {{ form_label(form.tipo) }}
-            {{ form_widget(form.tipo) }}
+                
+        
+                {{ form_label(form.max_equipos, null, {'label_attr': {'class': 'mt-3 form-label me-3'}}) }}
+                {{ form_widget(form.max_equipos, {'attr': {'class':'form-range', 'step': 2}}) }}
+                <div class="d-flex">
+                    <span>4</span>
+                    <span class="ms-auto">10</span>
+                </div>
+        
+                {{ form_widget(form.guardar , {'attr': {'class':'mt-3 btn btn-outline-success'}}) }}
+        
+            {{ form_end(form) }}
         </div>
-
-        {{ form_label(form.fecha_inicio) }}
-        {{ form_widget(form.fecha_inicio) }}
-
-        {{ form_label(form.max_equipos) }}
-        {{ form_widget(form.max_equipos) }}
-
-        {{ form_widget(form.guardar , {'attr': {'class':'mt-3 btn btn-outline-success'}}) }}
-
-        {{ form_end(form) }}
+    </div>
+    
 
 {% endblock %}

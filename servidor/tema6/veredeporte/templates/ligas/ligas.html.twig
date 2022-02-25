@@ -62,8 +62,12 @@
                                     {% if user.equipo.solicitarParticipar %}
                                         <a href="{{ path('app_cancelar_solicitud_liga',{ id: liga.id }) }}" class="ms-auto btn btn-outline-danger">Cancelar Solicitud</a>
                                     {% else %}
-                                        {% if liga.equipos|length < liga.maxEquipos %}
+                                        {% if liga.equipos|length < liga.maxEquipos and user.equipo.jugadores|length >= 11 and user.equipo.tipo == liga.tipo %}
                                             <a href="{{ path('app_solicitar_liga',{ id: liga.id }) }}" class="ms-auto btn btn-outline-success">Solicitar entrar</a>
+                                        {% else %}
+                                            {% if user.equipo.jugadores|length < 11%}
+                                                <a href="#" class="ms-auto btn btn-outline-success disabled">Jugadores insuficientes</a>
+                                            {% endif %}
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
