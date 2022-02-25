@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-02-2022 a las 20:54:57
+-- Tiempo de generación: 25-02-2022 a las 09:16:34
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -31,6 +31,15 @@ CREATE TABLE `campo` (
   `id` int(11) NOT NULL,
   `tipo` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `campo`
+--
+
+INSERT INTO `campo` (`id`, `tipo`) VALUES
+(1, 'futbol'),
+(2, 'futbol'),
+(3, 'baloncesto');
 
 -- --------------------------------------------------------
 
@@ -71,7 +80,7 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`id`, `liga_id`, `nombre`, `tipo`, `solicitar_participar_id`) VALUES
-(1, NULL, 'Primer Equipo', 'futbol', NULL);
+(1, NULL, 'Primer Equipo', 'futbol', 8);
 
 -- --------------------------------------------------------
 
@@ -104,7 +113,7 @@ CREATE TABLE `liga` (
 --
 
 INSERT INTO `liga` (`id`, `nombre`, `tipo`, `fecha_inicio`, `fecha_fin`, `max_equipos`) VALUES
-(1, 'La liga', 'futbol', '2022-03-10 15:00:00', NULL, 8);
+(8, 'La ligadura', 'futbol', '2022-02-28 17:00:00', NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -160,9 +169,17 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `equipo_id`, `email`, `roles`, `password`, `nombre`, `apellidos`, `curso`) VALUES
 (1, NULL, 'admin@mail.com', '[\"ROLE_ADMIN\"]', '$2y$13$WXuS12JLc04Vb2HP5SAzdOC31U9oC9eOKaJ/JW9uhNxehMpNPAfL.', 'admin', 'admin', 'cualquiera'),
-(2, 1, 'usuario1@mail.com', '[\"ROLE_CAPITAN\"]', '$2y$13$OJsgbp/9lAdJe6SnyLJSAuGSTADneD4Ux0ADGb9pO94p9QatF5I1e', 'usuario1', 'user', NULL),
+(2, 1, 'usuario1@mail.com', '[\"ROLE_CAPITAN\",\"ROLE_JUGADOR\"]', '$2y$13$OJsgbp/9lAdJe6SnyLJSAuGSTADneD4Ux0ADGb9pO94p9QatF5I1e', 'usuario1', 'user', NULL),
 (3, 1, 'usuario2@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$nbITeTCT/0AX6wxMVQcrdeyYWanZSPvNeeeaT0a4BJNhVxzjPZN/y', 'usuario2', 'user2', NULL),
-(6, NULL, 'usuario3@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$Y3FDYvdskALCzwGoTrz04eYUmVGLBzJb28UURNLYB9ii6TvXlU0Q.', 'usuario3', 'user3', NULL);
+(6, 1, 'usuario3@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$Y3FDYvdskALCzwGoTrz04eYUmVGLBzJb28UURNLYB9ii6TvXlU0Q.', 'usuario3', 'user3', NULL),
+(7, 1, 'usuario4@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$S7k1incmpMS3ohx8wOIt7OS.jiYpdcU0QaXdnvfSfmWoWVwZSlTRu', 'usuario4', 'user4', NULL),
+(8, 1, 'usuario5@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$3FGvAocphoZUnNCGFoaYwO5KHgPEGXycGVKeW3BsjubdemizTUuIS', 'usuario5', 'user5', NULL),
+(9, 1, 'usuario6@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$DQeBJRmlAhZ1mYZKfss6pe858Ql/aTC7IdRhFRjUEiQUff9rDe0L2', 'usuario6', 'user6', NULL),
+(10, 1, 'usuario7@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$mhcc4J7ZS2GdNVrfQhFd7eyX4o943xemBync1PUhbD.2eeowyyRzC', 'usuario7', 'user7', NULL),
+(11, 1, 'usuario8@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$q2LR0Stcu7lZ73RXn6haxONPgCITK8ylDg2/9hnXxwsPHCxnsq4ge', 'usuario8', 'user8', NULL),
+(12, 1, 'usuario9@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$.3P./0bQmQxKQ4Z9JIi6jOLmzELGUIGfXY0A/kgUd.CO6tOlj19vS', 'usuario9', 'user9', NULL),
+(13, 1, 'usuario10@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$g5wYg.CIJ9PzacDjp/wKsuXGRi/lHaTVP80YXLezCz5By/KXSZ2Wu', 'usuario10', 'user10', NULL),
+(14, 1, 'usuario11@mail.com', '[\"ROLE_JUGADOR\"]', '$2y$13$kG3lqXh5z/uXJE2.022BkePfUINSGf/PuBcgGEm4KVvfs7NX/7h0K', 'usuario11', 'user11', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -238,7 +255,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `campo`
 --
 ALTER TABLE `campo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
@@ -250,7 +267,7 @@ ALTER TABLE `equipo`
 -- AUTO_INCREMENT de la tabla `liga`
 --
 ALTER TABLE `liga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `partido`
@@ -268,7 +285,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
