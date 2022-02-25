@@ -9,7 +9,7 @@
     </li>
     {% if user and is_granted('ROLE_ADMIN') %}
     <li class="nav-item">
-        <a class="nav-link" href="#">Administración</a>
+        <a class="nav-link" href="{{ path('app_administracion') }}">Administración</a>
     </li>   
     {% else %}
     <li class="nav-item">

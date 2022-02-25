@@ -1,0 +1,26 @@
+{% extends 'admin/administracion.html.twig' %}
+
+{% block title %}Veredeporte - Administración{% endblock %}
+
+{% block main %}
+
+        <h1 class="text-success">Partidos</h1>
+        <div class="card">
+            {% if partidos %}
+                {% for partido in partidos %}
+                <div class="d-flex">
+                    <div>
+                        <div><span class="text-secondary">Local: </span>{{ partido.local }}</div>
+                        <div><span class="text-secondary">Visitante: </span>{{ partido.visitante }}</div>
+                    </div>
+                    <div class="flex-fill">
+                        <input type="text" id="{{ "input" ~ partido.id }}" placeholder="puntuación">
+                        <button id="{{ "boton" ~ partido.id }}" class="btn btn-outline-success">Insertar</button>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    
+
+{% endblock %}

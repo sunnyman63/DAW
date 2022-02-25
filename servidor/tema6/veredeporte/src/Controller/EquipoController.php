@@ -63,7 +63,7 @@ class EquipoController extends AbstractController
         if( $form->isSubmitted() && $form->isValid()) {
             try {
                 $equipo->addJugadore($usu);
-                $usu->setRoles(['ROLE_CAPITAN']);
+                $usu->setRoles(['ROLE_CAPITAN','ROLE_JUGADOR']);
                 $em->persist($usu);
                 $em->persist($equipo);
                 $em->flush();
@@ -234,7 +234,7 @@ class EquipoController extends AbstractController
                     $equipo->removeJugadore($jugador);
                     $em->persist($jugador);
                 }
-                $usu->setRoles(["ROLE_USER"]);
+                $usu->setRoles(["ROLE_JUGADOR"]);
                 $em->remove($equipo);
             } else {
                 $equipo->removeJugadore($usu);

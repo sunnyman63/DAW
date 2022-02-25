@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Campo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use App\Entity\Liga;
 use App\Entity\Equipo;
+use App\Entity\Partido;
 use App\Form\RegistroType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use App\Service\generadorPartidos;
 
 class AdministracionController extends AbstractController
 {
@@ -87,7 +90,7 @@ class AdministracionController extends AbstractController
      * @Route("/administracion/liga/solicitudes", name="app_gestionar_ligas")
      */
     public function gestionarSolicitudesLiga(EntityManagerInterface $em): Response {
-
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $user = $this->getUser();
         $err = "";
         $ligas = array();
@@ -155,11 +158,20 @@ class AdministracionController extends AbstractController
      */
     public function listarLigasCompletas(EntityManagerInterface $em): Response {
         
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $ligas = [];
         $error = "";
         $hoy = new \Datetime();
+        $fechaIniFinalizada = [];
         try {
             $ligas = $em->getRepository(Liga::class)->findAll();
+
+            foreach($ligas as $liga) {
+                $fecha = $liga->getFechaInicio();
+                if(strtotime($fecha->format("Y-m-d")) <= strtotime($hoy->format("Y-m-d"))) {
+                    array_push($fechaIniFinalizada,$liga->getId());  
+                }
+            }
             
         } catch(\Exception $e) {
             $error = "Error del servidor";
@@ -169,7 +181,138 @@ class AdministracionController extends AbstractController
             'user' => $user,
             'ligas' => $ligas,
             'error' => $error,
-            'hoy' => $hoy,
+            'fechaIniFinalizada' => $fechaIniFinalizada,
+        ]);
+    }
+
+    /**
+     * @Route("/administracion/partidos/resultados/agregar", name="app_gestionar_partidos")
+     */
+    public function gestionarPartidos(EntityManagerInterface $em): Response {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $error = "";
+        $hoy = new \DateTime();
+        $aux = [];
+
+        try {
+            $partidos = $em->getRepository(Partido::class)->findAll();
+            foreach($partidos as $partido) {
+                $fecha = $partido->getFechaHora();
+                $fechaAux = $hoy->sub(new \DateInterval("P1D"));
+                if(strtotime($fecha->format("Y-m-d")) <= strtotime($fechaAux->format("Y-m-d"))) {
+                    array_push($aux,$partido);
+                }
+            }
+            
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+        $user = $this->getUser();
+        return $this->render('admin/ponerResultadoPartidos.html.twig', [
+            'user' => $user,
+            'error' => $error,
+            'partidos' => $aux,
+        ]);
+    }
+
+    /**
+     * @Route("/administracion/generar/partidos/{id}", name="app_generar_partidos")
+     */
+    public function generarPartidos(EntityManagerInterface $em, generadorPartidos $gp, $id) {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $error = "";
+        try {
+            $liga = $em->getRepository(Liga::class)->find($id);
+            $equipos = $liga->getEquipos();
+            $fechaIni = $liga->getFechaInicio();
+
+            $fechaPrimerPartido = new \Datetime($fechaIni->format("Y-m-d")." 15:00:00");
+            $fechaPrimerPartido->add(new \DateInterval("P5D"));
+
+            $idsEquipos = [];
+            foreach($equipos as $equipo) {
+                array_push($idsEquipos,$equipo->getId());
+            }
+
+            $partidosIda = $gp->generarPartidosIda($idsEquipos);
+            $partidosVuelta = $gp->generarPartidosVuelta($partidosIda);
+
+            $profes = $em->getRepository(Usuario::class)->findBy(array('roles'=>'["ROLE_ADMIN"]'));
+            $random = random_int(0,count($profes)-1);
+
+            $fechaAux = $fechaPrimerPartido;
+
+            foreach($partidosIda as $semana) {
+                
+                foreach($semana as $partido) {
+                    $local = $em->getRepository(Equipo::class)->find($partido['local']);
+                    $visitante = $em->getRepository(Equipo::class)->find($partido['visitante']);
+                    $campo = $em->getRepository(Campo::class)->find(1);
+
+                    $partido = new Partido();
+
+                    $local->addPartidosLocal($partido);
+                    $visitante->addPartidosVisitante($partido);
+                    $partido->setCampo($campo);
+                    $profes[$random]->addArbitracione($partido);
+                    $liga->addPartido($partido);
+                    $partido->setFechaHora($fechaAux);
+
+                    $em->persist($local);
+                    $em->persist($visitante);
+                    $em->persist($partido);
+                    $em->persist($profes[$random]);
+                    $em->persist($liga);
+
+                    $fechaAux->modify('+90 minute');
+                }
+                $fechaAux->add(new \DateInterval("P7D"));
+                $fechaAux->modify("-450 minute");
+            }
+
+
+            foreach($partidosVuelta as $semana) {
+                
+                foreach($semana as $partido) {
+                    $local = $em->getRepository(Equipo::class)->find($partido['local']);
+                    $visitante = $em->getRepository(Equipo::class)->find($partido['visitante']);
+                    $campo = $em->getRepository(Campo::class)->find(1);
+
+                    $partido = new Partido();
+
+                    $local->addPartidosLocal($partido);
+                    $visitante->addPartidosVisitante($partido);
+                    $partido->setCampo($campo);
+                    $profes[$random]->addArbitracione($partido);
+                    $liga->addPartido($partido);
+                    $partido->setFechaHora($fechaAux);
+
+                    $em->persist($local);
+                    $em->persist($visitante);
+                    $em->persist($partido);
+                    $em->persist($profes[$random]);
+                    $em->persist($liga);
+
+                    $fechaAux->modify('+90 minute');
+                }
+                $fechaAux->add(new \DateInterval("P7D"));
+                $fechaAux->modify("-450 minute");
+            }
+
+            $fechaAux->sub(new \DateInterval("P7D"));
+            $liga->setFechaFinal($fechaAux);
+            $em->persist($liga);
+
+            $em->flush();
+            
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+        $user = $this->getUser();
+        return $this->render('admin/listadoListasPorCerrar.html.twig', [
+            'user' => $user,
+            'error' => $error,
         ]);
     }
 }
