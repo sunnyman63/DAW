@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Campo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use App\Entity\Equipo;
+use App\Entity\Liga;
 use App\Form\EquipoType;
+use App\Service\generadorPartidos;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -253,20 +256,43 @@ class EquipoController extends AbstractController
     /**
      * @Route("/equipo/prueba", name="app_prueba")
      */
-    public function prueba(EntityManagerInterface $em): Response {
-        $usu = $em->getRepository(Usuario::class)->findBy(array('email'=>$this->getUser()->getUserIdentifier()));
-        $equipo = $em->getRepository(Equipo::class)->find($usu[0]->getEquipo()->getId());
-        $jugadores = $em->getRepository(Usuario::class)->findBy(array("equipo" => $equipo->getId()));
-        if(!empty($jugadores)) {
-            $jugador = $jugadores;
+    public function prueba(EntityManagerInterface $em, generadorPartidos $gp): Response {
+            
+            $liga = $em->getRepository(Liga::class)->find(8);
+            $equipos = $liga->getEquipos();
+            $fechaIni = $liga->getFechaInicio();
+
+            $fechaPrimerPartido = new \Datetime($fechaIni->format("Y-m-d")." 15:00:00");
+            $fechaPrimerPartido->add(new \DateInterval("P5D"));
+
+            $idsEquipos = [];
+            foreach($equipos as $equipo) {
+                array_push($idsEquipos,$equipo->getId());
+            }
+        
+        $partidosIda = $gp->generarPartidosIda($idsEquipos);
+        $partidosVuelta = $gp->generarPartidosVuelta($partidosIda);
+        
+        $aux = [];
+
+        foreach($partidosIda as $semana) {
+                
+            foreach($semana as $partido) {
+                $local = $em->getRepository(Equipo::class)->find($partido['local']);
+                $visitante = $em->getRepository(Equipo::class)->find($partido['visitante']);
+                $campo = $em->getRepository(Campo::class)->find(1);
+
+                array_push($aux,$local);
+            }
         }
+
         return $this->render('pruebas.html.twig', [
             'controller_name' => 'EquipoController',
             'user' => $this->getUser(),
-            'equipos' => '',
-            'solicitudes' => $usu[0]->getSolicitudes(),
-            'jugadores' => $jugadores,
-            'jugador' => $jugador,
+            'partidoI' => $partidosIda,
+            'partidoV' => $partidosVuelta,
+            'local' => $aux,
+            'equipos' => $idsEquipos,
             'error' => ''
         ]);
     }

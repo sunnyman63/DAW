@@ -120,23 +120,24 @@
                             </h4>
                             <div id="{{liga.tipo ~ liga.id}}partidos" class="accordion-collapse collapse" aria-labelledby="{{liga.tipo ~ liga.id}}headingTwo" data-bs-parent="#{{liga.tipo ~ liga.id}}acc">
                                 <div class="accordion-body">
-                                    {% if liga.equipos|length != 0 %}
+                                    {% if liga.partidos|length != 0 %}
                                         <div class="card">
-                                            {% for equipo in liga.equipos %}
+                                            {% for partido in liga.partidos %}
                                                 <div class="row px-3">
-                                                    <div class="col px-2 pt-2 d-flex align-items-center flex-wrap">
-                                                        {% set ruta = "img/bola" ~ equipo.tipo ~ "3.png" %}
-                                                        <img src="{{ asset( ruta ) }}" width="50px">
-                                                        <div>
-                                                            <span class="ms-3 h4 text-capitalize">{{ equipo.nombre }}</span>
-                                                            <span class="text-secondary small text-uppercase">{{ equipo.tipo }}</span>
-                                                        </div>
+                                                    <div class="col px-2 pt-2">
+                                                        <div><span class="text-secondary">Local: </span>{{ partido.local.nombre }}</div>
+                                                        <div><span class="text-secondary">Visitante: </span>{{ partido.visitante.nombre }}</div>
                                                     </div>
-                                                    {% if is_granted('ROLE_ADMIN') %}
-                                                        <div class="col d-flex justify-content-end align-items-center">
-                                                            <a href="{{ path('app_expulsar_liga',{id: equipo.id}) }}" class="btn btn-outline-danger">Expulsar</a>
-                                                        </div>
-                                                    {% endif %}
+                                                    <div class="col d-flex justify-content-center align-items-center">
+                                                        <span>{{ partido.fechaHora|date("Y-m-d H:i:s") }}</span>
+                                                    </div>
+                                                    <div class="col d-flex justify-content-center align-items-center">
+                                                        {% if partido.resultado is empty %}
+                                                            <label><span class="text-secondary">__</span> - <span class="text-secondary">__</span></label>
+                                                        {% else %}
+                                                            <label><span class="text-secondary">{{partido.resultado[0]}}</span> - <span class="text-secondary">{{partido.resultado[1]}}</span></label>
+                                                        {% endif %}
+                                                    </div>
                                                     <hr class="my-2 mb-0 w-100">
                                                 </div>
                                             {% endfor %}

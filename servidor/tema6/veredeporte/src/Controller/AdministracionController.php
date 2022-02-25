@@ -209,7 +209,7 @@ class AdministracionController extends AbstractController
             $error = "Error del servidor";
         }
         $user = $this->getUser();
-        return $this->render('admin/ponerResultadoPartidos.html.twig', [
+        return $this->render('admin/ponerResultadoPartido.html.twig', [
             'user' => $user,
             'error' => $error,
             'partidos' => $aux,
@@ -238,7 +238,15 @@ class AdministracionController extends AbstractController
             $partidosIda = $gp->generarPartidosIda($idsEquipos);
             $partidosVuelta = $gp->generarPartidosVuelta($partidosIda);
 
-            $profes = $em->getRepository(Usuario::class)->findBy(array('roles'=>'["ROLE_ADMIN"]'));
+            $profs = $em->getRepository(Usuario::class)->findAll();
+            $profes = [];
+            foreach($profs as $prof) {
+                $roles = $prof->getRoles();
+                // array_push($profes,$roles[0]);
+                if($roles[0] == "ROLE_ADMIN") {
+                    array_push($profes,$prof);
+                }
+            }
             $random = random_int(0,count($profes)-1);
 
             $fechaAux = $fechaPrimerPartido;
@@ -265,10 +273,12 @@ class AdministracionController extends AbstractController
                     $em->persist($profes[$random]);
                     $em->persist($liga);
 
+                    $em->flush();
+
                     $fechaAux->modify('+90 minute');
                 }
                 $fechaAux->add(new \DateInterval("P7D"));
-                $fechaAux->modify("-450 minute");
+                $fechaAux->modify("-".(count($semana)*90)." minute");
             }
 
 
@@ -294,14 +304,16 @@ class AdministracionController extends AbstractController
                     $em->persist($profes[$random]);
                     $em->persist($liga);
 
+                    $em->flush();
+
                     $fechaAux->modify('+90 minute');
                 }
                 $fechaAux->add(new \DateInterval("P7D"));
-                $fechaAux->modify("-450 minute");
+                $fechaAux->modify("-".(count($semana)*90)." minute");
             }
 
             $fechaAux->sub(new \DateInterval("P7D"));
-            $liga->setFechaFinal($fechaAux);
+            $liga->setFechaFin($fechaAux);
             $em->persist($liga);
 
             $em->flush();
@@ -309,10 +321,8 @@ class AdministracionController extends AbstractController
         } catch(\Exception $e) {
             $error = "Error del servidor";
         }
-        $user = $this->getUser();
-        return $this->render('admin/listadoListasPorCerrar.html.twig', [
-            'user' => $user,
-            'error' => $error,
-        ]);
+
+        return $this->redirectToRoute('app_ligas');
+        
     }
 }
