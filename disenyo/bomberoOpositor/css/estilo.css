@@ -12,14 +12,12 @@ body {
     background-color: #05052e;
 }
 
-.todo {
-    display: flex;
-}
 
 .container {
     width: 1000px;
     flex-shrink: 0;
     height: 100%;
+    margin: auto;
     display: flex;
     flex-direction: column;
 }
@@ -27,25 +25,31 @@ body {
 .edificio {
     background-image: url("../img/edificio.png");
     flex: 1 0 auto;
-    min-height: 875px;
+    min-height: 875px;  
+    position: relative;
 }
 
-.persona {
+.objeto {
     height: 200px;
     width: 200px;
     position: absolute;
 }
 
-.persona0 { top: 140px; left: 10px; }
-.persona1 { top: 140px; left: 200px; }
-.persona2 { top: 140px; left: 390px; }
-.persona3 { top: 140px; left: 580px; }
-.persona4 { top: 140px; left: 770px; }
-.persona5 { top: 390px; left: 10px; }
-.persona6 { top: 390px; left: 200px; }
-.persona7 { top: 390px; left: 390px; }
-.persona8 { top: 390px; left: 580px; }
-.persona9 { top: 390px; left: 770px; }
+.objeto > img {
+    height: 200px;
+    width: 200px;
+}
+
+.objeto0 { top: 140px; left: 10px; }
+.objeto1 { top: 140px; left: 200px; }
+.objeto2 { top: 140px; left: 390px; }
+.objeto3 { top: 140px; left: 580px; }
+.objeto4 { top: 140px; left: 770px; }
+.objeto5 { top: 390px; left: 10px; }
+.objeto6 { top: 390px; left: 200px; }
+.objeto7 { top: 390px; left: 390px; }
+.objeto8 { top: 390px; left: 580px; }
+.objeto9 { top: 390px; left: 770px; }
 
 .bombero {
     position: absolute;
@@ -58,6 +62,14 @@ body {
     background-size: cover;
 }
 
+.chorro {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 630px;
+    left: 0;
+}
+
 .suelo {
     height: 25px;
     background-color: grey;
@@ -65,9 +77,10 @@ body {
 }
 
 .inicio {
-    height: 875px;
+    top: 0;
     width: 100%;
-    position: relative;
+    height: 100%;
+    position: absolute;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -124,16 +137,16 @@ body {
 .scoreboard {
     padding: 30px;
     color: #fff;
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-}
-
-.scoreboard {
     font-size: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .scoreboard > div {
+    min-width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
