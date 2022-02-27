@@ -1,0 +1,9 @@
+<div class="text-center p-5">
+    <h1 class="text-danger fw-light w-100">VereTikTacToe</h1>
+    <div *ngIf="partida.iniciada" class="d-flex justify-content-center mt-3">
+        <button (click)="partidaNueva()" class="btnHeader btn btn-link text-dark text-decoration-none">
+            <i class="bi bi-plus-lg"></i>
+            Nueva Partida
+        </button>
+    </div>
+</div>

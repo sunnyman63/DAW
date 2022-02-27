@@ -1,0 +1,4 @@
+<div class="cuerpo d-flex justify-content-center align-items-center">
+    <app-formulario *ngIf="!partida.iniciada"></app-formulario>
+    <app-juego *ngIf="partida.iniciada"></app-juego>
+</div>

@@ -1,0 +1,35 @@
+<form class="d-flex flex-column">
+    <h5 class="mb-5">Selecciona un modo de juego!</h5>
+    <div id="botones" class="mb-5 d-flex justify-content-center">
+        <div class="form-check p-0 me-4">
+            <input type="radio" class="btn-check" [(ngModel)]="jugadores" name="jugadores" value="1" id="op1" autocomplete="off">
+            <label class="btn btn-outline-success d-flex flex-column" for="op1">
+                <i class="bi bi-person display-1"></i>
+                <span>1 vs CPU</span>
+            </label>
+        </div>
+        <div class="form-check p-0 ms-4">
+            <input type="radio" class="btn-check" [(ngModel)]="jugadores" name="jugadores" value="2" id="op2" autocomplete="off">
+            <label class="btn btn-outline-primary d-flex flex-column" for="op2">
+                <i class="bi bi-people display-1"></i>
+                <span>1 vs 2</span>
+            </label>
+        </div>
+    </div>
+    <div class="mt-4 d-flex justify-content-center">
+        <input type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="empezar()" value="Jugar!" class="px-4 btn btn-outline-danger">
+    </div>
+</form>
+
+<div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                Debes seleccionar un modo de Juego.
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
