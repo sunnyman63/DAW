@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Hola Estudiante!!</p>
+    <p><b>Nombre: </b>{{ user.nombre }}</p>
+    <p><b>Correo: </b>{{ user.email }}</p>
+    <p><b>Foto: </b>{{ user.foto }}</p>
+    <p><a href=" {{ path('app_inicio') }} ">Volver atrás</a></p>
+{% endblock %}

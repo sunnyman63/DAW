@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Registrar Asignatura</h1>
+    
+    {{ form_start(form) }}
+
+    {{ form_label(form.nombre) }}
+    {{ form_widget(form.nombre) }}
+
+    {{ form_label(form.num_creditos) }}
+    {{ form_widget(form.num_creditos) }}
+
+    {{ form_label(form.curso) }}
+    {{ form_widget(form.curso) }}
+
+    {{ form_label(form.submit) }}
+    {{ form_widget(form.submit) }}
+
+    {{ form_end(form) }}
+
+{% endblock %}

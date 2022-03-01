@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if user is null %}
+        <p><a href="{{ path('app_login') }}">Iniciar Sesión</a></p>
+        <p><a href="{{ path('app_register') }}">Registrarse</a></p>
+    {% else %}
+        {% if is_granted("ROLE_EXTERNO") %}
+            <p><a href="{{ path('app_externo') }}">Pagina externo</a></p>
+        {% endif %}
+        {% if is_granted("ROLE_ESTUDIANTE") %}
+            <p><a href="{{ path('app_estudiante') }}">Datos</a></p>
+        {% endif %}
+        {% if is_granted("ROLE_PROFESOR") %}
+            <p><a href="{{ path('app_generar_asignatura') }}">Crear asignatura</a></p>
+        {% endif %}
+        <p><a href="{{ path('app_logout') }}">Cerrar Sesión</a></p>
+    {% endif %}
+    <p><a href="{{ path('app_listar_usuarios') }}">Listado de usuarios</a></p>
+{% endblock %}

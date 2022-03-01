@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if array %}
+        <p>Habian {{array.cantidad}} números, y su suma es de {{array.suma}}</p>
+    {% else %}
+        <p>Debes pasar 2 parametros. Ejemplo: .../ejer4/apb/2/3</p>
+    {% endif %}
+{% endblock %}
