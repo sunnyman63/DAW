@@ -13,7 +13,7 @@
                         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" 
                     )
                 );
-            } catch(Exception) {
+            } catch(PDOException $e) {
                 echo "Error del servidor";
             }    
         }
@@ -23,7 +23,7 @@
             $stmt = $this->conexion->prepare($query);
             try {
                 $stmt->execute($datos);
-            } catch(Exception) {
+            } catch(PDOException $e) {
                 echo "Error del servidor";
             } 
         }
@@ -33,7 +33,7 @@
             try {
                 $stmt->setFetchMode(PDO::FETCH_NUM);
                 $stmt->execute($datos);
-            } catch(Exception) {
+            } catch(PDOException $e) {
                 echo "Error del servidor";
             }
             return $stmt->fetchAll();
@@ -44,7 +44,7 @@
             try {
                 $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $tipo);
                 $stmt->execute($datos);
-            } catch(Exception) {
+            } catch(PDOException $e) {
                 echo "Error del servidor";
             }
             return $stmt->fetchAll();
