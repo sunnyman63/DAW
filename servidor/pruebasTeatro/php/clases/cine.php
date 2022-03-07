@@ -29,8 +29,15 @@ class cine {
         return $resp;
     }
 
-    public function listarPelisPorCine() {
-        
+    public static function listarPelisPorCine($bd,$cine) {
+        $query = "select DISTINCT PELICULA.cod_peli,PELICULA.titulo 
+                  from CINE 
+                  inner join PROYECCION on CINE.cod_cine=PROYECCION.cod_cine 
+                  inner join PELICULA on PELICULA.cod_peli=PROYECCION.cod_peli 
+                  where CINE.cod_cine like ?";
+        $datos = array($cine);
+        $resp = $bd->prepararSelectArrays($query,$datos);
+        return $resp;
     }
 
 
