@@ -55,11 +55,19 @@
         <div class="mt-3 d-flex flex-column card" style="min-height: 200px;">
         {% if user.equipo.reservas %}
             {% for reserva in user.equipo.reservas %}
-                <div class="p-2 d-flex align-items-center">
-                    <span class="text-capitalize">{{ reserva.fechaHora }}</span>
-                    <span class="ms-3 small text-secondary">{{ reserva.campo }}</span>
-                    <hr>
+                <div class="p-2 row m-0 p-0" style="min-height: 70px;">
+                    <div class="col d-flex justify-content-center align-items-center">Fecha:&nbsp;<span class="text-capitalize">{{ reserva.fechaHora|date("d-m-Y") }}</span></div>
+                    <div class="col d-flex justify-content-center align-items-center">Hora:&nbsp;<span class="text-capitalize">{{ reserva.fechaHora|date("H:i:s") }}</span></div>
+                    <div class="col d-flex justify-content-center align-items-center">Campo:&nbsp;<span class="small text-secondary">{{ reserva.campo.tipo ~ "_" ~ reserva.campo.id }}</span></div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                    {% if is_granted("ROLE_CAPITAN") %}
+                        {% if es24horasAntes(reserva.fechaHora) %}
+                            <a class="btn btn-outline-danger" href="{{ path('app_cancelar_reserva',{id: reserva.id}) }}">Cancelar</a>
+                        {% endif %}
+                    {% endif %}
+                    </div>
                 </div>
+                <hr class="w-100 my-0">
             {% endfor %}
         {% else %}
             <div class="p-2 d-flex align-items-center">
@@ -81,10 +89,8 @@
     {% if is_granted('ROLE_CAPITAN') %}
 
         <hr>
-        <h6 class="fw-bold text-success">RESERVAR ENTRANAMIENTO</h6>
-        <div class="mt-3 d-flex flex-column card">
-            
-        </div>
+        <a href="{{ path('app_reservas') }}" class="h6 btn btn-outline-success">RESERVAR ENTRENAMIENTO</a>
+        
 
         {% if soliEquipo is not empty %}
             <hr>

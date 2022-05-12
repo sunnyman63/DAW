@@ -1,0 +1,37 @@
+{% extends 'admin/administracion.html.twig' %}
+
+{% block title %}Veredeporte - Administración{% endblock %}
+
+{% block main %}
+
+    <h1 class="text-capitalize text-success">Reservas</h1>
+    <div class="mt-3 d-flex flex-column card" style="min-height: 200px;">
+        {% if reservas %}
+            {% for reserva in reservas %}
+                <div class="p-2 row m-0 p-0" style="min-height: 70px;">
+                    <div class="col d-flex justify-content-center align-items-center">Fecha:&nbsp;<span class="text-capitalize">{{ reserva.fechaHora|date("d-n-Y") }}</span></div>
+                    <div class="col d-flex justify-content-center align-items-center">Hora:&nbsp;<span class="text-capitalize">{{ reserva.fechaHora|date("H:i:s") }}</span></div>
+                    <div class="col d-flex justify-content-center align-items-center">Campo:&nbsp;<span class="small text-secondary">{{ reserva.campo.tipo ~ "_" ~ reserva.campo.id }}</span></div>
+                    <div class="col d-flex justify-content-end align-items-center">
+                        <div class="row w-100">
+                            <div class="col-6">
+                                <a class="btn btn-outline-primary" href="{{ path('app_traspaso_vigilancia',{idr: reserva.id}) }}">Traspasar</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                {% if es24horasAntes(reserva.fechaHora) %}
+                                <a class="btn btn-outline-danger" href="{{ path('app_cancelar_reserva',{id: reserva.id}) }}"><i class="bi bi-x"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="w-100 my-0">
+            {% endfor %}
+        {% else %}
+            <div class="p-2 d-flex align-items-center">
+                <span class="text-secondary">No hay todavia...</span>
+            </div>
+        {% endif %}
+        </div>
+    
+{% endblock %}

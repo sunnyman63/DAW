@@ -135,7 +135,7 @@
                                                         {% if partido.resultado is empty %}
                                                             <label><span class="text-secondary">__</span> - <span class="text-secondary">__</span></label>
                                                         {% else %}
-                                                            <label><span class="text-secondary">{{partido.resultado[0]}}</span> - <span class="text-secondary">{{partido.resultado[1]}}</span></label>
+                                                            <label>Local <span class="text-secondary">{{ partido.resultado["local"]}}</span> - <span class="text-secondary">{{partido.resultado["visitante"]}}</span> Visitante</label>
                                                         {% endif %}
                                                     </div>
                                                     <hr class="my-2 mb-0 w-100">

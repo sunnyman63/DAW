@@ -220,17 +220,20 @@ class LigasController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         try {
-
             $liga = $em->getRepository(Liga::class)->find($id);
             $equipos = $liga->getEquipos();
-            foreach($equipos as $equipo) {
-                $liga->removeEquipo($equipo);
-                $em->persist($equipo);
+            if(!empty($equipos)) {
+                foreach($equipos as $equipo) {
+                    $liga->removeEquipo($equipo);
+                    $em->persist($equipo);
+                }
             }
             $solicitudes = $liga->getSolicitudes();
-            foreach($solicitudes as $solicitud) {
-                $liga->removeSolicitude($solicitud);
-                $em->persist($equipo);
+            if(!empty($solicitudes)) {
+                foreach($solicitudes as $solicitud) {
+                    $liga->removeSolicitude($solicitud);
+                    $em->persist($solicitud);
+                }
             }
             
             $em->remove($liga);

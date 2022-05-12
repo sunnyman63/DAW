@@ -29,7 +29,7 @@
                         $this->partidos[$i][$j] = $arry[$aux-1];
                     }
                     if($aux == $nSemanas) {
-                        $auxNsemanas = 1;
+                        $aux = 1;
                     } else {
                         $aux++;
                     }

@@ -7,20 +7,22 @@
         <h1 class="text-success">Partidos</h1>
         <div class="card">
             {% if partidos %}
-                {% for partido in partidos %}
-                <div class="d-flex">
-                    <div>
-                        <div><span class="text-secondary">Local: </span>{{ partido.local }}</div>
-                        <div><span class="text-secondary">Visitante: </span>{{ partido.visitante }}</div>
+                {% for partido in partidos %} 
+                <form method="post" action="{{ path('app_insertar_resultado',{id: partido.id}) }}" class="d-flex flex-nowrap text-center align-items-center justify-content-between p-1">
+                    <div class="d-flex flex-column">
+                        <p>{{ partido.local }}</p>
+                        <input type="number" name="inputLocal" min="0" value="0">
                     </div>
-                    <div class="flex-fill">
-                        <input type="text" id="{{ "input" ~ partido.id }}" placeholder="puntuación">
-                        <button id="{{ "boton" ~ partido.id }}" class="btn btn-outline-success">Insertar</button>
+                    <span>-</span>
+                    <div class="d-flex flex-column">
+                        <p>{{ partido.visitante }}</p>
+                        <input type="number" name="inputVisitante" min="0" value="0">
                     </div>
-                </div>
+                    <input type="submit" name="submit" class="btn btn-outline-success" value="insertar">
+                </form>
+                <hr class="my-0">
                 {% endfor %}
             {% endif %}
         </div>
-    
 
 {% endblock %}

@@ -2,33 +2,36 @@
 
 namespace App\Controller;
 
-use App\Entity\Campo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use App\Entity\Equipo;
-use App\Entity\Liga;
 use App\Form\EquipoType;
-use App\Service\generadorPartidos;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class EquipoController extends AbstractController
 {
     /**
-     * @Route("/equipo/", name="app_equipo")
+     * @Route("/equipo", name="app_equipo")
      */
     public function index(EntityManagerInterface $em): Response
     {
         $this->denyAccessUnlessGranted('ROLE_JUGADOR');
         $user = $this->getUser();
+        $rol = $user->getRoles();
+
+        if($rol[0] == "ROLE_ADMIN") {
+            return $this->redirectToRoute('app_administracion');
+        }
+
         $soliEquipo = "";
         $solicitudes = "";
-        $error = "";
+        $err = "";
 
-        if(!empty($error)) {
-            $error = "Error del servidor";
+        if(!empty($err)) {
+            $err = "Error del servidor";
         }
 
         try {
@@ -39,7 +42,7 @@ class EquipoController extends AbstractController
             }
             $solicitudes = $usu[0]->getSolicitudes();
         } catch (\Exception $e) {
-            $error = "Error del servidor";
+            $err = "Error del servidor";
         }
         
         return $this->render('equipo/equipo.html.twig', [
@@ -47,7 +50,7 @@ class EquipoController extends AbstractController
             'user' => $user,
             'solicitudes' => $solicitudes,
             'soliEquipo' => $soliEquipo,
-            'error' => $error,
+            'error' => $err
         ]);
     }
 
@@ -254,46 +257,21 @@ class EquipoController extends AbstractController
     }
 
     /**
-     * @Route("/equipo/prueba", name="app_prueba")
+     * @Route("/equipo/prueba/{id}", name="app_prueba", methods={"POST"})
      */
-    public function prueba(EntityManagerInterface $em, generadorPartidos $gp): Response {
-            
-            $liga = $em->getRepository(Liga::class)->find(8);
-            $equipos = $liga->getEquipos();
-            $fechaIni = $liga->getFechaInicio();
+    public function prueba(Request $request,int $id): Response {
 
-            $fechaPrimerPartido = new \Datetime($fechaIni->format("Y-m-d")." 15:00:00");
-            $fechaPrimerPartido->add(new \DateInterval("P5D"));
-
-            $idsEquipos = [];
-            foreach($equipos as $equipo) {
-                array_push($idsEquipos,$equipo->getId());
-            }
-        
-        $partidosIda = $gp->generarPartidosIda($idsEquipos);
-        $partidosVuelta = $gp->generarPartidosVuelta($partidosIda);
-        
-        $aux = [];
-
-        foreach($partidosIda as $semana) {
-                
-            foreach($semana as $partido) {
-                $local = $em->getRepository(Equipo::class)->find($partido['local']);
-                $visitante = $em->getRepository(Equipo::class)->find($partido['visitante']);
-                $campo = $em->getRepository(Campo::class)->find(1);
-
-                array_push($aux,$local);
-            }
-        }
+        $local = $request->request->get("inputLocal");
+        $visitante = $request->request->get("inputVisitante");
 
         return $this->render('pruebas.html.twig', [
             'controller_name' => 'EquipoController',
             'user' => $this->getUser(),
-            'partidoI' => $partidosIda,
-            'partidoV' => $partidosVuelta,
-            'local' => $aux,
-            'equipos' => $idsEquipos,
-            'error' => ''
+            'id' => gettype($id),
+            'local' => gettype($local),
+            'visitante' => gettype($visitante),
+            'error' => '',
+
         ]);
     }
 }

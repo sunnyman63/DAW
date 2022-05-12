@@ -10,6 +10,7 @@ use App\Entity\Usuario;
 use App\Entity\Liga;
 use App\Entity\Equipo;
 use App\Entity\Partido;
+use App\Entity\Reserva;
 use App\Form\RegistroType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -200,7 +201,8 @@ class AdministracionController extends AbstractController
             foreach($partidos as $partido) {
                 $fecha = $partido->getFechaHora();
                 $fechaAux = $hoy->sub(new \DateInterval("P1D"));
-                if(strtotime($fecha->format("Y-m-d")) <= strtotime($fechaAux->format("Y-m-d"))) {
+                $punt = $partido->getResultado();
+                if(strtotime($fecha->format("Y-m-d")) <= strtotime($fechaAux->format("Y-m-d")) && empty($punt)) {
                     array_push($aux,$partido);
                 }
             }
@@ -214,6 +216,30 @@ class AdministracionController extends AbstractController
             'error' => $error,
             'partidos' => $aux,
         ]);
+    }
+
+    /**
+     * @Route("/administracion/partidos/resultados/agregar/{id}", name="app_insertar_resultado", methods={"POST"})
+     */
+    public function agregarPuntuacionPartido(Request $request, EntityManagerInterface $em, $id) {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $error = "";
+        try {
+            $partido = $em->getRepository(Partido::class)->find($id);
+            $local = $request->request->get("inputLocal");
+            $visitante = $request->request->get("inputVisitante");
+            $resultado = ["local"=>$local, "visitante" => $visitante];
+
+            $partido->setResultado($resultado);
+            $em->persist($partido);
+            $em->flush();
+
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+
+        return $this->redirectToRoute('app_ligas');
+
     }
 
     /**
@@ -324,5 +350,63 @@ class AdministracionController extends AbstractController
 
         return $this->redirectToRoute('app_ligas');
         
+    }
+
+    /**
+     * @Route("/administracion/reservas", name="app_gestionar_reservas")
+     */
+    public function gestionarReservas(EntityManagerInterface $em) :Response {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $user = $this->getUser();
+        $error = "";
+
+        try {
+            $admin = $em->getRepository(Usuario::class)->findBy(['email'=>$user->getUserIdentifier()]);
+            $reservas = $em->getRepository(Reserva::class)->findBy(['vigila'=>$admin[0]->getId()]);
+            
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+        
+        return $this->render('admin/gestionarReservas.html.twig', [
+            'user' => $user,
+            'error' => $error,
+            'reservas' => $reservas,
+        ]);
+    }
+
+    /**
+     * @Route("/administracion/reservas/traspasar/", name="app_traspaso_vigilancia")
+     */
+    public function traspasarReservas(EntityManagerInterface $em, Request $request) :Response {
+        
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $user = $this->getUser();
+        $idReserva = $request->query->get("idr");
+        $error = "";
+
+        try {
+            $profs = $em->getRepository(Usuario::class)->findAll();
+            $profes = [];
+            foreach($profs as $prof) {
+                $roles = $prof->getRoles();
+                // array_push($profes,$roles[0]);
+                if($roles[0] == "ROLE_ADMIN") {
+                    $mail = $prof->getEmail();
+                    if($user->getUserIdentifier() != $mail) {
+                        array_push($profes,$prof);
+                    }
+                }
+            }
+        } catch(\Exception $e) {
+            $error = "Error del servidor";
+        }
+        
+        return $this->render('admin/traspasarReservas.html.twig', [
+            'user' => $user,
+            'error' => $error,
+            'admins' => $profes,
+            'idReserva' => $idReserva,
+        ]);
     }
 }

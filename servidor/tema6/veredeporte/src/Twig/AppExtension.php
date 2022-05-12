@@ -13,6 +13,7 @@ class AppExtension extends AbstractExtension
         return [
             new TwigFunction('fechaIni', [$this, 'getFechaIni']),
             new TwigFunction('fechaFin', [$this, 'getFechaFin']),
+            new TwigFunction('es24horasAntes', [$this, 'fechaCompareNow']),
         ];
     }
 
@@ -24,5 +25,15 @@ class AppExtension extends AbstractExtension
     public function getFechaFin(Liga $liga): ?\DateTimeInterface
     {
         return $liga->getFechaFin();
+    }
+
+    public function fechaCompareNow(\DateTime $date) {
+        $now = new \DateTime();
+        $diff = $now->diff($date);
+        if($diff->d < 1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
