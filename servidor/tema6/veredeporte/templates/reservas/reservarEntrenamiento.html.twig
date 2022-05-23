@@ -5,36 +5,45 @@
 {% block main %}
 
     <h1 class="text-success">HACER RESERVA</h1>
-
-    <form action="{{ path('app_hacer_reserva',{ id: user.equipo.id }) }}" method="post">
-        <div class="my-2">
-            <label for="campoSelect">Campo:</label>
-            <select name="campo" id="campoSelect">
-                {% for campo in campos %}
-                    <option value="{{campo.id}}">{{ campo.tipo ~ " " ~ campo.id }}</option>
-                {% endfor %}
-            </select>
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <form action="{{ path('app_hacer_reserva',{ id: user.equipo.id }) }}" method="post">
+            <div class="my-2">
+                <label for="campoSelect">Campo:</label>
+                <select name="campo" id="campoSelect">
+                    {% for campo in campos %}
+                        <option value="{{campo.id}}">{{ campo.tipo ~ " " ~ campo.id }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="my-2">
+                <label>Fecha:</label>
+                <select name="fechaDia" id="fechaDiaSelect"></select>
+                <span>-</span>
+                <select name="fechaMes" id="fechaMesSelect"></select>
+                <span>-</span>
+                <select name="fechaAnyo" id="fechaAnyoSelect"></select>
+            </div>
+            <div class="my-2">
+                <label>Hora:</label>
+                <select name="hora" id="horaSelect"></select>
+            </div>
+            <div class="my-2 d-flex align-items-center">
+                <input type="button" id="botonCheck" class="btn btn-outline-success" value="Comprobar">
+                <div class="ms-3" id="disponibilidadCheck"></div>
+            </div>
+            <div class="my-2">
+                <input class="btn btn-secondary disabled" id="submit" type="submit" value="Reservar" name="submit">
+            </div>
+        </form>
+    </div>
+        <div class="col-12 col-sm-6">
+            <div id="diaSelecionado" class="h3 text-uppercase"></div>
+            <div id="imgTiempo"></div>
+            <div id="textoTiempo" class="h6 text-secondary text-uppercase"></div>
         </div>
-        <div class="my-2">
-            <label>Fecha:</label>
-            <select name="fechaDia" id="fechaDiaSelect"></select>
-            <span>-</span>
-            <select name="fechaMes" id="fechaMesSelect"></select>
-            <span>-</span>
-            <select name="fechaAnyo" id="fechaAnyoSelect"></select>
-        </div>
-        <div class="my-2">
-            <label>Hora:</label>
-            <select name="hora" id="horaSelect"></select>
-        </div>
-        <div class="my-2 d-flex align-items-center">
-            <input type="button" id="botonCheck" class="btn btn-outline-success" value="Comprobar">
-            <div class="ms-3" id="disponibilidadCheck"></div>
-        </div>
-        <div class="my-2">
-            <input class="btn btn-secondary disabled" id="submit" type="submit" value="Reservar" name="submit">
-        </div>
-    </form>
+    </div>
+    
 
 {% endblock %}
 

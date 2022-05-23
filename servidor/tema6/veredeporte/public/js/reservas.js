@@ -9,6 +9,15 @@ window.addEventListener("load",function(){
     var campoSelect = document.getElementById("campoSelect");
     var botonCheck = document.getElementById("botonCheck");
     var botonSubmit = document.getElementById("submit");
+    var fechaSeleccionada = document.getElementById("diaSelecionado");
+    var imgTiempo = document.getElementById("imgTiempo");
+    var textoTiempo = document.getElementById("textoTiempo");
+
+    var current = new Date();
+    current.setHours(02);
+    current.setMinutes(00);
+    current.setSeconds(00);
+    current.setMilliseconds(00);
 
     function toastGone() {
         toast.style.display = "none";
@@ -61,21 +70,25 @@ window.addEventListener("load",function(){
         } else {
             cargarDiasMes(FechaDia, 30);
         }
+        comprobarTiempo();
     });
 
     FechaDia.addEventListener('change', function() {
         botonSubmit.setAttribute("class","btn btn-secondary disabled");
         disponibilidad.innerHTML = '';
+        comprobarTiempo();
     });
 
     FechaAnyo.addEventListener('change', function() {
         botonSubmit.setAttribute("class","btn btn-secondary disabled");
         disponibilidad.innerHTML = '';
+        comprobarTiempo();
     });
 
     horaSelect.addEventListener('change', function() {
         botonSubmit.setAttribute("class","btn btn-secondary disabled");
         disponibilidad.innerHTML = '';
+        comprobarTiempo();
     });
     
     let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -134,6 +147,7 @@ window.addEventListener("load",function(){
 
     horaSelect.selectedIndex = 0;
 
+    comprobarTiempo();
     
 
     function comprobarReserva(campo,fecha,hora) {
@@ -173,5 +187,69 @@ window.addEventListener("load",function(){
 
         comprobarReserva(campo,fecha,hora);
     });
+
+    // Ampliación del tiempo -----------------------------------------
+
+    function getFechaMax() {
+        
+        let months = [31,28,31,30,31,30,31,31,30,31,30,31];
+        let mes = current.getMonth();
+        let dia = current.getDate();
+
+        for(let i = 1; i<16; i++) {
+            if(dia < months[mes]) {
+                dia++;
+            } else {
+                mes += 1;
+                dia = 1;
+            }
+        }
+
+        let fechaMax = new Date(current.getFullYear()+"-"+0+(mes+1)+"-"+0+dia);
+
+        return fechaMax;
+    }
+
+    function fechaValida(fecha) {
+
+        let fechaDada = fecha;
+        let fechaMax = getFechaMax();
+        let fechaSuperiorAHoy = fechaDada.getTime() >= current.getTime();
+        let fechaInferiorAMax = fechaDada.getTime() <= fechaMax.getTime();
+
+        if(fechaSuperiorAHoy && fechaInferiorAMax) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function comprobarTiempo() {
+
+        let selectedMes = FechaMes.options[FechaMes.selectedIndex];
+        let selectedDia = FechaDia.options[FechaDia.selectedIndex];
+        let selectedAnyo = FechaAnyo.options[FechaAnyo.selectedIndex];
+
+        let fecha = new Date(selectedAnyo.value+"-"+selectedMes.value+"-"+selectedDia.value);
+
+        fechaSeleccionada.innerText = selectedDia.value + " " + selectedMes.text + " " + selectedAnyo.value;
+        imgTiempo.innerHTML = 
+        '<div class="spinner-border text-secondary" role="status" style="width: 120px; height:120px;">'+
+            '<span class="visually-hidden">Loading...</span>'+
+        '</div>';
+        if(fechaValida(fecha)) {
+            fetch('https://api.weatherbit.io/v2.0/forecast/daily?postal_code=46185&key=e53b832e64a347d3a9f2138657758b37&lang=es')
+            .then(response => response.json())
+            .then((response) => {
+                let dia = (fecha.getTime()-current.getTime())/86400000;
+                let datos = response.data[dia].weather;
+                imgTiempo.innerHTML = '<img src="https://www.weatherbit.io/static/img/icons/' + datos.icon + '.png" alt="Imagen del tiempo">';
+                textoTiempo.innerText = datos.description;
+            });
+        } else {
+            imgTiempo.innerHTML = "";
+            textoTiempo.innerText = "Sin datos sobre el tiempo...";
+        }
+    }
 
 });
