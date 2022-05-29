@@ -10,12 +10,12 @@
                 {% for partido in partidos %} 
                 <form method="post" action="{{ path('app_insertar_resultado',{id: partido.id}) }}" class="d-flex flex-nowrap text-center align-items-center justify-content-between p-1">
                     <div class="d-flex flex-column">
-                        <p>{{ partido.local }}</p>
+                        <p>{{ partido.local.nombre }}</p>
                         <input type="number" name="inputLocal" min="0" value="0">
                     </div>
                     <span>-</span>
                     <div class="d-flex flex-column">
-                        <p>{{ partido.visitante }}</p>
+                        <p>{{ partido.visitante.nombre }}</p>
                         <input type="number" name="inputVisitante" min="0" value="0">
                     </div>
                     <input type="submit" name="submit" class="btn btn-outline-success" value="insertar">

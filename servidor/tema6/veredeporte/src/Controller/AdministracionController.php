@@ -214,7 +214,7 @@ class AdministracionController extends AbstractController
         return $this->render('admin/ponerResultadoPartido.html.twig', [
             'user' => $user,
             'error' => $error,
-            'partidos' => $aux,
+            'partidos' => $aux
         ]);
     }
 

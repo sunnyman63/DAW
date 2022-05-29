@@ -73,6 +73,11 @@ class Equipo
         $this->partidos_visitante = new ArrayCollection();
     }
 
+    // public function __toString()
+    // {
+    //     return $this->nombre;
+    // }
+
     public function getId(): ?int
     {
         return $this->id;

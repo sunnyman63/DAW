@@ -205,7 +205,23 @@ window.addEventListener("load",function(){
             }
         }
 
-        let fechaMax = new Date(current.getFullYear()+"-"+0+(mes+1)+"-"+0+dia);
+        mes += 1;
+
+        let month = "";
+        let day = "";
+        if(mes<10) {
+            month = "0"+mes;
+        } else {
+            month = mes;
+        }
+        if(dia < 10) {
+            day = "0"+dia;
+        } else {
+            day = dia;
+        }
+        console.log(day);
+        console.log(current.getFullYear()+"-"+month+"-"+day);
+        let fechaMax = new Date(current.getFullYear()+"-"+month+"-"+day);
 
         return fechaMax;
     }
@@ -216,7 +232,7 @@ window.addEventListener("load",function(){
         let fechaMax = getFechaMax();
         let fechaSuperiorAHoy = fechaDada.getTime() >= current.getTime();
         let fechaInferiorAMax = fechaDada.getTime() <= fechaMax.getTime();
-
+        console.log(fechaMax);
         if(fechaSuperiorAHoy && fechaInferiorAMax) {
             return true;
         }
@@ -237,6 +253,8 @@ window.addEventListener("load",function(){
         '<div class="spinner-border text-secondary" role="status" style="width: 120px; height:120px;">'+
             '<span class="visually-hidden">Loading...</span>'+
         '</div>';
+        console.log(fecha);
+        console.log(fechaValida(fecha));
         if(fechaValida(fecha)) {
             fetch('https://api.weatherbit.io/v2.0/forecast/daily?postal_code=46185&key=e53b832e64a347d3a9f2138657758b37&lang=es')
             .then(response => response.json())
